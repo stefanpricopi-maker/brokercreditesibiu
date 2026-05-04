@@ -1,0 +1,10 @@
+{
+  "name": "brokercreditesibiu-site",
+  "private": true,
+  "description": "Site static — previzualizare locală fără consum Netlify",
+  "scripts": {
+    "local": "npx --yes serve@14 . -p 8888",
+    "local:9000": "npx --yes serve@14 . -p 9000",
+    "local:9001": "npx --yes serve@14 . -p 9001"
+  }
+}

@@ -12,3 +12,6 @@ Thumbs.db
 .vscode/
 .idea/
 
+# npm (doar scripturi locale, fără dependențe obligatorii)
+node_modules/
+

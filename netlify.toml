@@ -2,9 +2,28 @@
 # BrokerCrediteSibiu — netlify.toml
 # Configurare pentru Netlify hosting
 # ============================================================
+#
+# --- Workflow: local vs Netlify (minute / credite) ---
+#
+# Previzualizare LOCALĂ (fără Netlify):
+#   npm install   # opțional, doar prima dată
+#   npm run local
+#   → http://localhost:8888  (sau npm run local:9000 / local:9001 pentru mai multe clone)
+#
+# BUILD pe Netlify — doar când vrei tu:
+#   - Opțiune A: în mesajul ultimului commit include literal:  [deploy-netlify]
+#     Ex: git commit -m "Fix hero [deploy-netlify]" && git push
+#   - Opțiune B: Netlify → Deploys → Trigger deploy → Deploy site (ignoră filtrul)
+#   - Opțiune C: în Netlify → Environment variables setează ALWAYS_NETLIFY_BUILD=1
+#     (build la fiecare push; dezactivează când nu mai e nevoie)
+#
+# Scriptul: scripts/netlify-should-build.sh
+# ============================================================
 
 [build]
   publish = "."
+  # Anulează build-ul automat dacă mesajul nu cere explicit Netlify (vezi comentarii de sus).
+  ignore = "bash scripts/netlify-should-build.sh"
 
 # ── Redirect HTTP → HTTPS (Netlify face asta automat, dar explicit e mai bine) ──
 [[redirects]]
