@@ -570,6 +570,124 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
 }
 .calc-cta:hover { background: #1d4ed8; }
 
+/* ── Comparator bănci (homepage) ── */
+.comparator-wrap {
+  margin-top: 8px;
+  background: #eef4ff;
+  border: 1.5px solid #bfdbfe;
+  border-radius: 16px;
+  padding: 24px 28px 28px;
+  box-sizing: border-box;
+}
+.comparator-inputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.comp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.comp-field label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #1e3a8a;
+  font-weight: 500;
+}
+.comp-field input,
+.comp-field select {
+  background: #fff;
+  border: 1.5px solid #bfdbfe;
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #0f1f5c;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+.comp-field input:focus,
+.comp-field select:focus {
+  border-color: #2563eb;
+}
+.comparator-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #dbeafe;
+  margin-bottom: 20px;
+}
+.comparator-table thead {
+  background: #1e3a8a;
+  color: #fff;
+}
+.comparator-table th {
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-weight: 600;
+}
+.comparator-table td {
+  padding: 12px 14px;
+  border-top: 1px solid #e2e8f0;
+  color: #334155;
+  vertical-align: middle;
+}
+.comparator-table tbody tr:hover td {
+  background: #f8faff;
+}
+.comparator-table tbody tr.best-row td {
+  background: #ecfdf5;
+  border-top-color: #bbf7d0;
+}
+.comparator-table .comp-rata {
+  font-weight: 600;
+  color: #0f1f5c;
+  font-variant-numeric: tabular-nums;
+}
+.comparator-table .comp-dae {
+  font-weight: 500;
+  color: #475569;
+  font-variant-numeric: tabular-nums;
+}
+.comparator-table .best-badge {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: #fff;
+  background: #059669;
+  padding: 3px 8px;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+.comp-cta-row {
+  text-align: center;
+  padding-top: 4px;
+}
+.comp-disclaimer {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.55;
+  margin-bottom: 14px;
+  max-width: 100%;
+}
+.comp-cta-row .btn-navy {
+  font-size: 13px;
+  padding: 11px 22px;
+}
+
 /* ── Modal ── */
 .modal-overlay {
   display: none; position: fixed; inset: 0;
@@ -960,6 +1078,7 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   .calc-box { padding: 24px; }
 
   /* Comparator */
+  .comparator-wrap { padding: 22px 22px 26px; }
   .comparator-inputs { gap: 12px; }
 
   /* CTA */
@@ -1012,6 +1131,7 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   .calc-extra { grid-template-columns: 1fr 1fr; }
 
   /* Comparator */
+  .comparator-wrap { padding: 20px 18px 24px; }
   .comparator-inputs { grid-template-columns: repeat(3, 1fr); gap: 10px; }
   .comparator-table th, .comparator-table td { padding: 10px 10px; font-size: 13px; }
 
@@ -1099,6 +1219,7 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   .calc-result-right { text-align: left; }
 
   /* Comparator */
+  .comparator-wrap { padding: 18px 16px 22px; }
   .comparator-inputs { grid-template-columns: 1fr; }
   .comparator-table th:nth-child(4),
   .comparator-table td:nth-child(4) { display: none; }
