@@ -70,19 +70,26 @@
 
   var NAV_HTML = [
     '<nav class="nav" role="navigation" aria-label="Navigație principală">',
-    '  ' + NAV_LOGO,
-    '  <div class="nav-links">',
-    '    <a href="index.html"' + isActive('index.html') + '>Acasă</a>',
-    '    <a href="servicii.html"' + isActive('servicii.html') + '>Servicii</a>',
-    '    <a href="despre-noi.html"' + isActive('despre-noi.html') + '>Despre noi</a>',
-    '    <a href="contact.html"' + isActive('contact.html') + '>Contact</a>',
-    '    <a href="blog.html"' + isActive('blog.html') + '>Ghiduri</a>',
-    '  </div>',
-    '  <div class="nav-right">',
-    '    <div class="nav-phone">',
-    '      <a href="tel:' + PHONE + '" aria-label="Sună la ' + PHONE_DISPLAY + '">📞 ' + PHONE_DISPLAY + '</a>',
+    '  <div class="nav-inner">',
+    '    ' + NAV_LOGO,
+    '    <div class="nav-links">',
+    '      <a href="index.html"' + isActive('index.html') + '>Acasă</a>',
+    '      <a href="servicii.html"' + isActive('servicii.html') + '>Servicii</a>',
+    '      <a href="despre-noi.html"' + isActive('despre-noi.html') + '>Despre noi</a>',
+    '      <a href="contact.html"' + isActive('contact.html') + '>Contact</a>',
+    '      <a href="blog.html"' + isActive('blog.html') + '>Ghiduri</a>',
     '    </div>',
-    '    ' + NAV_CTA,
+    '    <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">',
+    '      <span class="hamburger-line" aria-hidden="true"></span>',
+    '      <span class="hamburger-line" aria-hidden="true"></span>',
+    '      <span class="hamburger-line" aria-hidden="true"></span>',
+    '    </button>',
+    '    <div class="nav-right">',
+    '      <div class="nav-phone">',
+    '        <a href="tel:' + PHONE + '" aria-label="Sună la ' + PHONE_DISPLAY + '">📞 ' + PHONE_DISPLAY + '</a>',
+    '      </div>',
+    '      ' + NAV_CTA,
+    '    </div>',
     '  </div>',
     '</nav>'
   ].join('\n');
@@ -90,45 +97,47 @@
   /* ── Footer HTML ── */
   var FOOTER_HTML = [
     '<footer class="footer" role="contentinfo">',
-    '  <div class="footer-top">',
-    '    <div class="footer-col">',
-    '      <h4>BrokerCrediteSibiu</h4>',
-    '      <p>Broker de credite imobiliare autorizat, activ în toată România.</p>',
-    '      <div class="social-links">',
-    '        <span class="social-btn" title="Facebook" aria-label="Facebook (în curând)" aria-disabled="true">f</span>',
-    '        <span class="social-btn" title="Instagram" aria-label="Instagram (în curând)" aria-disabled="true">in</span>',
-    '        <span class="social-btn" title="LinkedIn" aria-label="LinkedIn (în curând)" aria-disabled="true">li</span>',
+    '  <div class="container">',
+    '    <div class="footer-top">',
+    '      <div class="footer-col">',
+    '        <h4>BrokerCrediteSibiu</h4>',
+    '        <p>Broker de credite imobiliare autorizat, activ în toată România.</p>',
+    '        <div class="social-links">',
+    '          <span class="social-btn" title="Facebook" aria-label="Facebook (în curând)" aria-disabled="true">f</span>',
+    '          <span class="social-btn" title="Instagram" aria-label="Instagram (în curând)" aria-disabled="true">in</span>',
+    '          <span class="social-btn" title="LinkedIn" aria-label="LinkedIn (în curând)" aria-disabled="true">li</span>',
+    '        </div>',
+    '      </div>',
+    '      <div class="footer-col">',
+    '        <h4>Contact</h4>',
+    '        <a href="tel:' + PHONE + '" aria-label="Sună la ' + PHONE_DISPLAY + '">📞 ' + PHONE_DISPLAY + '</a>',
+    '        <a href="mailto:dragos.pricopi@fin.imobiliare.ro">dragos.pricopi@fin.imobiliare.ro</a>',
+    '        <a href="' + WA_URL + '" target="_blank" rel="noopener" aria-label="Scrie pe WhatsApp">WhatsApp</a>',
+    '        <p style="margin-top:4px">Str. Zaharia Boiu nr. 2, Sibiu</p>',
+    '      </div>',
+    '      <div class="footer-col">',
+    '        <h4>Servicii</h4>',
+  '        <a href="servicii.html">Toate serviciile</a>',
+  '        <a href="credit-ipotecar.html">Credit ipotecar</a>',
+  '        <a href="refinantare.html">Refinanțare</a>',
+  '        <a href="noua-casa.html">Noua Casă</a>',
+  '        <a href="credit-cu-ipoteca.html">Credit cu ipotecă</a>',
+    '      </div>',
+    '      <div class="footer-col">',
+    '        <h4>Resurse</h4>',
+  '        <a href="blog.html">Ghiduri & articole</a>',
+  '        <a href="ghid-credit-ipotecar.html">Ghid credit ipotecar</a>',
+  '        <a href="index.html#calculator">Calculator rate</a>',
+  '        <a href="index.html#comparator">Comparator bănci</a>',
     '      </div>',
     '    </div>',
-    '    <div class="footer-col">',
-    '      <h4>Contact</h4>',
-    '      <a href="tel:' + PHONE + '" aria-label="Sună la ' + PHONE_DISPLAY + '">📞 ' + PHONE_DISPLAY + '</a>',
-    '      <a href="mailto:dragos.pricopi@fin.imobiliare.ro">dragos.pricopi@fin.imobiliare.ro</a>',
-    '      <a href="' + WA_URL + '" target="_blank" rel="noopener" aria-label="Scrie pe WhatsApp">WhatsApp</a>',
-    '      <p style="margin-top:4px">Str. Zaharia Boiu nr. 2, Sibiu</p>',
-    '    </div>',
-    '    <div class="footer-col">',
-    '      <h4>Servicii</h4>',
-  '      <a href="servicii.html">Toate serviciile</a>',
-  '      <a href="credit-ipotecar.html">Credit ipotecar</a>',
-  '      <a href="refinantare.html">Refinanțare</a>',
-  '      <a href="noua-casa.html">Noua Casă</a>',
-  '      <a href="credit-cu-ipoteca.html">Credit cu ipotecă</a>',
-  '    </div>',
-  '    <div class="footer-col">',
-  '      <h4>Resurse</h4>',
-  '      <a href="blog.html">Ghiduri & articole</a>',
-  '      <a href="ghid-credit-ipotecar.html">Ghid credit ipotecar</a>',
-  '      <a href="brokercreditesibiu.html#calculator">Calculator rate</a>',
-  '      <a href="brokercreditesibiu.html#comparator">Comparator bănci</a>',
-  '    </div>',
-  '  </div>',
-  '  <div class="footer-bottom">',
-    '    <span class="footer-copy">© 2025 BrokerCrediteSibiu. Toate drepturile rezervate.</span>',
-    '    <div class="footer-legal">',
-    '      <a href="politica-confidentialitate.html">Politica de confidențialitate</a>',
-    '      <a href="politica-confidentialitate.html#gdpr">GDPR</a>',
-    '      <a href="cookies.html">Cookies</a>',
+    '    <div class="footer-bottom">',
+    '      <span class="footer-copy">© 2025 BrokerCrediteSibiu. Toate drepturile rezervate.</span>',
+    '      <div class="footer-legal">',
+    '        <a href="politica-confidentialitate.html">Politica de confidențialitate</a>',
+    '        <a href="politica-confidentialitate.html#gdpr">GDPR</a>',
+    '        <a href="cookies.html">Cookies</a>',
+    '      </div>',
     '    </div>',
     '  </div>',
     '</footer>'
@@ -265,13 +274,15 @@
     var navEl = document.querySelector('.nav');
     if (navEl) navEl.insertAdjacentHTML('afterend', `
   <!-- Mobile Menu -->
-  <nav class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Meniu mobil">
-    <a href="index.html" id="mmHome">Acasă</a>
-    <a href="servicii.html" id="mmServicii">Servicii</a>
-    <a href="despre-noi.html" id="mmDespre">Despre noi</a>
-    <a href="contact.html" id="mmContact">Contact</a>
-    <a href="blog.html" id="mmBlog">Ghiduri</a>
-    <a href="contact.html" class="mobile-cta">Consultație gratuită →</a>
+  <nav class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Meniu mobil" aria-hidden="true" hidden>
+    <div class="mobile-menu-inner">
+      <a href="index.html" id="mmHome">Acasă</a>
+      <a href="servicii.html" id="mmServicii">Servicii</a>
+      <a href="despre-noi.html" id="mmDespre">Despre noi</a>
+      <a href="contact.html" id="mmContact">Contact</a>
+      <a href="blog.html" id="mmBlog">Ghiduri</a>
+      <a href="contact.html" class="mobile-cta">Consultație gratuită →</a>
+    </div>
   </nav>`);
 
     /* Evidențiază link activ în mobile menu */

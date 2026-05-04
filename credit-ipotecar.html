@@ -64,7 +64,7 @@
     .breadcrumb a:hover{color:#2563eb}
     .breadcrumb span{font-size:12px;color:#cbd5e1}
     .breadcrumb-current{font-size:12px;color:#2563eb;font-weight:500}
-    .page-header-inner{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;max-width:100%}
+    .page-header-split{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
     .service-badge{display:inline-flex;align-items:center;gap:6px;background:#dbeafe;color:#1d4ed8;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;margin-bottom:16px;border:1px solid #bfdbfe}
     .page-header h1{font-family:'DM Serif Display',serif;font-size:36px;color:#0f1f5c;margin-bottom:12px;line-height:1.2}
     .page-header p{font-size:16px;color:#4a5568;line-height:1.7;max-width:520px}
@@ -114,8 +114,8 @@
     .other-card p{font-size:12px;color:#94a3b8}
     .other-card-arrow{font-size:12px;color:#2563eb;margin-top:8px;display:block}
 
-    .cta-section h2{font-family:'DM Serif Display',serif;font-size:28px;color:#fff;margin-bottom:10px}
-    .cta-section p{font-size:15px;color:#bfdbfe;margin-bottom:28px;line-height:1.6}
+    .cta-section-navy h2{font-family:'DM Serif Display',serif;font-size:28px;color:#fff;margin-bottom:10px}
+    .cta-section-navy p{font-size:15px;color:#bfdbfe;margin-bottom:28px;line-height:1.6}
     .cta-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
     .btn-white{background:#fff;color:#1e3a8a;font-size:14px;font-weight:500;padding:13px 28px;border-radius:8px;border:none;cursor:pointer;text-decoration:none}
     .btn-outline-white{background:transparent;color:#fff;font-size:14px;font-weight:500;padding:13px 28px;border-radius:8px;border:1.5px solid rgba(255,255,255,.4);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
@@ -215,26 +215,29 @@
 
 <!-- nav iniectată de components.js -->
 <div class="page-header">
-  <div class="breadcrumb">
-    <a href="index.html">Acasă</a><span>›</span>
-    <a href="servicii.html">Servicii</a><span>›</span>
-    <span class="breadcrumb-current">Credit ipotecar</span>
-  </div>
   <div class="page-header-inner">
-    <div>
-      <div class="service-badge">🏠 Credit ipotecar</div>
-      <h1>Creditul ipotecar cu cea mai bună dobândă</h1>
-      <p>Comparăm ofertele de la 13 bănci și negociem în numele tău pentru a obține cele mai avantajoase condiții. Serviciul nostru este 100% gratuit pentru tine.</p>
+    <div class="breadcrumb">
+      <a href="index.html">Acasă</a><span>›</span>
+      <a href="servicii.html">Servicii</a><span>›</span>
+      <span class="breadcrumb-current">Credit ipotecar</span>
     </div>
-    <div class="header-cta">
-      <a class="btn-primary" href="contact.html">Vreau o consultație gratuită</a>
-      <a class="btn-outline" href="tel:+40771494483">📞 0771 494 483</a>
-      <span class="header-note">Fără comision · Fără obligații</span>
+    <div class="page-header-split">
+      <div>
+        <div class="service-badge">🏠 Credit ipotecar</div>
+        <h1>Creditul ipotecar cu cea mai bună dobândă</h1>
+        <p>Comparăm ofertele de la 13 bănci și negociem în numele tău pentru a obține cele mai avantajoase condiții. Serviciul nostru este 100% gratuit pentru tine.</p>
+      </div>
+      <div class="header-cta">
+        <a class="btn-primary" href="contact.html">Vreau o consultație gratuită</a>
+        <a class="btn-outline" href="tel:+40771494483">📞 0771 494 483</a>
+        <span class="header-note">Fără comision · Fără obligații</span>
+      </div>
     </div>
   </div>
 </div>
 
 <section class="section">
+  <div class="container">
   <div class="section-label">Despre serviciu</div>
   <div class="section-title">Ce este creditul ipotecar?</div>
   <div class="two-cols">
@@ -252,9 +255,11 @@
       </div>
     </div>
   </div>
+  </div>
 </section>
 
 <section class="section bg-light">
+  <div class="container">
   <div class="section-label">Proces</div>
   <div class="section-title">Cum obții creditul ipotecar prin noi</div>
   <div class="steps">
@@ -264,9 +269,11 @@
     <div class="step"><div class="step-num">4</div><div class="step-content"><h4>Pregătirea dosarului</h4><p>Ne ocupăm de întreaga documentație — completare formulare, verificare acte, comunicare cu banca. Tu nu mai faci drumuri inutile.</p></div></div>
     <div class="step"><div class="step-num">5</div><div class="step-content"><h4>Semnarea contractului</h4><p>Te însoțim la bancă sau te ghidăm online la semnarea contractului de credit. Rămânem disponibili și după, pentru orice întrebare.</p></div></div>
   </div>
+  </div>
 </section>
 
 <section class="section">
+  <div class="container">
   <div class="section-label">Documente necesare</div>
   <div class="section-title">Ce acte ai nevoie pentru dosar</div>
   <p class="section-text">Lista de mai jos este orientativă — documentele exacte diferă în funcție de bancă și situația ta. Îți facem un checklist personalizat după prima consultație.</p>
@@ -280,9 +287,11 @@
     <div class="doc-item"><span class="doc-icon">💍</span>Certificat de căsătorie (dacă e cazul)</div>
     <div class="doc-item"><span class="doc-icon">📋</span>Alte documente solicitate de bancă</div>
   </div>
+  </div>
 </section>
 
 <section class="section bg-light">
+  <div class="container">
   <div class="section-label">Întrebări frecvente</div>
   <div class="section-title">Ce vrei să știi despre creditul ipotecar</div>
   <div class="faq-list">
@@ -292,9 +301,11 @@
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Cât de repede primesc un răspuns de la bancă?<span class="faq-icon">+</span></div><div class="faq-a">Preaprobarea (răspunsul de principiu) poate veni în 48-72 de ore de la depunerea dosarului complet. Aprobarea finală și semnarea contractului durează în medie 2-4 săptămâni, în funcție de complexitatea dosarului și de procesele interne ale băncii alese.</div></div>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Pot să cumpăr cu credit o proprietate din alt oraș?<span class="faq-icon">+</span></div><div class="faq-a">Da, nu există restricții geografice. Poți cumpăra o proprietate din orice oraș din România, indiferent unde locuiești sau unde ai veniturile. Noi gestionăm tot procesul de la distanță dacă este necesar.</div></div>
   </div>
+  </div>
 </section>
 
 <section class="section">
+  <div class="container">
   <div class="section-label">Alte servicii</div>
   <div class="section-title">Te-ar putea interesa și</div>
   <div class="other-services">
@@ -302,16 +313,19 @@
     <a class="other-card" href="noua-casa.html"><h4>Prima Casă / Noua Casă</h4><p>Program guvernamental cu avans redus</p><span class="other-card-arrow">Află mai multe →</span></a>
     <a class="other-card" href="credit-cu-ipoteca.html"><h4>Credit cu ipotecă</h4><p>Lichiditate garantată cu proprietatea ta</p><span class="other-card-arrow">Află mai multe →</span></a>
   </div>
+  </div>
 </section>
 
-<div class="cta-section">
-  <h2>Gata să începi?</h2>
+<section class="cta-section-navy" aria-labelledby="cta-ipotecar-title">
+  <div class="container">
+  <h2 id="cta-ipotecar-title">Gata să începi?</h2>
   <p>Consultația este gratuită și fără obligații.<br>Îți analizăm situația și găsim cel mai bun credit pentru tine.</p>
   <div class="cta-btns">
     <a class="btn-white" href="contact.html">Programează consultație gratuită</a>
     <a class="btn-outline-white" href="tel:+40771494483">📞 0771 494 483</a>
   </div>
-</div>
+  </div>
+</section>
 
 <!-- footer iniectată de components.js -->
 <!-- JS mutat în scripts.js -->

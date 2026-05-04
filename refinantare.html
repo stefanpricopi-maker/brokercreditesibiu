@@ -64,7 +64,7 @@
     .breadcrumb a:hover{color:#2563eb}
     .breadcrumb span{font-size:12px;color:#cbd5e1}
     .breadcrumb-current{font-size:12px;color:#2563eb;font-weight:500}
-    .page-header-inner{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+    .page-header-split{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
     .service-badge{display:inline-flex;align-items:center;gap:6px;background:#dbeafe;color:#1d4ed8;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;margin-bottom:16px;border:1px solid #bfdbfe}
     .page-header h1{font-family:'DM Serif Display',serif;font-size:36px;color:#0f1f5c;margin-bottom:12px;line-height:1.2}
     .page-header p{font-size:16px;color:#4a5568;line-height:1.7;max-width:520px}
@@ -116,8 +116,8 @@
     .other-card p{font-size:12px;color:#94a3b8}
     .other-card-arrow{font-size:12px;color:#2563eb;margin-top:8px;display:block}
 
-    .cta-section h2{font-family:'DM Serif Display',serif;font-size:28px;color:#fff;margin-bottom:10px}
-    .cta-section p{font-size:15px;color:#bfdbfe;margin-bottom:28px;line-height:1.6}
+    .cta-section-navy h2{font-family:'DM Serif Display',serif;font-size:28px;color:#fff;margin-bottom:10px}
+    .cta-section-navy p{font-size:15px;color:#bfdbfe;margin-bottom:28px;line-height:1.6}
     .cta-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
     .btn-white{background:#fff;color:#1e3a8a;font-size:14px;font-weight:500;padding:13px 28px;border-radius:8px;border:none;cursor:pointer;text-decoration:none}
     .btn-outline-white{background:transparent;color:#fff;font-size:14px;font-weight:500;padding:13px 28px;border-radius:8px;border:1.5px solid rgba(255,255,255,.4);text-decoration:none}
@@ -209,26 +209,29 @@
 
 <!-- nav iniectată de components.js -->
 <div class="page-header">
-  <div class="breadcrumb">
-    <a href="index.html">Acasă</a><span>›</span>
-    <a href="servicii.html">Servicii</a><span>›</span>
-    <span class="breadcrumb-current">Refinanțare</span>
-  </div>
   <div class="page-header-inner">
-    <div>
-      <div class="service-badge">🔄 Refinanțare</div>
-      <h1>Plătești prea mult pe creditul tău actual?</h1>
-      <p>Refinanțarea îți permite să muți creditul la o bancă cu dobândă mai mică și să economisești sute de lei în fiecare lună. Noi facem toată munca — gratuit.</p>
+    <div class="breadcrumb">
+      <a href="index.html">Acasă</a><span>›</span>
+      <a href="servicii.html">Servicii</a><span>›</span>
+      <span class="breadcrumb-current">Refinanțare</span>
     </div>
-    <div class="header-cta">
-      <a class="btn-primary" href="contact.html">Analizează-mi creditul gratuit</a>
-      <a class="btn-outline" href="tel:+40771494483">📞 0771 494 483</a>
-      <span class="header-note">Fără comision · Fără obligații</span>
+    <div class="page-header-split">
+      <div>
+        <div class="service-badge">🔄 Refinanțare</div>
+        <h1>Plătești prea mult pe creditul tău actual?</h1>
+        <p>Refinanțarea îți permite să muți creditul la o bancă cu dobândă mai mică și să economisești sute de lei în fiecare lună. Noi facem toată munca — gratuit.</p>
+      </div>
+      <div class="header-cta">
+        <a class="btn-primary" href="contact.html">Analizează-mi creditul gratuit</a>
+        <a class="btn-outline" href="tel:+40771494483">📞 0771 494 483</a>
+        <span class="header-note">Fără comision · Fără obligații</span>
+      </div>
     </div>
   </div>
 </div>
 
 <section class="section">
+  <div class="container">
   <div class="section-label">Despre serviciu</div>
   <div class="section-title">Ce înseamnă refinanțarea?</div>
   <div class="two-cols">
@@ -247,9 +250,11 @@
       </div>
     </div>
   </div>
+  </div>
 </section>
 
 <section class="section bg-light">
+  <div class="container">
   <div class="section-label">Semne că e momentul să refinanțezi</div>
   <div class="section-title">Când merită să refinanțezi?</div>
   <div class="signal-grid">
@@ -260,9 +265,11 @@
     <div class="signal-card"><div class="signal-num">5</div><div class="signal-text">Nu ești mulțumit de serviciile băncii actuale sau ai dificultăți de comunicare</div></div>
     <div class="signal-card"><div class="signal-num">6</div><div class="signal-text">Vrei să consolidezi mai multe credite într-unul singur cu o rată mai mică</div></div>
   </div>
+  </div>
 </section>
 
 <section class="section">
+  <div class="container">
   <div class="section-label">Proces</div>
   <div class="section-title">Cum funcționează refinanțarea prin noi</div>
   <div class="steps">
@@ -272,9 +279,11 @@
     <div class="step"><div class="step-num">4</div><div class="step-content"><h4>Pregătirea dosarului</h4><p>Ne ocupăm de toată documentația și comunicăm cu ambele bănci — cea actuală și cea nouă — pentru o tranziție fără probleme.</p></div></div>
     <div class="step"><div class="step-num">5</div><div class="step-content"><h4>Finalizarea refinanțării</h4><p>Noua bancă plătește soldul la banca veche, ipoteca se mută, iar tu plătești de acum o rată mai mică.</p></div></div>
   </div>
+  </div>
 </section>
 
 <section class="section bg-light">
+  <div class="container">
   <div class="section-label">Întrebări frecvente</div>
   <div class="section-title">Răspunsuri despre refinanțare</div>
   <div class="faq-list">
@@ -283,9 +292,11 @@
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Cât timp durează procesul de refinanțare?<span class="faq-icon">+</span></div><div class="faq-a">De obicei 3-6 săptămâni de la depunerea dosarului complet. Procesul include aprobare bancară, evaluare proprietate (dacă e necesară) și formalitățile notariale pentru mutarea ipotecii.</div></div>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Pot refinanța dacă am un co-debitor?<span class="faq-icon">+</span></div><div class="faq-a">Da. Co-debitorul trebuie să fie de acord cu refinanțarea și va semna noile documente. În unele situații, refinanțarea poate fi ocazia de a elimina un co-debitor dacă veniturile tale individuale permit acum calificarea singur.</div></div>
   </div>
+  </div>
 </section>
 
 <section class="section">
+  <div class="container">
   <div class="section-label">Alte servicii</div>
   <div class="section-title">Te-ar putea interesa și</div>
   <div class="other-services">
@@ -293,16 +304,19 @@
     <a class="other-card" href="noua-casa.html"><h4>Prima Casă / Noua Casă</h4><p>Program guvernamental cu avans redus</p><span class="other-card-arrow">Află mai multe →</span></a>
     <a class="other-card" href="credit-cu-ipoteca.html"><h4>Credit cu ipotecă</h4><p>Lichiditate garantată cu proprietatea ta</p><span class="other-card-arrow">Află mai multe →</span></a>
   </div>
+  </div>
 </section>
 
-<div class="cta-section">
-  <h2>Verifică dacă refinanțarea îți aduce economii</h2>
+<section class="cta-section-navy" aria-labelledby="cta-refinantare-title">
+  <div class="container">
+  <h2 id="cta-refinantare-title">Verifică dacă refinanțarea îți aduce economii</h2>
   <p>Analizăm gratuit creditul tău actual și îți spunem exact cât poți economisi.<br>Fără obligații, fără costuri.</p>
   <div class="cta-btns">
     <a class="btn-white" href="contact.html">Analizează-mi creditul gratuit</a>
     <a class="btn-outline-white" href="tel:+40771494483">📞 0771 494 483</a>
   </div>
-</div>
+  </div>
+</section>
 
 <!-- footer iniectată de components.js -->
 <!-- JS mutat în scripts.js -->

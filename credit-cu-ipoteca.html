@@ -64,7 +64,7 @@
     .breadcrumb a:hover{color:#2563eb}
     .breadcrumb span{font-size:12px;color:#cbd5e1}
     .breadcrumb-current{font-size:12px;color:#2563eb;font-weight:500}
-    .page-header-inner{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+    .page-header-split{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
     .service-badge{display:inline-flex;align-items:center;gap:6px;background:#dbeafe;color:#1d4ed8;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;margin-bottom:16px;border:1px solid #bfdbfe}
     .page-header h1{font-family:'DM Serif Display',serif;font-size:36px;color:#0f1f5c;margin-bottom:12px;line-height:1.2}
     .page-header p{font-size:16px;color:#4a5568;line-height:1.7;max-width:520px}
@@ -118,8 +118,8 @@
     .other-card p{font-size:12px;color:#94a3b8}
     .other-card-arrow{font-size:12px;color:#2563eb;margin-top:8px;display:block}
 
-    .cta-section h2{font-family:'DM Serif Display',serif;font-size:28px;color:#fff;margin-bottom:10px}
-    .cta-section p{font-size:15px;color:#bfdbfe;margin-bottom:28px;line-height:1.6}
+    .cta-section-navy h2{font-family:'DM Serif Display',serif;font-size:28px;color:#fff;margin-bottom:10px}
+    .cta-section-navy p{font-size:15px;color:#bfdbfe;margin-bottom:28px;line-height:1.6}
     .cta-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
     .btn-white{background:#fff;color:#1e3a8a;font-size:14px;font-weight:500;padding:13px 28px;border-radius:8px;border:none;cursor:pointer;text-decoration:none}
     .btn-outline-white{background:transparent;color:#fff;font-size:14px;font-weight:500;padding:13px 28px;border-radius:8px;border:1.5px solid rgba(255,255,255,.4);text-decoration:none}
@@ -211,26 +211,29 @@
 
 <!-- nav iniectată de components.js -->
 <div class="page-header">
-  <div class="breadcrumb">
-    <a href="index.html">Acasă</a><span>›</span>
-    <a href="servicii.html">Servicii</a><span>›</span>
-    <span class="breadcrumb-current">Credit cu ipotecă</span>
-  </div>
   <div class="page-header-inner">
-    <div>
-      <div class="service-badge">🔑 Credit cu ipotecă</div>
-      <h1>Folosești proprietatea ta pentru a obține lichiditate</h1>
-      <p>Un credit pentru nevoi personale garantat cu proprietatea ta imobiliară îți oferă acces la sume mari cu dobânzi semnificativ mai mici decât un credit de consum clasic.</p>
+    <div class="breadcrumb">
+      <a href="index.html">Acasă</a><span>›</span>
+      <a href="servicii.html">Servicii</a><span>›</span>
+      <span class="breadcrumb-current">Credit cu ipotecă</span>
     </div>
-    <div class="header-cta">
-      <a class="btn-primary" href="contact.html">Vreau o consultație gratuită</a>
-      <a class="btn-outline" href="tel:+40771494483">📞 0771 494 483</a>
-      <span class="header-note">Fără comision · Fără obligații</span>
+    <div class="page-header-split">
+      <div>
+        <div class="service-badge">🔑 Credit cu ipotecă</div>
+        <h1>Folosești proprietatea ta pentru a obține lichiditate</h1>
+        <p>Un credit pentru nevoi personale garantat cu proprietatea ta imobiliară îți oferă acces la sume mari cu dobânzi semnificativ mai mici decât un credit de consum clasic.</p>
+      </div>
+      <div class="header-cta">
+        <a class="btn-primary" href="contact.html">Vreau o consultație gratuită</a>
+        <a class="btn-outline" href="tel:+40771494483">📞 0771 494 483</a>
+        <span class="header-note">Fără comision · Fără obligații</span>
+      </div>
     </div>
   </div>
 </div>
 
 <section class="section">
+  <div class="container">
   <div class="section-label">Despre serviciu</div>
   <div class="section-title">Ce este creditul cu ipotecă?</div>
   <div class="two-cols">
@@ -249,9 +252,11 @@
       </div>
     </div>
   </div>
+  </div>
 </section>
 
 <section class="section bg-light">
+  <div class="container">
   <div class="section-label">Utilizări frecvente</div>
   <div class="section-title">Pentru ce folosești banii?</div>
   <p class="section-text">Spre deosebire de creditul ipotecar (destinat achiziției de proprietăți), creditul cu ipotecă nu are restricții privind utilizarea fondurilor.</p>
@@ -263,9 +268,11 @@
     <div class="usecase-card"><div class="usecase-icon">🔄</div><h4>Consolidare datorii</h4><p>Reunești mai multe credite scumpe (consum, card) într-unul singur cu dobândă mai mică</p></div>
     <div class="usecase-card"><div class="usecase-icon">✈️</div><h4>Alte nevoi personale</h4><p>Orice altă nevoie personală sau familială pentru care ai nevoie de o sumă semnificativă</p></div>
   </div>
+  </div>
 </section>
 
 <section class="section">
+  <div class="container">
   <div class="section-label">Comparație</div>
   <div class="section-title">Credit cu ipotecă vs. credit de consum</div>
   <table class="compare-table">
@@ -285,9 +292,11 @@
       <tr><td>Rată lunară (ex. 100k lei / 5 ani)</td><td class="highlight">~1.900 lei</td><td class="dim">~2.500-3.000 lei</td></tr>
     </tbody>
   </table>
+  </div>
 </section>
 
 <section class="section bg-light">
+  <div class="container">
   <div class="section-label">Proces</div>
   <div class="section-title">Cum obții un credit cu ipotecă prin noi</div>
   <div class="steps">
@@ -297,9 +306,11 @@
     <div class="step"><div class="step-num">4</div><div class="step-content"><h4>Pregătirea dosarului</h4><p>Pregătim toată documentația necesară și o depunem la bancă. Comunicăm cu banca pe tot parcursul procesului pentru a rezolva orice solicitare suplimentară rapid.</p></div></div>
     <div class="step"><div class="step-num">5</div><div class="step-content"><h4>Semnare și acces la fonduri</h4><p>După aprobarea creditului, semnăm contractul și actele de ipotecă la notar. Fondurile sunt virate în contul tău, gata de utilizat.</p></div></div>
   </div>
+  </div>
 </section>
 
 <section class="section">
+  <div class="container">
   <div class="section-label">Întrebări frecvente</div>
   <div class="section-title">Răspunsuri despre creditul cu ipotecă</div>
   <div class="faq-list">
@@ -308,9 +319,11 @@
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Cât din valoarea proprietății pot împrumuta?<span class="faq-icon">+</span></div><div class="faq-a">În general 60-75% din valoarea de piață a proprietății (LTV — Loan to Value), în funcție de bancă și tipul proprietății. De exemplu, pentru un apartament evaluat la 200.000 lei, poți împrumuta între 120.000 și 150.000 lei.</div></div>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Pot rambursa anticipat fără penalități?<span class="faq-icon">+</span></div><div class="faq-a">Depinde de contractul cu banca. Unele bănci permit rambursarea anticipată parțială sau totală fără comision, altele aplică un comision de 0-1%. Negociem aceste condiții în favoarea ta atunci când comparăm ofertele.</div></div>
   </div>
+  </div>
 </section>
 
 <section class="section bg-light">
+  <div class="container">
   <div class="section-label">Alte servicii</div>
   <div class="section-title">Te-ar putea interesa și</div>
   <div class="other-services">
@@ -318,16 +331,19 @@
     <a class="other-card" href="refinantare.html"><h4>Refinanțare</h4><p>Muți creditul la o bancă cu condiții mai bune</p><span class="other-card-arrow">Află mai multe →</span></a>
     <a class="other-card" href="noua-casa.html"><h4>Prima Casă / Noua Casă</h4><p>Program guvernamental cu avans redus</p><span class="other-card-arrow">Află mai multe →</span></a>
   </div>
+  </div>
 </section>
 
-<div class="cta-section">
-  <h2>Verifică cât poți împrumuta cu proprietatea ta</h2>
+<section class="cta-section-navy" aria-labelledby="cta-ipoteca-nevoi-title">
+  <div class="container">
+  <h2 id="cta-ipoteca-nevoi-title">Verifică cât poți împrumuta cu proprietatea ta</h2>
   <p>Analizăm gratuit situația ta și îți prezentăm cele mai bune opțiuni disponibile.<br>Fără obligații, fără costuri ascunse.</p>
   <div class="cta-btns">
     <a class="btn-white" href="contact.html">Vreau o consultație gratuită</a>
     <a class="btn-outline-white" href="tel:+40771494483">📞 0771 494 483</a>
   </div>
-</div>
+  </div>
+</section>
 
 <!-- footer iniectată de components.js -->
 <!-- JS mutat în scripts.js -->

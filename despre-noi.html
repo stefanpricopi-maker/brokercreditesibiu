@@ -108,8 +108,8 @@
     .mission-card p{font-size:12px;color:#64748b;line-height:1.6}
 
     /* CTA */
-    .cta-section h2{font-family:'DM Serif Display',serif;font-size:30px;color:#fff;margin-bottom:12px}
-    .cta-section p{font-size:15px;color:#bfdbfe;margin-bottom:32px;line-height:1.6;max-width:480px;margin-left:auto;margin-right:auto}
+    .cta-section-navy h2{font-family:'DM Serif Display',serif;font-size:30px;color:#fff;margin-bottom:12px}
+    .cta-section-navy p{font-size:15px;color:#bfdbfe;margin-bottom:32px;line-height:1.6;max-width:480px;margin-left:auto;margin-right:auto}
     .cta-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
     .btn-white{background:#fff;color:#1e3a8a;font-size:14px;font-weight:500;padding:13px 28px;border-radius:8px;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
     .btn-outline-white{background:transparent;color:#fff;font-size:14px;font-weight:500;padding:13px 28px;border-radius:8px;border:1.5px solid rgba(255,255,255,.4);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
@@ -155,17 +155,20 @@
 
 <!-- nav iniectată de components.js -->
 <div class="page-header">
-  <div class="breadcrumb">
-    <a href="index.html">Acasă</a>
-    <span>›</span>
-    <span class="breadcrumb-current">Despre noi</span>
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Acasă</a>
+      <span>›</span>
+      <span class="breadcrumb-current">Despre noi</span>
+    </div>
+    <h1>Nu suntem o bancă. Suntem <em>de partea ta.</em></h1>
+    <p>Suntem un broker de credite imobiliare autorizat, bazat în Sibiu, care lucrează exclusiv în interesul clientului — nu al băncii. Rolul nostru este să găsim cea mai bună soluție de finanțare pentru situația ta, din ofertele tuturor băncilor partenere.</p>
   </div>
-  <h1>Nu suntem o bancă. Suntem <em>de partea ta.</em></h1>
-  <p>Suntem un broker de credite imobiliare autorizat, bazat în Sibiu, care lucrează exclusiv în interesul clientului — nu al băncii. Rolul nostru este să găsim cea mai bună soluție de finanțare pentru situația ta, din ofertele tuturor băncilor partenere.</p>
 </div>
 
 <!-- POVESTEA -->
 <section class="section">
+  <div class="container">
   <div class="story-layout">
     <div>
       <div class="section-label">Povestea noastră</div>
@@ -187,10 +190,12 @@
       </div>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- VALORILE -->
 <section class="section bg-light">
+  <div class="container">
   <div class="section-label">Valorile noastre</div>
   <div class="section-title">Ce ne ghidează în fiecare zi</div>
   <div class="values-grid">
@@ -223,10 +228,12 @@
       <p>Știm că procesul de obținere a unui credit poate fi stresant. Ne ocupăm noi de birocrație și îți comunicăm clar ce avem nevoie și când.</p>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- DE CE BROKER -->
 <section class="section">
+  <div class="container">
   <div class="section-label">De ce un broker</div>
   <div class="section-title">Ce facem noi pe care nu îl face banca</div>
   <div class="why-layout">
@@ -251,10 +258,12 @@
       </div>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- NOTA ONESTA -->
 <section class="section bg-light">
+  <div class="container">
   <div class="section-label">O notă sinceră</div>
   <div class="section-title">Ce suntem și ce nu suntem</div>
   <div class="honest-box">
@@ -263,10 +272,12 @@
     <p>Fiecare client este important pentru noi nu doar ca o tranzacție, ci ca o persoană căreia vrem să îi fim de folos la una dintre cele mai mari decizii financiare din viață. Asta înseamnă că vei fi tratat cu atenție, răbdare și respect — indiferent cât de simplă sau complexă este situația ta.</p>
     <p>Dacă nu putem ajuta în situația ta specifică, îți vom spune sincer. Și dacă putem, vom face tot posibilul să găsim cea mai bună soluție.</p>
   </div>
+  </div>
 </section>
 
 <!-- MISIUNE IN CIFRE -->
 <section class="section">
+  <div class="container">
   <div class="section-label">Angajamentul nostru</div>
   <div class="section-title">Ce ne propunem pentru fiecare client</div>
   <div class="mission-layout">
@@ -286,16 +297,19 @@
       <p>Serviciul nostru este și va rămâne complet gratuit pentru client — suntem plătiți de bancă</p>
     </div>
   </div>
+  </div>
 </section>
 
-<div class="cta-section">
-  <h2>Hai să discutăm despre situația ta</h2>
+<section class="cta-section-navy" aria-labelledby="cta-despre-title">
+  <div class="container">
+  <h2 id="cta-despre-title">Hai să discutăm despre situația ta</h2>
   <p>Prima consultație este gratuită și fără nicio obligație. Îți analizăm situația și îți spunem sincer ce opțiuni ai.</p>
   <div class="cta-btns">
     <a class="btn-white" href="contact.html">Programează o consultație gratuită</a>
     <a class="btn-outline-white" href="tel:+40771494483">📞 0771 494 483</a>
   </div>
-</div>
+  </div>
+</section>
 
 <!-- footer iniectată de components.js -->
 </body>

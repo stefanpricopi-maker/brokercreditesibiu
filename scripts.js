@@ -260,17 +260,29 @@ function initHamburger() {
   var btn  = document.getElementById('hamburgerBtn');
   var menu = document.getElementById('mobileMenu');
   if (!btn || !menu) return;
-  btn.addEventListener('click', function() {
-    var open = menu.classList.toggle('open');
+  function setOpen(open) {
+    menu.classList.toggle('open', open);
     btn.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', String(open));
+    menu.setAttribute('aria-hidden', String(!open));
+    menu.hidden = !open;
+    if (open) {
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.documentElement.style.overflow = '';
+    }
+  }
+  btn.addEventListener('click', function() {
+    var open = !menu.classList.contains('open');
+    setOpen(open);
   });
   document.addEventListener('click', function(e) {
     if (!btn.contains(e.target) && !menu.contains(e.target)) {
-      menu.classList.remove('open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+      setOpen(false);
     }
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') setOpen(false);
   });
 }
 
