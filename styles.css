@@ -819,13 +819,13 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   pointer-events: none;
 }
 .hero-badge {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: #eef4ff; color: #1d4ed8; font-size: 12px;
-  font-weight: 500; padding: 6px 14px; border-radius: 20px;
+  display: inline-flex; align-items: center; gap: 7px;
+  background: #eef4ff; color: #1d4ed8; font-size: 15px;
+  font-weight: 500; padding: 8px 16px; border-radius: 20px;
   margin-bottom: 24px; border: 1px solid #bfdbfe;
 }
 .hero-dot {
-  width: 6px; height: 6px; background: #2563eb;
+  width: 7px; height: 7px; background: #2563eb;
   border-radius: 50%; animation: pulse 2s infinite;
 }
 @keyframes pulse {
@@ -1145,7 +1145,7 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   /* Hero */
   .hero h1 { font-size: 24px; }
   .hero p { font-size: 13px; }
-  .hero-badge { font-size: 11px; padding: 5px 10px; }
+  .hero-badge { font-size: 14px; padding: 7px 13px; }
   .hero-btns { flex-direction: column; width: 100%; }
   .hero-btns a, .hero-btns button { width: 100%; justify-content: center; text-align: center; }
 
