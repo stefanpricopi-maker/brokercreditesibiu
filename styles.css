@@ -282,6 +282,83 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   stroke-width: 2;
 }
 
+/* ── Social proof toast (notificare discretă) ── */
+.social-proof-toast {
+  position: fixed;
+  z-index: 962;
+  left: 16px;
+  right: auto;
+  bottom: 32px;
+  max-width: min(384px, calc(100vw - 32px));
+  box-sizing: border-box;
+  display: none;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(15, 31, 92, 0.16);
+}
+.social-proof-toast.visible {
+  display: flex;
+}
+.sp-avatar {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #dbeafe;
+  color: #1e40af;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sp-text {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.45;
+}
+.sp-text strong {
+  color: #0f1f5c;
+  font-weight: 600;
+}
+.sp-time {
+  display: inline;
+  margin-left: 0.35em;
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.sp-close {
+  flex-shrink: 0;
+  align-self: flex-start;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 20px;
+  line-height: 1;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sp-close:hover {
+  background: #e2e8f0;
+  color: #0f1f5c;
+}
+
 /* ── Butoane comune ── */
 .btn-primary {
   background: #2563eb; color: #fff; font-size: 14px;
@@ -894,7 +971,11 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   /* UX Components */
   .sticky-cta-mobile { display: flex; }
   .back-to-top { bottom: calc(72px + env(safe-area-inset-bottom, 0px)); right: 16px; }
-  .social-proof-toast { left: 12px; right: 12px; max-width: none; }
+  .social-proof-toast {
+    left: 12px;
+    bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+    max-width: min(384px, calc(100vw - 24px));
+  }
   .exit-form { flex-direction: column; }
 
   /* Header CTA */

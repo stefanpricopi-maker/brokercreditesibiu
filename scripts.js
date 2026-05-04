@@ -337,7 +337,7 @@ function initSocialProof() {
     if (avatar) avatar.textContent = d.initiale;
     if (text) text.innerHTML =
       '<strong>' + d.initiale[0] + '. din ' + d.oras + '</strong> ' + d.actiune +
-      '<span class="sp-time">' + d.timp + '</span>';
+      ' <span class="sp-time">' + d.timp + '</span>';
     toast.classList.add('visible');
     setTimeout(function() { toast.classList.remove('visible'); }, 5000);
   }
