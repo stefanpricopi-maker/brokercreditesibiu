@@ -224,6 +224,8 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   backdrop-filter: blur(8px);
   border-top: 1px solid #e2e8f0;
   box-shadow: 0 -10px 40px rgba(15, 31, 92, 0.12);
+  max-height: 96px;
+  overflow: hidden;
 }
 .sticky-cta-mobile .scm-phone,
 .sticky-cta-mobile .scm-wa {
@@ -252,7 +254,7 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   color: #fff;
 }
 .sticky-cta-mobile .scm-wa:active { background: #1ebe57; }
-.sticky-cta-mobile .scm-wa svg {
+.sticky-cta-mobile .scm-wa-icon {
   display: block;
   width: 18px !important;
   height: 18px !important;
@@ -260,10 +262,10 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   max-height: 18px;
   flex-shrink: 0;
   overflow: hidden;
-  fill: #fff;
+  color: #fff;
 }
-.sticky-cta-mobile .scm-wa svg use {
-  pointer-events: none;
+.sticky-cta-mobile .scm-wa-icon path {
+  fill: currentColor;
 }
 
 /* Bara mobilă doar sub 701px — evită artefacte pe desktop */

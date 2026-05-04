@@ -298,20 +298,29 @@ function initBackToTop() {
   });
 }
 
-/* ── Sticky CTA Mobil — ascunde când cookie banner e vizibil ── */
+/* ── Sticky CTA Mobil — doar viewport îngust; offset deasupra cookie ── */
 function initStickyCTA() {
   var cta    = document.getElementById('stickyCTAMobile');
   var cookie = document.getElementById('cookieBanner');
   if (!cta) return;
-  function update() {
+
+  function sync() {
+    var narrow = window.matchMedia('(max-width: 700px)').matches;
+    if (!narrow) {
+      cta.setAttribute('hidden', '');
+      cta.style.bottom = '';
+      return;
+    }
+    cta.removeAttribute('hidden');
     if (cookie && cookie.style.display !== 'none' && getComputedStyle(cookie).display !== 'none') {
       cta.style.bottom = (cookie.offsetHeight + 8) + 'px';
     } else {
       cta.style.bottom = '';
     }
   }
-  update();
-  window.addEventListener('resize', update);
+
+  sync();
+  window.addEventListener('resize', sync);
 }
 
 /* ── Social Proof Toast ── */
