@@ -490,6 +490,7 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
 /* ── Hero ── */
 .hero { padding: 0; background: #fff; position: relative; overflow: hidden; }
 .hero > .container { max-width: var(--container); margin: 0 auto; padding: 64px 32px 56px; position: relative; z-index: 1; }
+.hero-content { max-width: 600px; margin-bottom: 36px; }
 .hero::before {
   content: ''; position: absolute; top: -160px; right: -160px;
   width: 420px; height: 420px;
