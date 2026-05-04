@@ -307,7 +307,7 @@ function initStickyCTA() {
     if (cookie && cookie.style.display !== 'none' && getComputedStyle(cookie).display !== 'none') {
       cta.style.bottom = (cookie.offsetHeight + 8) + 'px';
     } else {
-      cta.style.bottom = '0';
+      cta.style.bottom = '';
     }
   }
   update();
