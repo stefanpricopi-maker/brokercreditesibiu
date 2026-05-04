@@ -360,41 +360,35 @@ function initExitIntent() {
   var overlay = document.getElementById('exitOverlay');
   if (!overlay) return;
 
-  // Desktop: mouse iese din viewport
-  document.addEventListener('mouseleave', function(e) {
-    if (e.clientY <= 0 && !_exitShown) {
-      _exitShown = true;
-      overlay.classList.add('active');
-      try { sessionStorage.setItem('exit_shown', '1'); } catch(e) {}
-    }
-  });
-
-  // Mobil: scroll up rapid (semn că vor să plece)
-  var lastY = 0, ticking = false;
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      requestAnimationFrame(function() {
-        var y = window.scrollY;
-        if (lastY - y > 80 && y < 200 && !_exitShown) {
-          _exitShown = true;
-          overlay.classList.add('active');
-        }
-        lastY = y;
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
-
-  // Nu arăta dacă a fost deja arătat în această sesiune
   try {
     if (sessionStorage.getItem('exit_shown')) _exitShown = true;
-  } catch(e) {}
+  } catch (e) {}
+
+  function showExitOnce() {
+    if (_exitShown) return;
+    _exitShown = true;
+    overlay.classList.add('active');
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    try {
+      sessionStorage.setItem('exit_shown', '1');
+    } catch (e) {}
+  }
+
+  // Doar desktop: cursorul părăsește pagina pe sus (intent de închidere tab).
+  // Scroll-ul mobil declanșa fals (ex. bounce la început de pagină).
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.documentElement.addEventListener('mouseleave', function(e) {
+      if (e.clientY <= 0) showExitOnce();
+    });
+  }
 }
 
 function inchideExitPopup() {
   var overlay = document.getElementById('exitOverlay');
   if (overlay) overlay.classList.remove('active');
+  document.documentElement.style.overflow = '';
+  document.body.style.overflow = '';
 }
 
 function trimiteExitForm() {
