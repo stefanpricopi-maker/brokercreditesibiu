@@ -30,7 +30,18 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
 .skip-link:focus { top: 0; }
 
 /* ── SVG Symbols (ascunse, referențiate cu <use>) ── */
-.svg-defs { display: none; }
+.svg-defs {
+  display: block !important;
+  position: absolute;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+  pointer-events: none;
+}
 
 /* ── Navigație ── */
 .nav {
@@ -242,10 +253,26 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
 }
 .sticky-cta-mobile .scm-wa:active { background: #1ebe57; }
 .sticky-cta-mobile .scm-wa svg {
-  width: 18px;
-  height: 18px;
+  display: block;
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px;
+  max-height: 18px;
   flex-shrink: 0;
+  overflow: hidden;
   fill: #fff;
+}
+.sticky-cta-mobile .scm-wa svg use {
+  pointer-events: none;
+}
+
+/* Bara mobilă doar sub 701px — evită artefacte pe desktop */
+@media (min-width: 701px) {
+  .sticky-cta-mobile {
+    display: none !important;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 /* ── Înapoi sus (mobil) — deasupra barei sticky ── */
