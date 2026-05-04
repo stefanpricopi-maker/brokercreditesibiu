@@ -1,0 +1,40 @@
+OG-IMAGE.JPG — INSTRUCȚIUNI PENTRU DESIGNER / DEVELOPER
+=========================================================
+
+Acest fișier trebuie creat și salvat ca:
+  og-image.jpg (în același folder cu paginile HTML)
+
+SPECIFICAȚII TEHNICE:
+- Dimensiuni: 1200 x 630 pixeli (raport 1.91:1)
+- Format: JPG sau PNG
+- Dimensiune fișier: max 8MB (recomandat sub 1MB)
+- Rezoluție: 72 DPI (suficient pentru web)
+
+UTILIZARE:
+Această imagine apare când cineva distribuie un link de pe site pe:
+- WhatsApp (previzualizare link)
+- Facebook
+- LinkedIn
+- Telegram
+- Twitter / X
+
+CONȚINUT RECOMANDAT:
+- Fundal: albastru navy (#0F1F5C) sau gradient albastru
+- Logo / Nume: "BrokerCrediteSibiu" în alb
+- Tagline: "13 bănci. 0 lei comision. Oriunde în România."
+- Eventual: iconițe reprezentând credite/locuințe
+- Fără text mic (nu se vede la dimensiuni mici)
+
+TOOLS GRATUITE PENTRU CREARE:
+- Canva (canva.com) — template "Facebook/LinkedIn Post 1200x630"
+- Adobe Express (express.adobe.com)
+- Figma (figma.com)
+
+DUPĂ CREARE:
+1. Salvați fișierul ca "og-image.jpg"
+2. Puneți-l în același folder cu HTML-urile
+3. Testați previzualizarea la: https://developers.facebook.com/tools/debug/
+   sau: https://cards-dev.twitter.com/validator
+
+NOTĂ: Până la adăugarea imaginii reale, linkurile distribuite
+vor apărea fără previzualizare vizuală.

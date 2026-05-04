@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Pagini excluse din indexare
+Disallow: /404.html
+
+# Sitemap
+Sitemap: https://www.brokercreditesibiu.ro/sitemap.xml

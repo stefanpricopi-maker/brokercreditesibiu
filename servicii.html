@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Servicii — BrokerCrediteSibiu</title>
+  <meta name="description" content="Toate serviciile de intermediere credite imobiliare: credit ipotecar, refinanțare, Prima Casă / Noua Casă, credit cu ipotecă. 13 bănci partenere, 0 lei comision."/>
+  <meta name="robots" content="index, follow"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.brokercreditesibiu.ro/servicii.html"/>
+  <meta property="og:title" content="Servicii — BrokerCrediteSibiu"/>
+  <meta property="og:description" content="Credit ipotecar, refinanțare, Noua Casă, credit cu ipotecă. Comparăm 13 bănci. Serviciu 100% gratuit pentru client."/>
+  <meta property="og:image" content="https://www.brokercreditesibiu.ro/og-image.jpg"/>
+  <meta property="og:site_name" content="BrokerCrediteSibiu"/>
+  <meta property="og:locale" content="ro_RO"/>
+  <link rel="canonical" href="https://www.brokercreditesibiu.ro/servicii.html"/>
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Servicii BrokerCrediteSibiu",
+    "description": "Lista serviciilor de intermediere credite imobiliare",
+    "url": "https://www.brokercreditesibiu.ro/servicii.html",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Credit Ipotecar", "url": "https://www.brokercreditesibiu.ro/credit-ipotecar.html"},
+      {"@type": "ListItem", "position": 2, "name": "Refinanțare", "url": "https://www.brokercreditesibiu.ro/refinantare.html"},
+      {"@type": "ListItem", "position": 3, "name": "Prima Casă / Noua Casă", "url": "https://www.brokercreditesibiu.ro/noua-casa.html"},
+      {"@type": "ListItem", "position": 4, "name": "Credit cu Ipotecă", "url": "https://www.brokercreditesibiu.ro/credit-cu-ipoteca.html"}
+    ]
+  }
+  </script>
+  <!-- Fonts optimizate -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap" media="print" onload="this.media='all'"/>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap"/></noscript>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    .skip-link:focus{top:0}
+
+    .nav-logo span{color:#2563eb}
+    .nav-links a{font-size:13px;color:#475569;text-decoration:none;font-weight:500}
+    .nav-links a:hover,.nav-links a.active{color:#2563eb}
+    .nav-phone a{font-size:13px;color:#1a2744;font-weight:500;text-decoration:none}
+
+    .breadcrumb a{font-size:12px;color:#94a3b8;text-decoration:none}
+    .breadcrumb a:hover{color:#2563eb}
+    .breadcrumb span{font-size:12px;color:#cbd5e1}
+    .breadcrumb-current{font-size:12px;color:#2563eb;font-weight:500}
+    .page-header h1{font-family:'DM Serif Display',serif;font-size:36px;color:#0f1f5c;margin-bottom:12px}
+    .page-header p{font-size:16px;color:#4a5568;line-height:1.7;max-width:540px}
+
+    .section-title{font-family:'DM Serif Display',serif;font-size:28px;color:#0f1f5c;margin-bottom:8px}
+    .section-sub{font-size:15px;color:#64748b;margin-bottom:40px;max-width:540px;line-height:1.6}
+
+    /* SERVIZI CARDS */
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .service-card{background:#fff;border:0.5px solid #e2e8f0;border-radius:14px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s}
+    .service-card:hover{border-color:#2563eb}
+    .service-card-top{padding:28px 24px 20px;border-bottom:0.5px solid #e2e8f0;flex:1}
+    .service-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:22px}
+    .service-card h2{font-family:'DM Serif Display',serif;font-size:20px;color:#0f1f5c;margin-bottom:10px;line-height:1.2}
+    .service-card p{font-size:14px;color:#64748b;line-height:1.65;margin-bottom:16px}
+    .service-highlights{display:flex;flex-direction:column;gap:6px}
+    .highlight-item{display:flex;align-items:center;gap:8px;font-size:13px;color:#475569}
+    .highlight-dot{width:16px;height:16px;background:#dbeafe;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:#2563eb;flex-shrink:0}
+    .service-card-bottom{padding:16px 24px;background:#f8faff;display:flex;align-items:center;justify-content:space-between}
+    .service-cta{font-size:13px;font-weight:500;color:#2563eb}
+    .service-arrow{font-size:16px;color:#2563eb}
+
+    /* CHI SIAMO STRIP */
+    .trust-strip{background:#1e3a8a;padding:40px 32px}
+    .trust-inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;text-align:center}
+    .trust-item h3{font-family:'DM Serif Display',serif;font-size:30px;color:#fff;margin-bottom:4px}
+    .trust-item p{font-size:13px;color:#93c5fd}
+
+    /* COME FUNZIONA */
+    .how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:8px}
+    .how-card{background:#f8faff;border-radius:12px;padding:24px;border:0.5px solid #e2e8f0;position:relative}
+    .how-num{font-family:'DM Serif Display',serif;font-size:36px;color:#dbeafe;line-height:1;margin-bottom:8px}
+    .how-card h3{font-size:15px;font-weight:500;color:#0f1f5c;margin-bottom:6px}
+    .how-card p{font-size:13px;color:#64748b;line-height:1.6}
+
+    /* FAQ */
+    .faq-item{border-bottom:0.5px solid #e2e8f0}
+    .faq-q{display:flex;justify-content:space-between;align-items:center;padding:16px 0;cursor:pointer;font-size:15px;font-weight:500;color:#0f1f5c;gap:16px}
+    .faq-icon{min-width:20px;height:20px;background:#dbeafe;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#2563eb;font-weight:500;transition:transform .2s}
+    .faq-icon.open{transform:rotate(45deg)}
+    .faq-a{font-size:13px;color:#64748b;line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s}
+    .faq-a.open{max-height:200px;padding-bottom:14px}
+
+    /* CTA */
+    .cta-section h2{font-family:'DM Serif Display',serif;font-size:30px;color:#0f1f5c;margin-bottom:10px}
+    .cta-section p{font-size:15px;color:#4a5568;margin-bottom:32px;line-height:1.6}
+    .cta-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+    .btn-outline-navy{background:#fff;color:#1e3a8a;font-size:14px;font-weight:500;padding:13px 28px;border-radius:8px;border:1.5px solid #bfdbfe;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+    .btn-wa{background:#25D366;color:#fff;font-size:14px;font-weight:500;padding:13px 28px;border-radius:8px;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+    .btn-wa svg{width:16px;height:16px;fill:#fff}
+
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .footer-logo{font-family:'DM Serif Display',serif;font-size:15px;color:#0f1f5c;text-decoration:none}
+    .footer-logo span{color:#2563eb}
+    .footer-legal{display:flex;gap:16px}
+    .footer-legal a{font-size:11px;color:#cbd5e1;text-decoration:none}
+    .footer-copy{font-size:11px;color:#cbd5e1}
+
+  </style>
+  <script src="components.js" defer></script>
+  <script src="scripts.js" defer></script>
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="ro" href="https://www.brokercreditesibiu.ro/servicii.html"/>
+  <link rel="alternate" hreflang="x-default" href="https://www.brokercreditesibiu.ro/servicii.html"/>
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Cât costă serviciile voastre?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Serviciile noastre sunt complet gratuite pentru client. Suntem remunerați de bancă printr-un comision standard, fără niciun cost suplimentar față de mersul direct la bancă."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Trebuie să fiu din Sibiu pentru a lucra cu voi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nu. Suntem bazați în Sibiu, dar lucrăm cu clienți din toată România. Tot procesul poate fi gestionat 100% online."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cât durează procesul de la consultație la aprobare?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Preaprovarea poate veni în 48-72 ore. Aprobarea finală și semnarea contractului durează în medie 2-4 săptămâni."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cum știu că oferta găsită de voi este cea mai bună?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Îți prezentăm transparent toate ofertele de la băncile la care te califici — cu DAE complet, toate comisioanele și costurile ascunse."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pot aplica dacă am un alt credit în derulare?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Da, dar creditul existent se ia în calcul la gradul de îndatorare. Analizăm situația ta concretă și identificăm băncile care acceptă profilul tău financiar actual."
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Acasă",
+      "item": "https://www.brokercreditesibiu.ro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Servicii",
+      "item": "https://www.brokercreditesibiu.ro/servicii.html"
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Sări la conținut</a>
+
+<!-- nav iniectată de components.js -->
+<div class="page-header" id="main-content">
+  <div class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Acasă</a><span aria-hidden="true">›</span>
+    <span class="breadcrumb-current" aria-current="page">Servicii</span>
+  </div>
+  <h1>Cu ce te putem ajuta</h1>
+  <p>Oferim consultanță gratuită pentru toate tipurile de credite imobiliare. Comparăm ofertele de la 13 bănci partenere și găsim cea mai bună soluție pentru situația ta — indiferent din ce oraș ești.</p>
+</div>
+
+<!-- SERVICII -->
+<section class="section" aria-labelledby="servicii-title">
+  <div class="section-label">Serviciile noastre</div>
+  <div class="section-title" id="servicii-title">Alege serviciul de care ai nevoie</div>
+  <div class="section-sub">Fiecare serviciu vine cu consultanță personalizată, documentație pregătită de noi și zero comision pentru tine.</div>
+
+  <div class="services-grid" role="list">
+
+    <a class="service-card" href="credit-ipotecar.html" role="listitem" aria-label="Credit ipotecar — Află mai multe">
+      <div class="service-card-top">
+        <div class="service-icon" style="background:#dbeafe" aria-hidden="true">🏠</div>
+        <h2>Credit ipotecar</h2>
+        <p>Finanțare pentru achiziția unei locuințe — apartament, casă sau teren. Comparăm ofertele de la toate băncile partenere pentru cel mai bun DAE disponibil.</p>
+        <div class="service-highlights" aria-label="Puncte cheie">
+          <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Avans minim 15% din valoarea proprietății</div>
+          <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Perioadă de până la 30 de ani</div>
+          <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Dobândă fixă sau variabilă (IRCC)</div>
+          <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Preaprovare în 48-72 ore</div>
+        </div>
+      </div>
+      <div class="service-card-bottom">
+        <span class="service-cta">Află mai multe</span>
+        <span class="service-arrow" aria-hidden="true">→</span>
+      </div>
+    </a>
+
+    <a class="service-card" href="refinantare.html" role="listitem" aria-label="Refinanțare credit — Află mai multe">
+      <div class="service-card-top">
+        <div class="service-icon" style="background:#dcfce7" aria-hidden="true">🔄</div>
+        <h2>Refinanțare</h2>
+        <p>Muți creditul existent la o bancă cu condiții mai bune și economisești sute de lei în fiecare lună. Analizăm gratuit dacă refinanțarea este profitabilă pentru tine.</p>
+        <div class="service-highlights" aria-label="Puncte cheie">
+          <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Analiză gratuită a creditului actual</div>
+          <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Calculăm economia reală după toate costurile</div>
+          <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Gestionăm transferul între bănci</div>
+          <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Dacă nu e profitabil, îți spunem sincer</div>
+        </div>
+      </div>
+      <div class="service-card-bottom">
+        <span class="service-cta">Află mai multe</span>
+        <span class="service-arrow" aria-hidden="true">→</span>
+      </div>
+    </a>
+
+    <a class="service-card" href="noua-casa.html" role="listitem" aria-label="Prima Casă / Noua Casă — Află mai multe">
+      <div class="service-card-top">
+        <div class="service-icon" style="background:#ede9fe" aria-hidden="true">🏡</div>
+        <h2>Prima Casă / Noua Casă</h2>
+        <p>Program guvernamental care permite achiziția primei locuințe cu avans de doar 5%, garantat parțial de stat. Navigăm toată birocrația specifică programului.</p>
+        <div class="service-highlights" aria-label="Puncte cheie">
+          <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Avans minim 5% față de 15-35% standard</div>
+          <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Garanție parțială de stat prin FNGCIMM</div>
+          <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Verificăm eligibilitatea înainte de aplicație</div>
+          <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Gestionăm dosarul complet cu banca și statul</div>
+        </div>
+      </div>
+      <div class="service-card-bottom">
+        <span class="service-cta">Află mai multe</span>
+        <span class="service-arrow" aria-hidden="true">→</span>
+      </div>
+    </a>
+
+    <a class="service-card" href="credit-cu-ipoteca.html" role="listitem" aria-label="Credit cu ipotecă — Află mai multe">
+      <div class="service-card-top">
+        <div class="service-icon" style="background:#fef3c7" aria-hidden="true">🔑</div>
+        <h2>Credit cu ipotecă</h2>
+        <p>Folosești proprietatea ta ca garanție pentru a obține lichiditate cu dobânzi similare creditului ipotecar — de 2-4 ori mai mici față de creditul de consum.</p>
+        <div class="service-highlights" aria-label="Puncte cheie">
+          <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Până la 70% din valoarea proprietății</div>
+          <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Utilizare liberă a fondurilor</div>
+          <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Perioadă de rambursare până la 20 ani</div>
+          <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Dobândă mult mai mică față de creditul de consum</div>
+        </div>
+      </div>
+      <div class="service-card-bottom">
+        <span class="service-cta">Află mai multe</span>
+        <span class="service-arrow" aria-hidden="true">→</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip" role="region" aria-label="Statistici cheie">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <h3>13</h3>
+      <p>bănci partenere comparate</p>
+    </div>
+    <div class="trust-item">
+      <h3>0 lei</h3>
+      <p>comision pentru client</p>
+    </div>
+    <div class="trust-item">
+      <h3>48-72h</h3>
+      <p>răspuns preaprovare</p>
+    </div>
+    <div class="trust-item">
+      <h3>100%</h3>
+      <p>online disponibil</p>
+    </div>
+  </div>
+</div>
+
+<!-- CUM FUNCȚIONEAZĂ -->
+<section class="section" style="background:#f8faff" aria-labelledby="cum-title">
+  <div class="section-label">Procesul nostru</div>
+  <div class="section-title" id="cum-title">Cum funcționează pentru orice serviciu</div>
+  <div class="section-sub">Același proces simplu, indiferent de tipul de credit solicitat.</div>
+  <div class="how-grid">
+    <div class="how-card">
+      <div class="how-num" aria-hidden="true">1</div>
+      <h3>Consultație gratuită</h3>
+      <p>Discutăm situația ta și stabilim ce tip de credit se potrivește cel mai bine nevoilor și posibilităților tale.</p>
+    </div>
+    <div class="how-card">
+      <div class="how-num" aria-hidden="true">2</div>
+      <h3>Analiza dosarului</h3>
+      <p>Evaluăm eligibilitatea înainte de orice aplicație la bancă, pentru a evita respingerile care îți afectează scoring-ul.</p>
+    </div>
+    <div class="how-card">
+      <div class="how-num" aria-hidden="true">3</div>
+      <h3>Compararea ofertelor</h3>
+      <p>Identificăm băncile la care te califici și comparăm ofertele complet transparent — DAE, comisioane, condiții.</p>
+    </div>
+    <div class="how-card">
+      <div class="how-num" aria-hidden="true">4</div>
+      <h3>Tu semnezi. Noi rezolvăm.</h3>
+      <p>Pregătim dosarul complet și te însoțim până la semnarea contractului. Fără drumuri inutile, fără surprize.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" aria-labelledby="faq-title">
+  <div class="section-label">Întrebări frecvente</div>
+  <div class="section-title" id="faq-title">Răspunsuri rapide</div>
+  <div class="faq-list" role="list">
+    <div class="faq-item" role="listitem">
+      <div class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleFaq(this)">
+        Cât costă serviciile voastre?
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </div>
+      <div class="faq-a" role="region">Serviciile noastre sunt complet gratuite pentru client. Suntem remunerați de bancă printr-un comision standard, fără niciun cost suplimentar față de mersul direct la bancă.</div>
+    </div>
+    <div class="faq-item" role="listitem">
+      <div class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleFaq(this)">
+        Trebuie să fiu din Sibiu pentru a lucra cu voi?
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </div>
+      <div class="faq-a" role="region">Nu. Suntem bazați în Sibiu, dar lucrăm cu clienți din toată România. Tot procesul poate fi gestionat 100% online — telefon, email, videoconferință. Nu este necesară nicio deplasare.</div>
+    </div>
+    <div class="faq-item" role="listitem">
+      <div class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleFaq(this)">
+        Cât durează procesul de la consultație la aprobare?
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </div>
+      <div class="faq-a" role="region">Preaprovarea poate veni în 48-72 ore. Aprobarea finală și semnarea contractului durează în medie 2-4 săptămâni, în funcție de tipul creditului și banca aleasă.</div>
+    </div>
+    <div class="faq-item" role="listitem">
+      <div class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleFaq(this)">
+        Cum știu că oferta găsită de voi este cea mai bună?
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </div>
+      <div class="faq-a" role="region">Îți prezentăm transparent toate ofertele de la băncile la care te califici — cu DAE complet, toate comisioanele și costurile ascunse. Tu decizi, noi explicăm fiecare detaliu.</div>
+    </div>
+    <div class="faq-item" role="listitem">
+      <div class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggleFaq(this)">
+        Pot aplica dacă am un alt credit în derulare?
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </div>
+      <div class="faq-a" role="region">Da, dar creditul existent se ia în calcul la gradul de îndatorare. Analizăm situația ta concretă și identificăm băncile care acceptă profilul tău financiar actual.</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" aria-labelledby="cta-title">
+  <h2 id="cta-title">Nu ești sigur ce serviciu ți se potrivește?</h2>
+  <p>O consultație gratuită de 30 minute este tot ce ai nevoie. Îți analizăm situația și îți recomandăm cea mai bună soluție.</p>
+  <div class="cta-btns">
+    <a class="btn-navy" href="contact.html" aria-label="Programează o consultație gratuită">Programează consultație gratuită →</a>
+    <a class="btn-outline-navy" href="tel:+40771494483" aria-label="Sună la 0771 494 483">📞 0771 494 483</a>
+    <a class="btn-wa" href="https://wa.me/40771494483?text=Bun%C4%83%20ziua%2C%20sunt%20interesat%20de%20o%20consulta%C8%9Bie%20gratuit%C4%83." aria-label="Scrie pe WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- footer iniectată de components.js -->
+<!-- JS mutat în scripts.js -->
+</body>
+</html>

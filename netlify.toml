@@ -1,0 +1,91 @@
+# ============================================================
+# BrokerCrediteSibiu — netlify.toml
+# Configurare pentru Netlify hosting
+# ============================================================
+
+[build]
+  publish = "."
+
+# ── Redirect HTTP → HTTPS (Netlify face asta automat, dar explicit e mai bine) ──
+[[redirects]]
+  from = "http://brokercreditesibiu.ro/*"
+  to   = "https://www.brokercreditesibiu.ro/:splat"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from = "http://www.brokercreditesibiu.ro/*"
+  to   = "https://www.brokercreditesibiu.ro/:splat"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from = "https://brokercreditesibiu.ro/*"
+  to   = "https://www.brokercreditesibiu.ro/:splat"
+  status = 301
+  force  = true
+
+# ── Pagina 404 custom ──
+[[redirects]]
+  from   = "/*"
+  to     = "/404.html"
+  status = 404
+
+# ── Security Headers (aplicate pe toate paginile) ──
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    # Forțează HTTPS pentru 1 an
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+    # Previne clickjacking
+    X-Frame-Options = "DENY"
+
+    # Previne MIME sniffing
+    X-Content-Type-Options = "nosniff"
+
+    # Controlează Referrer
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+    # Dezactivează funcții browser neutilizate
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+
+    # Content Security Policy
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests"
+
+# ── Cache pentru resurse statice ──
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, immutable"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
