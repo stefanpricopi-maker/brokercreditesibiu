@@ -25,6 +25,12 @@
   status = 301
   force  = true
 
+# ── Duplicat homepage eliminat: păstrează linkuri vechi ──
+[[redirects]]
+  from = "/brokercreditesibiu.html"
+  to   = "/"
+  status = 301
+
 # ── Pagina 404 custom ──
 [[redirects]]
   from   = "/*"

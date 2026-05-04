@@ -14,7 +14,7 @@
   var path = window.location.pathname.split('/').pop() || 'index.html';
 
   function isActive(href) {
-    if (href === 'index.html' && (path === '' || path === 'index.html' || path === 'brokercreditesibiu.html')) {
+    if (href === 'index.html' && (path === '' || path === 'index.html')) {
       return ' class="active" aria-current="page"';
     }
     return path === href ? ' class="active" aria-current="page"' : '';
@@ -58,7 +58,7 @@
 
   /* ── Nav HTML ── */
   /* Nav homepage (cu buton formular) vs nav pagini secundare (cu link-uri) */
-  var isHomepage = (path === 'index.html' || path === '' || path === 'brokercreditesibiu.html');
+  var isHomepage = (path === 'index.html' || path === '');
 
   var NAV_CTA = isHomepage
     ? '<button class="nav-cta" aria-label="Programează o consultație gratuită" onclick="deschideFormular()">Consultație gratuită</button>'
