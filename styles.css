@@ -819,6 +819,12 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
 }
 .signal-text { font-size: 13px; color: #475569; line-height: 1.7; max-width: var(--measure); }
 
+/* ── Eligibility grid (Noua Casă) ── */
+.eligibility-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.elig-item { background: #f8faff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px 16px; }
+.elig-label { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: #94a3b8; margin-bottom: 4px; font-weight: 600; }
+.elig-value { font-size: 14px; font-weight: 600; color: #0f1f5c; }
+
 /* ── Steps ── */
 .steps { display: flex; flex-direction: column; }
 .step { display: flex; gap: 20px; align-items: flex-start; padding: 20px 0; border-bottom: 0.5px solid #e2e8f0; }
