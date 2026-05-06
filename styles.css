@@ -1056,6 +1056,77 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   .newsletter-form { flex-direction: column; align-items: center; }
 }
 
+/* ── Legal/Docs pages (cookies + GDPR) ── */
+.doc-layout { display: grid; grid-template-columns: 220px 1fr; gap: 0; max-width: 100%; align-items: start; }
+.toc {
+  padding: 32px 24px;
+  background: #f8faff;
+  border-right: 1px solid #e2e8f0;
+  position: sticky;
+  top: 57px;
+  max-height: calc(100vh - 57px);
+  overflow-y: auto;
+}
+.toc-title { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: #94a3b8; font-weight: 700; margin-bottom: 16px; }
+.toc-list { display: flex; flex-direction: column; gap: 2px; }
+.toc-list a { font-size: 12px; color: #64748b; text-decoration: none; padding: 5px 8px; border-radius: 6px; display: block; line-height: 1.4; }
+.toc-list a:hover { background: #eef4ff; color: #2563eb; }
+
+.doc-content { padding: 48px 48px 64px; }
+.content { max-width: var(--container); width: 100%; margin: 0 auto; padding: 48px 32px 80px; box-sizing: border-box; }
+
+.doc-section { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid #e2e8f0; }
+.doc-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.doc-section h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: #0f1f5c;
+  margin-bottom: 16px;
+  scroll-margin-top: 80px;
+}
+.doc-section h3 { font-size: 15px; font-weight: 700; color: #0f1f5c; margin: 20px 0 10px; }
+.doc-section p { font-size: 14px; color: #475569; line-height: 1.85; margin-bottom: 12px; max-width: var(--measure); }
+.doc-section p:last-child { margin-bottom: 0; }
+.doc-section ul, .doc-section ol { padding-left: 20px; margin-bottom: 12px; max-width: var(--measure); }
+.doc-section li { font-size: 14px; color: #475569; line-height: 1.85; margin-bottom: 4px; }
+.doc-section strong { color: #1a2744; font-weight: 700; }
+.doc-section a { color: #2563eb; text-decoration: none; }
+.doc-section a:hover { text-decoration: underline; }
+
+.cookie-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+.cookie-table th {
+  background: #f8faff;
+  font-weight: 700;
+  color: #374151;
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.cookie-table td { padding: 12px 14px; border-bottom: 1px solid #f1f5f9; color: #475569; vertical-align: top; }
+.cookie-table tr:last-child td { border-bottom: none; }
+
+.badge { display: inline-flex; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; border: 1px solid transparent; }
+.badge-essential { background: #dcfce7; color: #15803d; border-color: rgba(22, 163, 74, .18); }
+.badge-analytics { background: #dbeafe; color: #1d4ed8; border-color: rgba(37, 99, 235, .18); }
+.badge-functional { background: #ede9fe; color: #7c3aed; border-color: rgba(124, 58, 237, .18); }
+
+.browser-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-top: 12px; }
+.browser-item { background: #f8faff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 14px; font-size: 13px; color: #374151; }
+.browser-item a { color: #2563eb; text-decoration: none; font-size: 12px; display: block; margin-top: 4px; }
+
+.rights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.right-item { background: #f8faff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 14px; }
+.right-item h4 { font-size: 13px; font-weight: 700; color: #0f1f5c; margin-bottom: 4px; }
+.right-item p { font-size: 12px; color: #64748b; line-height: 1.7; margin: 0; max-width: 100%; }
+
+.contact-box { background: #0f1f5c; border-radius: 14px; padding: 24px; color: #fff; margin-top: 16px; }
+.contact-box h4 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.contact-box p, .contact-box a { font-size: 13px; color: #bfdbfe; line-height: 1.9; text-decoration: none; display: block; max-width: 100%; }
+.contact-box a:hover { color: #fff; }
+
 /* ── Steps ── */
 .steps { display: flex; flex-direction: column; }
 .step { display: flex; gap: 20px; align-items: flex-start; padding: 20px 0; border-bottom: 0.5px solid #e2e8f0; }
