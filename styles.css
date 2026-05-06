@@ -1640,6 +1640,16 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
 .banks-label { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: #94a3b8; font-weight: 500; margin-bottom: 12px; }
 .banks-list { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .bank-pill { background: #fff; border: 0.5px solid #e2e8f0; border-radius: 6px; padding: 6px 14px; font-size: 12px; font-weight: 500; color: #475569; }
+.banks-logos { margin: 0; padding: 0; display: block; }
+.banks-logos-img {
+  display: block;
+  width: 100%;
+  max-width: 980px;
+  height: auto;
+  margin: 10px auto 0;
+  border-radius: 12px;
+  background: #fff;
+}
 
 /* ── Trust strip (servicii) ── */
 .trust-strip { background: #1e3a8a; padding: 0; }
