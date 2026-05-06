@@ -1,0 +1,14 @@
+---
+description: Convenții CSS (design system minimal, layout container, tipografie premium)
+globs: "styles.css"
+alwaysApply: false
+---
+
+# CSS / design system (minimal)
+
+- **Token-uri**: adaugă/folosește variabile în `:root` pentru spacing, culori, radius, shadow, `--container`, `--measure`.
+- **Container pattern**: padding pe `.section > .container`, `.hero > .container`, etc; blocurile full-width au `padding: 0` pe wrapper.
+- **Specificitate**: evită selectorii prea specifici; preferă clase. Evită `!important` (doar pentru fixuri de compatibilitate).
+- **Responsive**: ajustează în media queries existente (1024/768/700/480/360). Nu introduce breakpoints noi fără motiv.
+- **Tipografie premium**: linii mai aerisite (`line-height` 1.75–1.9) și paragrafe limitate la `--measure`.
+

@@ -1,0 +1,14 @@
+---
+description: Convenții JS (vanilla, robust, fără widget-uri agresive)
+globs: "scripts.js"
+alwaysApply: false
+---
+
+# JS conventions (vanilla)
+
+- **Rulează doar unde există**: inițializează features doar dacă elementele există.
+- **Preferă `hidden` + clase** pentru show/hide (CSS: `[hidden] { display:none !important; }`).
+- **Accesibilitate**: `Esc` închide modale/meniuri; focus management minim (focus în modal, restore focus la închidere).
+- **Evită “growth” widgets**: fără social proof toast / exit intent agresiv, decât dacă user cere explicit.
+- **Evenimente**: folosește `{ passive: true }` pentru scroll; evită heavy work în `scroll` (debounce / rAF).
+

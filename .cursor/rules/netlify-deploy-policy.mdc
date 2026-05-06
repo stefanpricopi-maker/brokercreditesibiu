@@ -1,0 +1,12 @@
+---
+description: Politica Netlify (deploy la cerere, evită loop-uri de redirect)
+globs: "netlify.toml"
+alwaysApply: false
+---
+
+# Netlify deploy policy
+
+- **Deploy doar la cerere**: commit message conține `[deploy-netlify]` sau trigger manual din UI.
+- **Redirect-uri**: alege un singur host canonical (apex sau www) și evită reguli în ambele sensuri (previne `ERR_TOO_MANY_REDIRECTS`).
+- **Cache headers**: păstrează cache agresiv pentru `.css/.js`, mai scurt pentru `.html`.
+

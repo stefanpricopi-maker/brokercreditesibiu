@@ -1,0 +1,14 @@
+---
+description: Principii globale (premium + minimal) pentru tot proiectul
+alwaysApply: true
+---
+
+# Core: premium + minimal
+
+- Preferă **simplitate**: 1-2 CTA-uri clare per pagină; evită “widget noise” (social proof toast, exit intent agresiv, popups inutile).
+- **Consistență**: stilurile comune stau în `styles.css`, nu în `<style>` inline; evită `style=""` în HTML.
+- **Tipografie**: containerul poate fi lat, dar paragrafele folosesc o “măsură” (ex. `--measure: 70–75ch`) pentru lizibilitate.
+- **Accesibilitate**: clickables = `<button>` / `<a>` (nu `div onclick`); `:focus-visible` clar; ARIA doar când e necesar și corect.
+- **Calitate**: schimbări mici, verificabile; evită hack-uri care se bat în cascade (specificitate/ordine).
+- **Deploy**: nu declanșa deploy Netlify la fiecare push. Deploy doar când commit include `[deploy-netlify]` sau trigger manual din Netlify UI.
+

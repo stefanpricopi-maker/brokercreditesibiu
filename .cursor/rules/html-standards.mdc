@@ -1,0 +1,16 @@
+---
+description: Convenții HTML (semantic, accesibil, fără inline styles)
+globs: "**/*.html"
+alwaysApply: false
+---
+
+# HTML standards
+
+- **Semnatică**: folosește `<header> <nav> <main> <section> <footer>` unde are sens.
+- **Interacțiuni**: folosește `<button type="button">` pentru acțiuni și `<a>` pentru navigare. Evită `div` cu `onclick`.
+- **Formulare**: `label` asociat, `type` corect, `inputmode` (tel/email), `autocomplete`, mesaje de eroare inline.
+- **Fără inline styles**: nu introduce `style=""` sau `<style>` pentru layout; mută în `styles.css`.
+- **A11y minim**:
+  - meniuri/overlays: `aria-expanded`, `aria-controls`, `hidden` când e închis
+  - focus vizibil (`:focus-visible`) și `Esc` la modale/meniu
+
