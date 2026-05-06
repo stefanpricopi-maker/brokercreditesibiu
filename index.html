@@ -29,9 +29,9 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap" media="print" onload="this.media='all'"/>
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap"/></noscript>
-  <link rel="stylesheet" href="styles.css"/>
-  <script src="components.js" defer></script>
-  <script src="scripts.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20260506"/>
+  <script src="components.js?v=20260506" defer></script>
+  <script src="scripts.js?v=20260506" defer></script>
   <!-- hreflang -->
   <link rel="alternate" hreflang="ro" href="https://www.brokercreditesibiu.ro/"/>
   <link rel="alternate" hreflang="x-default" href="https://www.brokercreditesibiu.ro/"/>
@@ -151,35 +151,27 @@
 </head>
 <body>
 
-<!-- nav iniectată de components.js -->
+<a class="skip-link" href="#main">Sari la conținut</a>
+<div id="nav-placeholder" class="nav-skeleton" aria-hidden="true"></div>
+
+<main id="main">
 <section class="hero"><div class="container">
-  <div class="hero-badge"><span class="hero-dot"></span>Servicii disponibile în toată România</div>
-  <div class="hero-content">
-    <h1>Găsim creditul potrivit pentru tine. <em>Oriunde în România.</em></h1>
-    <p>Deși am sediul în Sibiu, lucrez cu clienți din toată țara — online, la telefon sau față în față. Compar ofertele de la 13 bănci partenere și te ghidez până la cheile casei, fără niciun comision.</p>
-    <div class="hero-btns">
-      <button class="btn-primary" onclick="deschideFormular()">
-        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        Primește o ofertă personalizată
-      </button>
-      <button class="btn-secondary" onclick="deschideFormular()">Programează consultație</button>
+  <div class="hero-grid">
+    <div class="hero-media">
+      <img src="assets/broker.webp" width="805" height="1024" alt="Broker de credite" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
-  </div>
-  <div class="hero-stats">
-    <div class="stat-card">
-      <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
-      <div class="stat-num">13</div>
-      <div class="stat-label">bănci partenere</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-      <div class="stat-num">0 lei</div>
-      <div class="stat-label">comision pentru client</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-      <div class="stat-num">48-72h</div>
-      <div class="stat-label">răspuns aprobare</div>
+    <div class="hero-content">
+      <h1>Găsim împreună<br>cel mai bun credit</h1>
+      <p>Compar ofertele tuturor băncilor și te ajut să alegi soluția potrivită — rapid, corect și gratuit pentru tine.</p>
+      <ul class="hero-list" aria-label="Tipuri de credite">
+        <li>Credite ipotecare</li>
+        <li>Refinanțări</li>
+        <li>Nevoi personale</li>
+        <li>Prima casă</li>
+      </ul>
+      <div class="hero-btns">
+        <button class="btn-secondary" onclick="deschideFormular()">Programează discuție</button>
+      </div>
     </div>
   </div>
 </div></section>
@@ -192,16 +184,30 @@
 </div></div>
 
 <div class="banks"><div class="container">
-  <div class="banks-label">Bănci partenere</div>
+  <div class="banks-title">Partenerii noștri pentru creditul tău</div>
   <figure class="banks-logos" aria-label="Bănci partenere (logo-uri)">
-    <img class="banks-logos-img" src="assets/banci-partenere.png" width="1024" height="249" alt="Bănci partenere: Banca Transilvania, ING, BCR, BRD, UniCredit, Nexent Bank, Garanti Bank, Exim Banca Românească, Libra Internet Bank, Intesa Sanpaolo, Raiffeisen Bank, Patria Bank, ProCredit Bank." loading="lazy" decoding="async" fetchpriority="low"/>
+    <div class="banks-logos-grid">
+      <div class="bank-logo"><img src="assets/banci/bt.png" alt="Banca Transilvania" width="160" height="30" loading="lazy" decoding="async" fetchpriority="low"/></div>
+      <div class="bank-logo"><img src="assets/banci/ing.png" alt="ING Bank" width="160" height="30" loading="lazy" decoding="async" fetchpriority="low"/></div>
+      <div class="bank-logo"><img src="assets/banci/bcr.png" alt="BCR" width="160" height="30" loading="lazy" decoding="async" fetchpriority="low"/></div>
+      <div class="bank-logo"><img src="assets/banci/brd.jpg" alt="BRD - Groupe Société Générale" width="160" height="30" loading="lazy" decoding="async" fetchpriority="low"/></div>
+      <div class="bank-logo"><img src="assets/banci/unicredit.png" alt="UniCredit Bank" width="160" height="30" loading="lazy" decoding="async" fetchpriority="low"/></div>
+      <div class="bank-logo"><img src="assets/banci/nexent.svg" alt="Nexent Bank" width="160" height="30" loading="lazy" decoding="async" fetchpriority="low"/></div>
+      <div class="bank-logo"><img src="assets/banci/garanti.png" alt="Garanti BBVA" width="160" height="30" loading="lazy" decoding="async" fetchpriority="low"/></div>
+      <div class="bank-logo"><img src="assets/banci/exim.png" alt="Exim Banca Românească" width="160" height="30" loading="lazy" decoding="async" fetchpriority="low"/></div>
+      <div class="bank-logo"><img src="assets/banci/libra.png" alt="Libra Internet Bank" width="160" height="30" loading="lazy" decoding="async" fetchpriority="low"/></div>
+      <div class="bank-logo"><img src="assets/banci/intesa.png" alt="Intesa Sanpaolo Bank" width="160" height="30" loading="lazy" decoding="async" fetchpriority="low"/></div>
+      <div class="bank-logo"><img src="assets/banci/raiffeisen.png" alt="Raiffeisen Bank" width="160" height="30" loading="lazy" decoding="async" fetchpriority="low"/></div>
+      <div class="bank-logo"><img src="assets/banci/patria.svg" alt="Patria Bank" width="160" height="30" loading="lazy" decoding="async" fetchpriority="low"/></div>
+      <div class="bank-logo"><img src="assets/banci/procredit.png" alt="ProCredit Bank" width="160" height="30" loading="lazy" decoding="async" fetchpriority="low"/></div>
+    </div>
   </figure>
 </div></div>
 
 <section class="section bg-light"><div class="container">
   <div class="section-label">De ce eu</div>
-  <div class="section-title">Un broker real, nu un call center</div>
-  <div class="section-sub">Lucrezi direct cu un consultant dedicat care îți apără interesele — indiferent din ce oraș ești.</div>
+  <h2 class="section-title">Un broker real, nu un call center</h2>
+  <p class="section-sub">Lucrezi direct cu un consultant dedicat care îți apără interesele — indiferent din ce oraș ești.</p>
   <div class="three-cols">
     <div class="feature-card">
       <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
@@ -223,14 +229,14 @@
 
 <section class="section" id="servicii" aria-labelledby="servicii-title"><div class="container">
   <div class="section-label">Serviciile mele</div>
-  <div class="section-title" id="servicii-title">Alege serviciul de care ai nevoie</div>
-  <div class="section-sub">Fiecare serviciu vine cu consultanță personalizată, documentație pregătită de mine și zero comision pentru tine.</div>
+  <h2 class="section-title" id="servicii-title">Alege serviciul de care ai nevoie</h2>
+  <p class="section-sub">Fiecare serviciu vine cu consultanță personalizată, documentație pregătită de mine și zero comision pentru tine.</p>
 
-  <div class="services-grid" role="list">
-    <a class="service-card" href="credit-ipotecar.html" role="listitem" aria-label="Credit ipotecar — Află mai multe">
+  <div class="services-grid">
+    <a class="service-card" href="credit-ipotecar.html" aria-label="Credit ipotecar — Află mai multe">
       <div class="service-card-top">
         <div class="service-icon service-icon--blue" aria-hidden="true">🏠</div>
-        <h2>Credit ipotecar</h2>
+        <h3>Credit ipotecar</h3>
         <p>Finanțare pentru achiziția unei locuințe — apartament, casă sau teren. Compar ofertele de la toate băncile partenere pentru cel mai bun DAE disponibil.</p>
         <div class="service-highlights" aria-label="Puncte cheie">
           <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Avans minim 15% din valoarea proprietății</div>
@@ -245,10 +251,10 @@
       </div>
     </a>
 
-    <a class="service-card" href="refinantare.html" role="listitem" aria-label="Refinanțare credit — Află mai multe">
+    <a class="service-card" href="refinantare.html" aria-label="Refinanțare credit — Află mai multe">
       <div class="service-card-top">
         <div class="service-icon service-icon--green" aria-hidden="true">🔄</div>
-        <h2>Refinanțare</h2>
+        <h3>Refinanțare</h3>
         <p>Muți creditul existent la o bancă cu condiții mai bune și economisești sute de lei în fiecare lună. Analizez gratuit dacă refinanțarea este profitabilă pentru tine.</p>
         <div class="service-highlights" aria-label="Puncte cheie">
           <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Analiză gratuită a creditului actual</div>
@@ -263,10 +269,10 @@
       </div>
     </a>
 
-    <a class="service-card" href="noua-casa.html" role="listitem" aria-label="Prima Casă / Noua Casă — Află mai multe">
+    <a class="service-card" href="noua-casa.html" aria-label="Prima Casă / Noua Casă — Află mai multe">
       <div class="service-card-top">
         <div class="service-icon service-icon--purple" aria-hidden="true">🏡</div>
-        <h2>Prima Casă / Noua Casă</h2>
+        <h3>Prima Casă / Noua Casă</h3>
         <p>Program guvernamental care permite achiziția primei locuințe cu avans de doar 5%, garantat parțial de stat. Te ajut să navighezi birocrația specifică programului.</p>
         <div class="service-highlights" aria-label="Puncte cheie">
           <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Avans minim 5% față de 15-35% standard</div>
@@ -281,10 +287,10 @@
       </div>
     </a>
 
-    <a class="service-card" href="credit-cu-ipoteca.html" role="listitem" aria-label="Credit cu ipotecă — Află mai multe">
+    <a class="service-card" href="credit-cu-ipoteca.html" aria-label="Credit cu ipotecă — Află mai multe">
       <div class="service-card-top">
         <div class="service-icon service-icon--amber" aria-hidden="true">🔑</div>
-        <h2>Credit cu ipotecă</h2>
+        <h3>Credit cu ipotecă</h3>
         <p>Folosești proprietatea ta ca garanție pentru a obține lichiditate cu dobânzi similare creditului ipotecar — de 2-4 ori mai mici față de creditul de consum.</p>
         <div class="service-highlights" aria-label="Puncte cheie">
           <div class="highlight-item"><div class="highlight-dot" aria-hidden="true">✓</div>Până la 70% din valoarea proprietății</div>
@@ -303,19 +309,19 @@
 
 <section class="section bg-light"><div class="container">
   <div class="section-label">Cum funcționează</div>
-  <div class="section-title">4 pași simpli până la cheile casei</div>
+  <h2 class="section-title">4 pași simpli până la cheile casei</h2>
   <div class="steps steps--grid">
-    <div class="step"><div class="step-num">1</div><div class="step-content"><h4>Consultație gratuită</h4><p>Discutăm situația ta — venituri, avans disponibil, preferințe. La telefon, pe video sau față în față dacă ești în Sibiu.</p></div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-content"><h4>Analizez dosarul tău</h4><p>Evaluez eligibilitatea și capacitatea de rambursare înainte să aplici la orice bancă. Fără surprize neplăcute.</p></div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-content"><h4>Alegi banca potrivită</h4><p>Îți prezint ofertele reale și te ajut să înțelegi fiecare detaliu — DAE, costuri ascunse, condiții.</p></div></div>
-    <div class="step"><div class="step-num">4</div><div class="step-content"><h4>Tu semnezi. Eu mă ocup de rest.</h4><p>Pregătesc dosarul complet și te însoțesc — fizic sau online — până la semnarea contractului cu banca.</p></div></div>
+    <div class="step"><div class="step-num">1</div><div class="step-content"><h3>Consultație gratuită</h3><p>Discutăm situația ta — venituri, avans disponibil, preferințe. La telefon, pe video sau față în față dacă ești în Sibiu.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><h3>Analizez dosarul tău</h3><p>Evaluez eligibilitatea și capacitatea de rambursare înainte să aplici la orice bancă. Fără surprize neplăcute.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content"><h3>Alegi banca potrivită</h3><p>Îți prezint ofertele reale și te ajut să înțelegi fiecare detaliu — DAE, costuri ascunse, condiții.</p></div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content"><h3>Tu semnezi. Eu mă ocup de rest.</h3><p>Pregătesc dosarul complet și te însoțesc — fizic sau online — până la semnarea contractului cu banca.</p></div></div>
   </div>
   <div class="how-note">Tot procesul poate fi parcurs complet de la distanță — prin telefon, email și semnătură electronică. Nicio deplasare la Sibiu nu este necesară.</div>
 </div></section>
 
 <section class="section" id="despre-mine" aria-labelledby="despre-mine-title"><div class="container">
   <div class="section-label">Despre mine</div>
-  <div class="section-title" id="despre-mine-title">Nu sunt o bancă. Sunt <em>de partea ta.</em></div>
+  <h2 class="section-title" id="despre-mine-title">Nu sunt o bancă. Sunt <em>de partea ta.</em></h2>
   <p class="section-sub">Sunt broker de credite imobiliare, bazat în Sibiu, și lucrez exclusiv în interesul clientului — nu al băncii. Rolul meu este să găsesc cea mai bună soluție de finanțare pentru situația ta, din ofertele tuturor băncilor partenere.</p>
 </div></section>
 
@@ -323,7 +329,7 @@
   <div class="story-layout">
     <div>
       <div class="section-label">Povestea mea</div>
-      <div class="section-title">De ce am ales să fiu broker de credite</div>
+      <h2 class="section-title">De ce am ales să fiu broker de credite</h2>
       <p class="section-text">Am văzut prea des oameni care au mers singuri la bancă și au semnat primul credit oferit — fără să știe că în altă parte existau condiții semnificativ mai bune. Sau care s-au pierdut în hârtii, termene și cerințe contradictorii, și au renunțat la visul lor de a cumpăra o locuință.</p>
       <p class="section-text">Am decis să fac lucrurile diferit. Să fiu consultantul de încredere pe care oricine ar vrea să îl aibă lângă el atunci când ia una dintre cele mai importante decizii financiare din viață.</p>
       <p class="section-text">Sunt la început de drum — și tocmai de aceea fiecare client contează enorm pentru mine. Nu sunt un call center. Ești tratat ca o persoană reală, cu o situație unică, nu ca un dosar de procesat.</p>
@@ -331,7 +337,15 @@
     <div>
       <div class="story-visual">
         <div class="story-avatar">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+          <img
+            src="assets/broker.webp"
+            width="805"
+            height="1024"
+            alt="Broker de credite"
+            loading="lazy"
+            decoding="async"
+            fetchpriority="low"
+          />
         </div>
         <div class="story-name">Broker de credite</div>
         <div class="story-role">BrokerCrediteSibiu</div>
@@ -345,7 +359,7 @@
 
 <section class="section"><div class="container">
   <div class="section-label">Valorile mele</div>
-  <div class="section-title">Ce mă ghidează în fiecare zi</div>
+  <h2 class="section-title">Ce mă ghidează în fiecare zi</h2>
   <div class="values-grid">
     <div class="value-card">
       <div class="value-icon vi-blue">
@@ -380,7 +394,7 @@
 
 <section class="section bg-light"><div class="container">
   <div class="section-label">De ce un broker</div>
-  <div class="section-title">Ce fac eu și nu face banca</div>
+  <h2 class="section-title">Ce fac eu și nu face banca</h2>
   <div class="why-layout">
     <div class="highlight-box">
       <h3>Când mergi direct la bancă</h3>
@@ -407,13 +421,13 @@
 
 <section class="section" id="contact" aria-labelledby="contact-title"><div class="container">
   <div class="section-label">Contact</div>
-  <div class="section-title" id="contact-title">Hai să vorbim despre creditul tău</div>
+  <h2 class="section-title" id="contact-title">Hai să vorbim despre creditul tău</h2>
   <p class="section-sub">Completează formularul sau contactează-mă direct. Îți răspund în maxim 24 de ore cu o analiză personalizată — fără costuri și fără obligații.</p>
 
   <div class="contact-layout">
     <div>
       <div class="contact-info">
-        <h2>Cum mă poți contacta</h2>
+        <h3>Cum mă poți contacta</h3>
         <p class="sub">Alege metoda care ți se potrivește cel mai bine.</p>
 
         <div class="contact-method">
@@ -433,7 +447,7 @@
           </div>
           <div class="contact-method-info">
             <h4>WhatsApp</h4>
-            <a href="https://wa.me/40771494483?text=Bun%C4%83%20ziua%2C%20sunt%20interesat%20de%20o%20consulta%C8%9Bie%20gratuit%C4%83." target="_blank" rel="noopener noreferrer">Trimite mesaj pe WhatsApp</a>
+            <a href="https://wa.me/40771494483?text=Bun%C4%83%20ziua%2C%20sunt%20interesat%20de%20o%20consultare%20gratuit%C4%83." target="_blank" rel="noopener noreferrer">Trimite mesaj pe WhatsApp</a>
             <p>Răspuns rapid în timpul programului</p>
           </div>
         </div>
@@ -461,21 +475,11 @@
         </div>
 
         <div class="divider"></div>
-
-        <div class="program-title">Program de lucru</div>
-        <div id="statusBadge" class="status-badge" hidden><span class="status-dot"></span>Deschis acum</div>
-        <div class="program-row"><span class="program-day">Luni</span><span class="program-hours">09:00 – 18:00</span></div>
-        <div class="program-row"><span class="program-day">Marți</span><span class="program-hours">09:00 – 18:00</span></div>
-        <div class="program-row"><span class="program-day">Miercuri</span><span class="program-hours">09:00 – 18:00</span></div>
-        <div class="program-row"><span class="program-day">Joi</span><span class="program-hours">09:00 – 18:00</span></div>
-        <div class="program-row"><span class="program-day">Vineri</span><span class="program-hours">09:00 – 18:00</span></div>
-        <div class="program-row"><span class="program-day">Sâmbătă</span><span class="program-closed">Închis</span></div>
-        <div class="program-row"><span class="program-day">Duminică</span><span class="program-closed">Închis</span></div>
       </div>
     </div>
 
     <div class="contact-form-wrap">
-      <h2>Trimite-mi un mesaj</h2>
+      <h3>Trimite-mi un mesaj</h3>
       <p class="sub">Completează formularul și te contactez în maxim 24 de ore cu o analiză personalizată.</p>
 
       <div id="contactForm">
@@ -485,42 +489,42 @@
         </div>
         <div class="form-row">
           <div class="form-field">
-            <label>Nume <span class="req">*</span></label>
+            <label for="fNume">Nume <span class="req">*</span></label>
             <input type="text" id="fNume" placeholder="ex: Ion Popescu"/>
           </div>
           <div class="form-field">
-            <label>Prenume</label>
+            <label for="fPrenume">Prenume</label>
             <input type="text" id="fPrenume" placeholder="ex: Maria"/>
           </div>
         </div>
         <div class="form-row">
           <div class="form-field">
-            <label>Telefon <span class="req">*</span></label>
+            <label for="fTelefon">Telefon <span class="req">*</span></label>
             <input type="tel" id="fTelefon" placeholder="07xx xxx xxx"/>
           </div>
           <div class="form-field">
-            <label>Email <span class="req">*</span></label>
+            <label for="fEmail">Email <span class="req">*</span></label>
             <input type="email" id="fEmail" placeholder="adresa@email.ro"/>
           </div>
         </div>
         <div class="form-field">
-          <label>Oraș</label>
+          <label for="fOras">Oraș</label>
           <input type="text" id="fOras" placeholder="ex: București, Cluj, Sibiu..."/>
         </div>
         <div class="form-field">
-          <label>Subiect</label>
+          <label for="fSubiect">Subiect</label>
           <select id="fSubiect" class="topic-select">
             <option value="">— Selectează subiectul —</option>
             <option value="credit-ipotecar">Credit ipotecar</option>
             <option value="refinantare">Refinanțare credit existent</option>
             <option value="noua-casa">Prima Casă / Noua Casă</option>
             <option value="credit-ipoteca">Credit cu ipotecă</option>
-            <option value="consultatie">Consultație generală</option>
+            <option value="consultare">Consultare generală</option>
             <option value="altele">Altele</option>
           </select>
         </div>
         <div class="form-field">
-          <label>Mesaj <span class="req">*</span></label>
+          <label for="fMesaj">Mesaj <span class="req">*</span></label>
           <textarea id="fMesaj" placeholder="Descrie pe scurt situația ta — suma dorită, avansul disponibil, orașul în care se află proprietatea sau orice alte detalii relevante..."></textarea>
           <div class="form-hint">Cu cât îmi oferi mai multe detalii, cu atât răspunsul meu va fi mai precis.</div>
         </div>
@@ -546,7 +550,7 @@
 
 <section class="section bg-light"><div class="container">
   <div class="section-label">Întrebări frecvente</div>
-  <div class="section-title">Răspunsuri la cele mai comune întrebări</div>
+  <h2 class="section-title">Răspunsuri la cele mai comune întrebări</h2>
   <div class="faq-list">
     <div class="faq-item">
       <button class="faq-q" type="button" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-a-1">
@@ -593,24 +597,10 @@
   </div>
 </div></section>
 
-<section class="section"><div class="container">
-  <div class="section-label">Locație</div>
-  <div class="section-title">Biroul meu din Sibiu</div>
-  <div class="section-sub">Vino la o consultație față în față sau contactează-mă online — lucrez în toată România.</div>
-  <div class="map-wrap">
-    <div class="map-pin" aria-hidden="true">📍</div>
-    <div class="map-placeholder">
-      <strong class="map-address">Str. Zaharia Boiu nr. 2, Sibiu</strong><br>
-      <span class="map-city">Județul Sibiu, România</span><br><br>
-      <a href="https://maps.google.com/?q=Str.+Zaharia+Boiu+nr.+2+Sibiu" target="_blank" rel="noopener noreferrer">Deschide în Google Maps →</a>
-    </div>
-  </div>
-</div></section>
-
 <section class="section bg-light"><div class="container">
   <div class="section-label">Încredere</div>
-  <div class="section-title">Transparență, fără surprize</div>
-  <div class="section-sub">Lucrez ca broker de credite: analizez, compar și te ghidez până la semnare — cu costuri explicate clar, înainte să alegi banca.</div>
+  <h2 class="section-title">Transparență, fără surprize</h2>
+  <p class="section-sub">Lucrez ca broker de credite: analizez, compar și te ghidez până la semnare — cu costuri explicate clar, înainte să alegi banca.</p>
   <div class="three-cols">
     <div class="feature-card">
       <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-shield"/></svg></div>
@@ -639,7 +629,7 @@
   <div class="cta-btns">
     <button class="btn-navy" onclick="deschideFormular()">Programează online ↗</button>
     <a class="btn-outline-navy" href="tel:+40771494483">📞 0771 494 483</a>
-    <a class="btn-wa" href="https://wa.me/40771494483?text=Bun%C4%83%20ziua%2C%20sunt%20interesat%20de%20o%20consulta%C8%9Bie%20gratuit%C4%83." target="_blank" rel="noopener noreferrer">
+    <a class="btn-wa" href="https://wa.me/40771494483?text=Bun%C4%83%20ziua%2C%20sunt%20interesat%20de%20o%20consultare%20gratuit%C4%83." target="_blank" rel="noopener noreferrer">
       <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       WhatsApp
     </a>
@@ -647,10 +637,10 @@
 </div>
 </section>
 
-<!-- footer iniectată de components.js -->
-<!-- COOKIE BANNER -->
-<!-- cookie banner iniectată de components.js -->
+<div id="footer-placeholder" aria-hidden="true"></div>
+<div id="cookie-placeholder" aria-hidden="true"></div>
 
 <!-- JS mutat în scripts.js -->
+</main>
 </body>
 </html>

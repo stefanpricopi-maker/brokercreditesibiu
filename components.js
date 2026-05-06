@@ -8,7 +8,7 @@
   /* ── Config site ── */
   var PHONE     = '+40771494483';
   var PHONE_DISPLAY = '0771 494 483';
-  var WA_URL    = 'https://wa.me/40771494483?text=Bun%C4%83%20ziua%2C%20sunt%20interesat%20de%20o%20consulta%C8%9Bie%20gratuit%C4%83.';
+  var WA_URL    = 'https://wa.me/40771494483?text=Bun%C4%83%20ziua%2C%20sunt%20interesat%20de%20o%20consultare%20gratuit%C4%83.';
 
   /* ── Detectează pagina activă ── */
   var path = window.location.pathname.split('/').pop() || 'index.html';
@@ -61,8 +61,8 @@
   var isHomepage = (path === 'index.html' || path === '');
 
   var NAV_CTA = isHomepage
-    ? '<button class="nav-cta" aria-label="Programează o consultație gratuită" onclick="deschideFormular()">Consultație gratuită</button>'
-    : '<a class="nav-cta" href="index.html#contact" aria-label="Programează o consultație gratuită">Consultație gratuită</a>';
+    ? '<button class="nav-cta" aria-label="Consultare gratuită" onclick="deschideFormular()"><span class="cta-long">Consultare gratuită</span><span class="cta-short" aria-hidden="true">Consultare</span></button>'
+    : '<a class="nav-cta" href="index.html#contact" aria-label="Consultare gratuită"><span class="cta-long">Consultare gratuită</span><span class="cta-short" aria-hidden="true">Consultare</span></a>';
 
   var NAV_LOGO = isHomepage
     ? '<div class="nav-logo" aria-label="BrokerCrediteSibiu">Broker<span>Credite</span>Sibiu</div>'
@@ -71,6 +71,11 @@
   var NAV_HTML = [
     '<nav class="nav" role="navigation" aria-label="Navigație principală">',
     '  <div class="nav-inner">',
+    '    <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">',
+    '      <span class="hamburger-line" aria-hidden="true"></span>',
+    '      <span class="hamburger-line" aria-hidden="true"></span>',
+    '      <span class="hamburger-line" aria-hidden="true"></span>',
+    '    </button>',
     '    ' + NAV_LOGO,
     '    <div class="nav-links">',
     '      <a href="index.html"' + isActive('index.html') + '>Acasă</a>',
@@ -78,14 +83,9 @@
     '      <a href="index.html#despre-mine">Despre mine</a>',
     '      <a href="index.html#contact">Contact</a>',
     '    </div>',
-    '    <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">',
-    '      <span class="hamburger-line" aria-hidden="true"></span>',
-    '      <span class="hamburger-line" aria-hidden="true"></span>',
-    '      <span class="hamburger-line" aria-hidden="true"></span>',
-    '    </button>',
     '    <div class="nav-right">',
     '      <div class="nav-phone">',
-    '        <a href="tel:' + PHONE + '" aria-label="Sună la ' + PHONE_DISPLAY + '">📞 ' + PHONE_DISPLAY + '</a>',
+    '        <a href="tel:' + PHONE + '" class="nav-phone-link" aria-label="Sună la ' + PHONE_DISPLAY + '"><span class="nav-phone-icon" aria-hidden="true">📞</span><span class="nav-phone-text">' + PHONE_DISPLAY + '</span></a>',
     '      </div>',
     '      ' + NAV_CTA,
     '    </div>',
@@ -99,7 +99,7 @@
     '  <div class="container">',
     '    <div class="footer-top">',
     '      <div class="footer-col">',
-    '        <h4>BrokerCrediteSibiu</h4>',
+    '        <h3>BrokerCrediteSibiu</h3>',
     '        <p>Broker de credite imobiliare autorizat, activ în toată România.</p>',
     '        <div class="social-links">',
     '          <span class="social-btn" title="Facebook" aria-label="Facebook (în curând)" aria-disabled="true">f</span>',
@@ -108,14 +108,14 @@
     '        </div>',
     '      </div>',
     '      <div class="footer-col">',
-    '        <h4>Contact</h4>',
+    '        <h3>Contact</h3>',
     '        <a href="tel:' + PHONE + '" aria-label="Sună la ' + PHONE_DISPLAY + '">📞 ' + PHONE_DISPLAY + '</a>',
     '        <a href="mailto:dragos.pricopi@fin.imobiliare.ro">dragos.pricopi@fin.imobiliare.ro</a>',
     '        <a href="' + WA_URL + '" target="_blank" rel="noopener" aria-label="Scrie pe WhatsApp">WhatsApp</a>',
-    '        <p class="footer-address">Str. Zaharia Boiu nr. 2, Sibiu</p>',
+    '        <a class="footer-address" href="https://maps.google.com/?q=Str.+Zaharia+Boiu+nr.+2+Sibiu" target="_blank" rel="noopener noreferrer" aria-label="Deschide adresa în Google Maps">📍 Deschide în Google Maps →</a>',
     '      </div>',
     '      <div class="footer-col">',
-    '        <h4>Servicii</h4>',
+    '        <h3>Servicii</h3>',
 '        <a href="index.html#servicii">Toate serviciile</a>',
   '        <a href="credit-ipotecar.html">Credit ipotecar</a>',
   '        <a href="refinantare.html">Refinanțare</a>',
@@ -123,10 +123,11 @@
   '        <a href="credit-cu-ipoteca.html">Credit cu ipotecă</a>',
     '      </div>',
     '      <div class="footer-col">',
-    '        <h4>Resurse</h4>',
-  '        <a href="index.html#contact">Contact</a>',
-  '        <a href="index.html#contact">Consultație gratuită</a>',
-  '        <a href="index.html#contact">Contact</a>',
+    '        <h3>Resurse</h3>',
+  '        <a href="servicii.html">Servicii</a>',
+  '        <a href="blog.html">Blog</a>',
+  '        <a href="politica-confidentialitate.html">Confidențialitate</a>',
+  '        <a href="cookies.html">Cookies</a>',
     '      </div>',
     '    </div>',
     '    <div class="footer-bottom">',
@@ -213,7 +214,7 @@
   <!-- Sticky CTA Mobil -->
   <div class="sticky-cta-mobile" id="stickyCTAMobile" role="complementary" aria-label="Contact rapid">
     <a class="scm-phone" href="tel:+40771494483" aria-label="Sună la 0771 494 483">📞 Sună acum</a>
-    <a class="scm-wa" href="https://wa.me/40771494483?text=Bun%C4%83%20ziua%2C%20sunt%20interesat%20de%20o%20consulta%C8%9Bie%20gratuit%C4%83." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <a class="scm-wa" href="https://wa.me/40771494483?text=Bun%C4%83%20ziua%2C%20sunt%20interesat%20de%20o%20consultare%20gratuit%C4%83." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
       <svg class="scm-wa-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       WhatsApp
     </a>

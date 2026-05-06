@@ -6,5 +6,8 @@
     "local": "npx --yes serve@14 . -p 8888",
     "local:9000": "npx --yes serve@14 . -p 9000",
     "local:9001": "npx --yes serve@14 . -p 9001"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.43.0"
   }
 }
