@@ -696,6 +696,16 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   line-height: 1.75;
   max-width: var(--measure);
 }
+
+@media (max-width: 900px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+  .contact-info {
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+}
 .topic-select {
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
@@ -1304,153 +1314,7 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   margin-top: 16px; font-size: 13px; color: #1e3a8a; line-height: 1.6;
 }
 
-/* ── Calculator ── */
-.calc-box { background: #eef4ff; border: 1.5px solid #bfdbfe; border-radius: 16px; padding: 32px; }
-.calc-box h3 { font-family: 'DM Serif Display', serif; font-size: 22px; color: #1e3a8a; margin-bottom: 6px; }
-.calc-sub { font-size: 13px; color: #3b82f6; margin-bottom: 24px; }
-.calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
-.calc-field { display: flex; flex-direction: column; gap: 6px; }
-.calc-field label { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: #1e3a8a; font-weight: 500; }
-.calc-field input, .calc-field select {
-  background: #fff; border: 1.5px solid #bfdbfe; border-radius: 8px;
-  padding: 10px 12px; color: #0f1f5c; font-size: 14px;
-  font-family: 'DM Sans', sans-serif; outline: none; width: 100%;
-}
-.calc-field input:focus, .calc-field select:focus { border-color: #2563eb; }
-.calc-result {
-  background: #2563eb; border-radius: 10px; padding: 18px 20px;
-  margin: 16px 0; display: flex; justify-content: space-between; align-items: center;
-}
-.calc-result-label { font-size: 12px; color: #bfdbfe; margin-bottom: 4px; }
-.calc-result-value { font-family: 'DM Serif Display', serif; font-size: 32px; color: #fff; }
-.calc-result-right { text-align: right; }
-.dob-label { font-size: 12px; color: #bfdbfe; margin-bottom: 4px; }
-.dob-val { font-size: 20px; font-weight: 500; color: #fff; }
-.calc-cta-wrap { display: flex; justify-content: center; margin-top: 12px; }
-.calc-cta {
-  background: #1e3a8a; color: #fff; font-size: 14px;
-  font-weight: 500; padding: 13px 32px; border-radius: 8px; border: none; cursor: pointer;
-}
-.calc-cta:hover { background: #1d4ed8; }
-
-/* ── Comparator bănci (homepage) ── */
-.comparator-wrap {
-  margin-top: 8px;
-  background: #eef4ff;
-  border: 1.5px solid #bfdbfe;
-  border-radius: 16px;
-  padding: 24px 28px 28px;
-  box-sizing: border-box;
-}
-.comparator-inputs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin-bottom: 20px;
-}
-.comp-field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.comp-field label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  color: #1e3a8a;
-  font-weight: 500;
-}
-.comp-field input,
-.comp-field select {
-  background: #fff;
-  border: 1.5px solid #bfdbfe;
-  border-radius: 8px;
-  padding: 10px 12px;
-  color: #0f1f5c;
-  font-size: 14px;
-  font-family: 'DM Sans', sans-serif;
-  outline: none;
-  width: 100%;
-  box-sizing: border-box;
-}
-.comp-field input:focus,
-.comp-field select:focus {
-  border-color: #2563eb;
-}
-.comparator-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid #dbeafe;
-  margin-bottom: 20px;
-}
-.comparator-table thead {
-  background: #1e3a8a;
-  color: #fff;
-}
-.comparator-table th {
-  padding: 12px 14px;
-  text-align: left;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  font-weight: 600;
-}
-.comparator-table td {
-  padding: 12px 14px;
-  border-top: 1px solid #e2e8f0;
-  color: #334155;
-  vertical-align: middle;
-}
-.comparator-table tbody tr:hover td {
-  background: #f8faff;
-}
-.comparator-table tbody tr.best-row td {
-  background: #ecfdf5;
-  border-top-color: #bbf7d0;
-}
-.comparator-table .comp-rata {
-  font-weight: 600;
-  color: #0f1f5c;
-  font-variant-numeric: tabular-nums;
-}
-.comparator-table .comp-dae {
-  font-weight: 500;
-  color: #475569;
-  font-variant-numeric: tabular-nums;
-}
-.comparator-table .best-badge {
-  display: inline-block;
-  margin-left: 8px;
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .04em;
-  color: #fff;
-  background: #059669;
-  padding: 3px 8px;
-  border-radius: 999px;
-  vertical-align: middle;
-}
-.comp-cta-row {
-  text-align: center;
-  padding-top: 4px;
-}
-.comp-disclaimer {
-  font-size: 12px;
-  color: #64748b;
-  line-height: 1.55;
-  margin-bottom: 14px;
-  max-width: 100%;
-}
-.comp-cta-row .btn-navy {
-  font-size: 13px;
-  padding: 11px 22px;
-}
-
+/* ── Calculator (eliminat) ── */
 /* ── Modal ── */
 .modal-overlay {
   display: none; position: fixed; inset: 0;
@@ -1627,10 +1491,37 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   font-weight: 500; padding: 13px; border-radius: 8px; border: none; cursor: pointer; margin-top: 4px;
 }
 .submit-btn:hover { background: #1d4ed8; }
+
+/* Contact (homepage) — buton mai compact */
+#contact .submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  font-size: 13px;
+  line-height: 1.1;
+  padding: 9px 14px;
+  width: auto;
+  min-width: 160px;
+  margin-top: 6px;
+  white-space: nowrap;
+}
 .gdpr-check { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 20px; }
 .gdpr-check input[type=checkbox] { margin-top: 2px; width: 16px; height: 16px; accent-color: #2563eb; flex-shrink: 0; cursor: pointer; }
 .gdpr-check label { font-size: 12px; color: #64748b; line-height: 1.6; cursor: pointer; }
 .gdpr-check a { color: #2563eb; text-decoration: none; }
+
+.form-error {
+  display: block;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  font-size: 12px;
+  line-height: 1.6;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 0 0 14px;
+}
 
 /* ── Success Message ── */
 .success-msg { display: none; text-align: center; padding: 16px 0; }
@@ -1643,11 +1534,20 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
 .success-msg p { font-size: 13px; color: #64748b; line-height: 1.6; }
 
 /* ── CTA Section ── */
-.cta-section { background: #eef4ff; border-top: 1.5px solid #bfdbfe; padding: 0; text-align: center; }
-.cta-section > .container { max-width: var(--container); margin: 0 auto; padding: 56px 32px; }
+.cta-section { background: #eef4ff; border-top: 1.5px solid #bfdbfe; text-align: center; }
+.section.cta-section > .container { padding: 56px 32px; }
 .cta-section h2 { font-family: 'DM Serif Display', serif; font-size: 32px; color: #0f1f5c; margin-bottom: 10px; }
 .cta-section p { font-size: 15px; color: #4a5568; margin-bottom: 32px; line-height: 1.6; }
 .cta-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+.cta-section .cta-btns { gap: 10px; }
+.cta-section .btn-navy,
+.cta-section .btn-outline-navy,
+.cta-section .btn-wa {
+  font-size: 13px;
+  padding: 11px 20px;
+}
+.cta-section .btn-wa svg { width: 14px; height: 14px; }
 
 .cta-section-navy { background: #1e3a8a; padding: 0; text-align: center; }
 .cta-section-navy > .container { max-width: var(--container); margin: 0 auto; padding: 48px 32px; }
@@ -1711,61 +1611,6 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
 .map-pin { font-size: 32px; }
 .map-address { color: #0f1f5c; font-size: 14px; }
 .map-city { font-size: 12px; color: #94a3b8; }
-
-/* ── Guides cards (homepage) ── */
-.guides-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 24px; }
-.guide-card {
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  overflow: hidden;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  transition: border-color .2s, transform .2s, box-shadow .2s;
-}
-.guide-card:hover { border-color: #2563eb; transform: translateY(-1px); box-shadow: 0 12px 30px rgba(2,6,23,.06); }
-.guide-card-hero {
-  height: 100px;
-  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36px;
-}
-.guide-card-body { padding: 16px; flex: 1; }
-.guide-card-kicker { font-size: 11px; font-weight: 700; color: #2563eb; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 6px; }
-.guide-card-title { font-size: 15px; font-weight: 700; color: #0f1f5c; margin-bottom: 6px; line-height: 1.4; }
-.guide-card-desc { font-size: 12px; color: #64748b; line-height: 1.6; margin: 0; }
-.guide-card-footer {
-  padding: 10px 16px;
-  background: #f8faff;
-  border-top: 1px solid #e2e8f0;
-  font-size: 13px;
-  font-weight: 700;
-  color: #2563eb;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.guide-card-meta { font-size: 11px; color: #94a3b8; font-weight: 600; }
-
-.guide-coming {
-  background: #eef4ff;
-  border: 2px dashed #bfdbfe;
-  border-radius: 12px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 200px;
-}
-.guide-coming-ico { font-size: 32px; margin-bottom: 12px; }
-.guide-coming h3 { font-size: 15px; font-weight: 700; color: #0f1f5c; margin-bottom: 6px; }
-.guide-coming p { font-size: 12px; color: #64748b; margin-bottom: 16px; line-height: 1.6; max-width: 52ch; }
-.btn-blue-sm { background: #2563eb; color: #fff; font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; }
 
 /* ── Contact helpers ── */
 .map-pin--sm { font-size: 28px; }
@@ -2043,12 +1888,9 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   .footer-col h4 { font-size: 11px; }
   .footer-col a, .footer-col p { font-size: 11px; }
 
-  /* Calculator */
-  .calc-box { padding: 24px; }
+  /* Calculator (eliminat) */
 
-  /* Comparator */
-  .comparator-wrap { padding: 22px 22px 26px; }
-  .comparator-inputs { gap: 12px; }
+  /* Comparator (eliminat) */
 
   /* CTA */
   .cta-section > .container { padding: 44px 24px; }
@@ -2093,16 +1935,9 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   /* Cards */
   .other-services { grid-template-columns: repeat(2, 1fr); }
 
-  /* Calculator */
-  .calc-box { padding: 20px; }
-  .calc-row { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .calc-result-value { font-size: 26px; }
-  .calc-extra { grid-template-columns: 1fr 1fr; }
+  /* Calculator (eliminat) */
 
-  /* Comparator */
-  .comparator-wrap { padding: 20px 18px 24px; }
-  .comparator-inputs { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .comparator-table th, .comparator-table td { padding: 10px 10px; font-size: 13px; }
+  /* Comparator (eliminat) */
 
   /* Footer — 2x2 grid */
   .footer > .container { padding: 24px 20px 16px; }
@@ -2181,17 +2016,9 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   .rights-grid { grid-template-columns: 1fr; }
   .browser-grid { grid-template-columns: repeat(2, 1fr); }
 
-  /* Calculator */
-  .calc-row { grid-template-columns: 1fr; }
-  .calc-extra { grid-template-columns: 1fr; }
-  .calc-result { flex-direction: column; gap: 8px; }
-  .calc-result-right { text-align: left; }
+  /* Calculator (eliminat) */
 
-  /* Comparator */
-  .comparator-wrap { padding: 18px 16px 22px; }
-  .comparator-inputs { grid-template-columns: 1fr; }
-  .comparator-table th:nth-child(4),
-  .comparator-table td:nth-child(4) { display: none; }
+  /* Comparator (eliminat) */
 
   /* Forms */
   .form-row { grid-template-columns: 1fr; }
@@ -2253,9 +2080,7 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   .btn-primary, .btn-navy, .btn-white,
   .btn-outline, .btn-outline-navy, .btn-wa { font-size: 13px; padding: 11px 20px; }
 
-  /* Calculator */
-  .calc-box h3 { font-size: 18px; }
-  .calc-result-value { font-size: 28px; }
+  /* Calculator (eliminat) */
 
   /* Modal */
   .modal { padding: 20px 16px; border-radius: 12px; }
@@ -2290,8 +2115,7 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   /* Docs grid (acte necesare) */
   .docs-grid { grid-template-columns: 1fr !important; }
 
-  /* Comparator table scroll */
-  .comparator-wrap { overflow-x: auto; }
+  /* Comparator (eliminat) */
 }
 
 /* ── 360px — Mobil mic ── */
@@ -2308,9 +2132,7 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   .btn-primary, .btn-navy, .btn-white,
   .btn-outline, .btn-outline-navy { font-size: 12px; padding: 10px 16px; }
 
-  /* Calculator */
-  .calc-result-value { font-size: 24px; }
-  .calc-cta { font-size: 13px; padding: 11px 20px; }
+  /* Calculator (eliminat) */
 
   /* Footer */
   .footer-top { grid-template-columns: 1fr; }

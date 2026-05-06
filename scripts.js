@@ -40,57 +40,9 @@ function inchideCookie(choice) {
   } catch(e) {}
 })();
 
-/* ── Calculator Rate ── */
-function calcRate() {
-  var sumaEl = document.getElementById('suma');
-  var aniEl  = document.getElementById('ani');
-  var rataEl = document.getElementById('rata');
-  if (!sumaEl || !aniEl || !rataEl) return;
-  var suma = parseFloat(sumaEl.value) || 200000;
-  var ani  = parseInt(aniEl.value)   || 20;
-  var r = 0.065 / 12;
-  var n = ani * 12;
-  var rata = suma * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-  rataEl.textContent = '~' + Math.round(rata).toLocaleString('ro-RO') + ' lei';
-}
-
 /* ── Modal Formular ── */
-function deschideFormularDinCalculator() {
-  var suma    = parseFloat(document.getElementById('suma').value) || 200000;
-  var ani     = parseInt(document.getElementById('ani').value)    || 20;
-  var rataText = document.getElementById('rata').textContent;
-  var summary = document.getElementById('modalSummary');
-  if (summary) {
-    document.getElementById('summaryCredit').textContent = suma.toLocaleString('ro-RO') + ' lei';
-    document.getElementById('summaryAni').textContent    = ani + ' ani';
-    document.getElementById('summaryRata').textContent   = rataText + '/lună';
-    summary.style.display = 'flex';
-  }
-  deschideModal();
-}
-
 function deschideFormular() {
-  var summary = document.getElementById('modalSummary');
-  if (summary) summary.style.display = 'none';
-  deschideModal();
-}
-
-function deschideModal() {
-  var fc = document.getElementById('formContent');
-  var sm = document.getElementById('successMsg');
-  var mo = document.getElementById('modalOverlay');
-  if (fc) fc.style.display = 'block';
-  if (sm) sm.style.display = 'none';
-  if (mo) mo.classList.add('active');
-}
-
-function inchideModal() {
-  var mo = document.getElementById('modalOverlay');
-  if (mo) mo.classList.remove('active');
-}
-
-function inchideModalDacaFundal(e) {
-  if (e.target === document.getElementById('modalOverlay')) inchideModal();
+  scrollTo('contact');
 }
 
 /* ── Sanitizare input (elimină HTML/script tags) ── */
@@ -126,10 +78,24 @@ var _submitCount = 0;
 function checkRateLimit() {
   _submitCount++;
   if (_submitCount > 3) {
-    alert('Prea multe cereri. Te rugăm să ne contactezi direct la 0771 494 483.');
+    alert('Prea multe cereri. Te rog să mă contactezi direct la 0771 494 483.');
     return false;
   }
   return true;
+}
+
+function setFormError(msg) {
+  var box = document.getElementById('formError');
+  if (!box) { alert(msg); return; }
+  box.textContent = msg;
+  box.hidden = false;
+}
+
+function clearFormError() {
+  var box = document.getElementById('formError');
+  if (!box) return;
+  box.textContent = '';
+  box.hidden = true;
 }
 
 /* ── Trimitere Email ── */
@@ -155,27 +121,15 @@ function trimiteEmail() {
     alert('Te rugăm să introduci un număr de telefon valid (ex: 07xx xxx xxx).');
     return;
   }
-  var suma    = (document.getElementById('summaryCredit') || {textContent:'—'}).textContent;
-  var ani     = (document.getElementById('summaryAni')    || {textContent:'—'}).textContent;
-  var rata    = (document.getElementById('summaryRata')   || {textContent:'—'}).textContent;
   var body =
     'Cerere oferta credit%0A%0A' +
     'Nume: '     + encodeURIComponent(nume)            + '%0A' +
     'Telefon: '  + encodeURIComponent(telefon)         + '%0A' +
     'Email: '    + encodeURIComponent(email)           + '%0A' +
     'Oras: '     + encodeURIComponent(oras || '—')     + '%0A%0A' +
-    'Detalii credit:%0A' +
-    '- Valoare: '        + encodeURIComponent(suma)    + '%0A' +
-    '- Perioada: '       + encodeURIComponent(ani)     + '%0A' +
-    '- Rata estimata: '  + encodeURIComponent(rata)    + '%0A%0A' +
     'Mesaj: '    + encodeURIComponent(mesaj || '—');
   var subject = encodeURIComponent('Cerere oferta credit - ' + nume);
   window.location.href = 'mailto:dragos.pricopi@fin.imobiliare.ro?subject=' + subject + '&body=' + body;
-  /* Redirect spre Thank You după trimitere */
-  var fc = document.getElementById('formContent');
-  var sm = document.getElementById('successMsg');
-  if (fc) fc.style.display = 'none';
-  if (sm) sm.style.display = 'block';
   setTimeout(function() { window.location.href = 'thank-you.html'; }, 1500);
 }
 
@@ -183,6 +137,7 @@ function trimiteEmail() {
 function trimiteFormular() {
   if (isBot()) return;
   if (!checkRateLimit()) return;
+  clearFormError();
 
   var nume    = sanitize((document.getElementById('fNume')    || {value:''}).value);
   var prenume = sanitize((document.getElementById('fPrenume') || {value:''}).value);
@@ -192,20 +147,20 @@ function trimiteFormular() {
   var gdpr    = document.getElementById('gdprCheck');
 
   if (!nume || !telefon || !email) {
-    alert('Te rugăm să completezi câmpurile obligatorii: Nume, Telefon și Email.');
+    setFormError('Completează câmpurile obligatorii: Nume, Telefon și Email.');
     return;
   }
   if (!isValidEmail(email)) {
-    alert('Te rugăm să introduci o adresă de email validă.');
+    setFormError('Introdu o adresă de email validă.');
     return;
   }
   if (!isValidPhone(telefon)) {
-    alert('Te rugăm să introduci un număr de telefon valid (ex: 07xx xxx xxx).');
+    setFormError('Introdu un număr de telefon valid (ex: 07xx xxx xxx).');
     return;
   }
-  if (!mesaj) { alert('Te rugăm să adaugi un mesaj.'); return; }
+  if (!mesaj) { setFormError('Adaugă un mesaj (câteva detalii despre situația ta).'); return; }
   if (gdpr && !gdpr.checked) {
-    alert('Te rugăm să accepți politica de confidențialitate pentru a continua.');
+    setFormError('Bifează acordul pentru Politica de confidențialitate ca să pot să te contactez.');
     return;
   }
   var oras    = (document.getElementById('fOras')    || {value:''}).value.trim();
@@ -246,11 +201,6 @@ function scrollTo(id) {
   if (el) el.scrollIntoView({ behavior: 'smooth' });
 }
 
-/* Init calculator dacă există pe pagină */
-document.addEventListener('DOMContentLoaded', function() {
-  if (document.getElementById('rata')) calcRate();
-});
-
 /* ============================================================
    FUNCȚIONALITĂȚI NOI — UX / CONVERSIE
    ============================================================ */
@@ -260,6 +210,12 @@ function initHamburger() {
   var btn  = document.getElementById('hamburgerBtn');
   var menu = document.getElementById('mobileMenu');
   if (!btn || !menu) return;
+  var lastFocus = null;
+
+  function focusFirstInMenu() {
+    var first = menu.querySelector('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    if (first) first.focus();
+  }
   function setOpen(open) {
     menu.classList.toggle('open', open);
     btn.classList.toggle('open', open);
@@ -267,14 +223,25 @@ function initHamburger() {
     menu.setAttribute('aria-hidden', String(!open));
     menu.hidden = !open;
     if (open) {
+      lastFocus = document.activeElement;
       document.documentElement.style.overflow = 'hidden';
+      setTimeout(focusFirstInMenu, 0);
     } else {
       document.documentElement.style.overflow = '';
+      if (lastFocus && typeof lastFocus.focus === 'function') {
+        lastFocus.focus();
+      } else {
+        btn.focus();
+      }
     }
   }
   btn.addEventListener('click', function() {
     var open = !menu.classList.contains('open');
     setOpen(open);
+  });
+  menu.addEventListener('click', function(e) {
+    var a = e.target && e.target.closest ? e.target.closest('a') : null;
+    if (a) setOpen(false);
   });
   document.addEventListener('click', function(e) {
     if (!btn.contains(e.target) && !menu.contains(e.target)) {
@@ -438,17 +405,23 @@ function initGA4Tracking() {
       gtag_event('whatsapp_click');
     });
   });
-  // Deschidere modal formular
-  var orig = window.deschideModal;
-  window.deschideModal = function() {
-    gtag_event('form_open');
-    if (orig) orig();
-  };
-  // Scroll depth
+  // Deschidere formular (scroll la Contact)
+  document.querySelectorAll('[onclick="deschideFormular()"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag_event('form_open');
+    });
+  });
+  // Scroll depth (calcul stabil + mai ieftin pe scroll)
   var depths = [25, 50, 75, 90];
   var reached = {};
+  var maxScroll = 0;
+  function recomputeMaxScroll() {
+    maxScroll = Math.max(1, (document.documentElement.scrollHeight || document.body.scrollHeight) - window.innerHeight);
+  }
+  recomputeMaxScroll();
+  window.addEventListener('resize', recomputeMaxScroll);
   window.addEventListener('scroll', function() {
-    var pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    var pct = Math.round((window.scrollY / maxScroll) * 100);
     depths.forEach(function(d) {
       if (pct >= d && !reached[d]) {
         reached[d] = true;
@@ -458,99 +431,8 @@ function initGA4Tracking() {
   }, { passive: true });
 }
 
-/* ── Calculator Avansat ── */
-function toggleCalcExtra() {
-  var extra = document.getElementById('calcExtra');
-  var btn   = document.getElementById('calcToggleBtn');
-  if (!extra) return;
-  var open = extra.classList.toggle('open');
-  if (btn) btn.textContent = open ? '▲ Ascunde opțiuni avansate' : '▼ Opțiuni avansate (avans, tip dobândă)';
-  calcRate();
-}
-
-function calcRate() {
-  var sumaEl  = document.getElementById('suma');
-  var aniEl   = document.getElementById('ani');
-  var rataEl  = document.getElementById('rata');
-  if (!sumaEl || !aniEl || !rataEl) return;
-
-  var suma  = parseFloat(sumaEl.value) || 200000;
-  var ani   = parseInt(aniEl.value)    || 20;
-
-  // Opțiuni avansate
-  var avansEl = document.getElementById('calcAvans');
-  var tipEl   = document.getElementById('calcTipDob');
-  var avans   = avansEl ? parseFloat(avansEl.value) || 0 : 0;
-  var tipDob  = tipEl   ? tipEl.value : 'variabila';
-
-  var dobanda = tipDob === 'fixa' ? 0.075 : 0.065; // 7.5% fixă, 6.5% variabilă
-  var sumaCred = suma - avans;
-  if (sumaCred <= 0) { rataEl.textContent = '—'; return; }
-
-  var r = dobanda / 12;
-  var n = ani * 12;
-  var rata = sumaCred * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-
-  rataEl.textContent = '~' + Math.round(rata).toLocaleString('ro-RO') + ' lei';
-
-  // Actualizează summary avansat
-  var summary = document.getElementById('calcSummary');
-  if (summary && avansEl) {
-    var totalDobanzi = (rata * n) - sumaCred;
-    summary.innerHTML =
-      'Credit: <strong>' + Math.round(sumaCred).toLocaleString('ro-RO') + ' lei</strong> · ' +
-      'Dobândă: <strong>' + (dobanda * 100).toFixed(1) + '%</strong> (' + (tipDob === 'fixa' ? 'fixă' : 'variabilă IRCC') + ') · ' +
-      'Total dobânzi estimate: <strong>' + Math.round(totalDobanzi).toLocaleString('ro-RO') + ' lei</strong>';
-  }
-}
-
-/* ── Comparator Credite ── */
-var BANCI_DATA = [
-  { nume: 'Banca Transilvania', dob: 6.45, comision: 0,    asigurare: 0.20 },
-  { nume: 'BCR',                dob: 6.70, comision: 0.50, asigurare: 0.18 },
-  { nume: 'BRD',                dob: 6.85, comision: 0,    asigurare: 0.22 },
-  { nume: 'ING Bank',           dob: 6.50, comision: 0,    asigurare: 0.15 },
-  { nume: 'Raiffeisen',         dob: 6.65, comision: 0.30, asigurare: 0.20 },
-  { nume: 'UniCredit',          dob: 6.90, comision: 0,    asigurare: 0.25 },
-];
-
-function updateComparator() {
-  var sumaEl = document.getElementById('compSuma');
-  var aniEl  = document.getElementById('compAni');
-  var tipEl  = document.getElementById('compTip');
-  var tbody  = document.getElementById('compTbody');
-  if (!sumaEl || !tbody) return;
-
-  var suma = parseFloat(sumaEl.value) || 200000;
-  var ani  = parseInt(aniEl ? aniEl.value : 20) || 20;
-  var tip  = tipEl ? tipEl.value : 'variabila';
-  var n    = ani * 12;
-
-  var rows = BANCI_DATA.map(function(b) {
-    var dob = tip === 'fixa' ? b.dob + 0.5 : b.dob;
-    var r   = dob / 100 / 12;
-    var rata = suma * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-    var dae  = dob + b.asigurare + (b.comision / ani);
-    return { b: b, rata: Math.round(rata), dae: dae.toFixed(2) };
-  });
-
-  rows.sort(function(a, b) { return a.dae - b.dae; });
-  var best = rows[0].b.nume;
-
-  tbody.innerHTML = rows.map(function(r, i) {
-    var isBest = i === 0;
-    return '<tr' + (isBest ? ' class="best-row"' : '') + '>' +
-      '<td>' + r.b.nume + (isBest ? '<span class="best-badge">Recomandat</span>' : '') + '</td>' +
-      '<td><span class="comp-rata">' + r.rata.toLocaleString('ro-RO') + ' lei</span></td>' +
-      '<td><span class="comp-dae">' + r.dae + '%</span></td>' +
-      '<td>' + (r.b.comision > 0 ? r.b.comision + '%' : '0') + '</td>' +
-      '</tr>';
-  }).join('');
-}
-
 /* ── Init toate funcționalitățile la DOMContentLoaded ── */
 document.addEventListener('DOMContentLoaded', function() {
-  if (document.getElementById('rata')) calcRate();
   initHamburger();
   initBackToTop();
   initStickyCTA();
@@ -558,5 +440,4 @@ document.addEventListener('DOMContentLoaded', function() {
   // initSocialProof();
   // initExitIntent();
   initGA4Tracking();
-  if (document.getElementById('compTbody')) updateComparator();
 });

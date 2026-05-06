@@ -62,7 +62,7 @@
 
   var NAV_CTA = isHomepage
     ? '<button class="nav-cta" aria-label="Programează o consultație gratuită" onclick="deschideFormular()">Consultație gratuită</button>'
-    : '<a class="nav-cta" href="contact.html" aria-label="Programează o consultație gratuită">Consultație gratuită</a>';
+    : '<a class="nav-cta" href="index.html#contact" aria-label="Programează o consultație gratuită">Consultație gratuită</a>';
 
   var NAV_LOGO = isHomepage
     ? '<div class="nav-logo" aria-label="BrokerCrediteSibiu">Broker<span>Credite</span>Sibiu</div>'
@@ -74,10 +74,9 @@
     '    ' + NAV_LOGO,
     '    <div class="nav-links">',
     '      <a href="index.html"' + isActive('index.html') + '>Acasă</a>',
-    '      <a href="servicii.html"' + isActive('servicii.html') + '>Servicii</a>',
-    '      <a href="despre-noi.html"' + isActive('despre-noi.html') + '>Despre mine</a>',
-    '      <a href="contact.html"' + isActive('contact.html') + '>Contact</a>',
-    '      <a href="blog.html"' + isActive('blog.html') + '>Ghiduri</a>',
+    '      <a href="index.html#servicii">Servicii</a>',
+    '      <a href="index.html#despre-mine">Despre mine</a>',
+    '      <a href="index.html#contact">Contact</a>',
     '    </div>',
     '    <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Deschide meniul" aria-controls="mobileMenu" aria-expanded="false">',
     '      <span class="hamburger-line" aria-hidden="true"></span>',
@@ -117,7 +116,7 @@
     '      </div>',
     '      <div class="footer-col">',
     '        <h4>Servicii</h4>',
-  '        <a href="servicii.html">Toate serviciile</a>',
+'        <a href="index.html#servicii">Toate serviciile</a>',
   '        <a href="credit-ipotecar.html">Credit ipotecar</a>',
   '        <a href="refinantare.html">Refinanțare</a>',
   '        <a href="noua-casa.html">Noua Casă</a>',
@@ -125,10 +124,9 @@
     '      </div>',
     '      <div class="footer-col">',
     '        <h4>Resurse</h4>',
-  '        <a href="blog.html">Ghiduri & articole</a>',
-  '        <a href="ghid-credit-ipotecar.html">Ghid credit ipotecar</a>',
-  '        <a href="index.html#calculator">Calculator rate</a>',
-  '        <a href="index.html#comparator">Comparator bănci</a>',
+  '        <a href="index.html#contact">Contact</a>',
+  '        <a href="index.html#contact">Consultație gratuită</a>',
+  '        <a href="index.html#contact">Contact</a>',
     '      </div>',
     '    </div>',
     '    <div class="footer-bottom">',
@@ -278,11 +276,10 @@
   <nav class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Meniu mobil" aria-hidden="true" hidden>
     <div class="mobile-menu-inner">
       <a href="index.html" id="mmHome">Acasă</a>
-      <a href="servicii.html" id="mmServicii">Servicii</a>
-      <a href="despre-noi.html" id="mmDespre">Despre mine</a>
-      <a href="contact.html" id="mmContact">Contact</a>
-      <a href="blog.html" id="mmBlog">Ghiduri</a>
-      <a href="contact.html" class="mobile-cta">Consultație gratuită →</a>
+      <a href="index.html#servicii" id="mmServicii">Servicii</a>
+      <a href="index.html#despre-mine" id="mmDespre">Despre mine</a>
+      <a href="index.html#contact" id="mmContact">Contact</a>
+      <a href="index.html#contact" class="mobile-cta">Consultație gratuită →</a>
     </div>
   </nav>`);
 
