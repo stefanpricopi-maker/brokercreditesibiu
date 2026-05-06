@@ -479,6 +479,151 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
 .bg-light { background: #f8faff; }
 .bg-navy { background: #0f1f5c; }
 
+/* ── Contact layout (contact.html) ── */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 0;
+  max-width: 100%;
+  min-height: 600px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+}
+.contact-info {
+  padding: 48px 32px;
+  background: #f8faff;
+  border-right: 1px solid #e2e8f0;
+}
+.contact-info h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: #0f1f5c;
+  margin-bottom: 6px;
+}
+.contact-info .sub {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 32px;
+  line-height: 1.75;
+  max-width: var(--measure);
+}
+.contact-method {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+.contact-method-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.contact-method-icon svg { width: 18px; height: 18px; fill: none; stroke-width: 2; }
+.icon-blue { background: #dbeafe; }
+.icon-blue svg { stroke: #2563eb; }
+.icon-green { background: #dcfce7; }
+.icon-green svg { stroke: #16a34a; }
+.icon-purple { background: #ede9fe; }
+.icon-purple svg { stroke: #7c3aed; }
+.icon-amber { background: #fef3c7; }
+.icon-amber svg { stroke: #d97706; }
+.contact-method-info h4 { font-size: 13px; font-weight: 600; color: #0f1f5c; margin-bottom: 2px; }
+.contact-method-info p,
+.contact-method-info a {
+  font-size: 13px;
+  color: #64748b;
+  text-decoration: none;
+  line-height: 1.75;
+  display: block;
+}
+.contact-method-info a:hover { color: #2563eb; }
+.divider { height: 1px; background: #e2e8f0; margin: 28px 0; }
+
+.program-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0f1f5c;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 14px;
+}
+.program-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+.program-row:last-child { border-bottom: none; }
+.program-day { font-size: 13px; color: #475569; }
+.program-hours { font-size: 13px; font-weight: 600; color: #0f1f5c; }
+.program-closed { font-size: 13px; color: #94a3b8; }
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+.status-dot { width: 6px; height: 6px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
+
+.map-section { padding: 0 32px 32px; background: #f8faff; }
+.contact-form-wrap { padding: 48px 40px; background: #fff; }
+.contact-form-wrap h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: #0f1f5c;
+  margin-bottom: 6px;
+}
+.contact-form-wrap .sub {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 28px;
+  line-height: 1.75;
+  max-width: var(--measure);
+}
+.topic-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.alt-contact { background: #1e3a8a; padding: 40px 32px; }
+.alt-contact-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+.alt-item h4 { font-size: 13px; font-weight: 600; color: #bfdbfe; margin-bottom: 6px; }
+.alt-item a, .alt-item p { font-size: 15px; color: #fff; text-decoration: none; font-weight: 600; display: block; }
+.alt-item a:hover { color: #93c5fd; }
+.alt-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,.10);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
+.alt-icon svg { width: 16px; height: 16px; fill: none; stroke: #fff; stroke-width: 2; }
+
 /* ── Cards ── */
 .feature-card { background: #f8faff; border-radius: 12px; padding: 24px 20px; border: 0.5px solid #e2e8f0; }
 .feature-icon {
