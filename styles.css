@@ -503,7 +503,7 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
 .bg-light { background: #f8faff; }
 .bg-navy { background: #0f1f5c; }
 
-/* ── Despre noi (despre-noi.html) ── */
+/* ── Despre mine (despre-noi.html) ── */
 .story-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;

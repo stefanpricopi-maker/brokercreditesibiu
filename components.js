@@ -75,7 +75,7 @@
     '    <div class="nav-links">',
     '      <a href="index.html"' + isActive('index.html') + '>Acasă</a>',
     '      <a href="servicii.html"' + isActive('servicii.html') + '>Servicii</a>',
-    '      <a href="despre-noi.html"' + isActive('despre-noi.html') + '>Despre noi</a>',
+    '      <a href="despre-noi.html"' + isActive('despre-noi.html') + '>Despre mine</a>',
     '      <a href="contact.html"' + isActive('contact.html') + '>Contact</a>',
     '      <a href="blog.html"' + isActive('blog.html') + '>Ghiduri</a>',
     '    </div>',
@@ -243,7 +243,7 @@
       <div class="exit-emoji" aria-hidden="true">🏠</div>
       <span class="exit-badge">✓ Consultație 100% gratuită</span>
       <h3 id="exitTitle">Înainte să pleci...</h3>
-      <p>Lasă-ne numărul de telefon și te sunăm noi în maxim 30 de minute cu o analiză personalizată. Fără obligații.</p>
+      <p>Lasă-mi numărul de telefon și te sun în maxim 30 de minute cu o analiză personalizată. Fără obligații.</p>
       <div class="exit-form">
         <input type="tel" id="exitPhone" placeholder="07xx xxx xxx" aria-label="Număr de telefon"/>
         <button onclick="trimiteExitForm()">Sună-mă</button>
@@ -279,7 +279,7 @@
     <div class="mobile-menu-inner">
       <a href="index.html" id="mmHome">Acasă</a>
       <a href="servicii.html" id="mmServicii">Servicii</a>
-      <a href="despre-noi.html" id="mmDespre">Despre noi</a>
+      <a href="despre-noi.html" id="mmDespre">Despre mine</a>
       <a href="contact.html" id="mmContact">Contact</a>
       <a href="blog.html" id="mmBlog">Ghiduri</a>
       <a href="contact.html" class="mobile-cta">Consultație gratuită →</a>
