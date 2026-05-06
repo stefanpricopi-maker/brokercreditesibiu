@@ -39,24 +39,6 @@
   <link rel="stylesheet" href="styles.css"/>
   <script src="components.js" defer></script>
   <script src="scripts.js" defer></script>
-  <style>
-    .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
-    .filter-btn{background:#fff;border:1px solid #e2e8f0;border-radius:20px;padding:6px 16px;font-size:13px;font-weight:500;color:#475569;cursor:pointer;transition:all .2s}
-    .filter-btn:hover,.filter-btn.active{background:#2563eb;border-color:#2563eb;color:#fff}
-    .coming-soon{background:#f8faff;border:1.5px dashed #bfdbfe;border-radius:12px;padding:32px;text-align:center;color:#64748b}
-    .coming-soon h3{font-size:16px;font-weight:500;color:#0f1f5c;margin-bottom:6px}
-    .coming-soon p{font-size:13px;line-height:1.6}
-    .newsletter-box{background:#1e3a8a;border-radius:14px;padding:32px;text-align:center;margin-top:40px}
-    .newsletter-box h3{font-family:'DM Serif Display',serif;font-size:22px;color:#fff;margin-bottom:8px}
-    .newsletter-box p{font-size:14px;color:#bfdbfe;margin-bottom:20px;line-height:1.6}
-    .newsletter-form{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-    .newsletter-form input{background:#fff;border:none;border-radius:8px;padding:11px 16px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;width:260px;color:#0f1f5c}
-    .newsletter-form button{background:#2563eb;color:#fff;font-size:14px;font-weight:500;padding:11px 22px;border-radius:8px;border:none;cursor:pointer}
-    @media(max-width:700px){
-      .newsletter-form input{width:100%}
-      .newsletter-form{flex-direction:column;align-items:center}
-    }
-  </style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Sări la conținut</a>
@@ -103,74 +85,74 @@
     </a>
 
     <!-- Articole coming soon -->
-    <div class="blog-card" data-cat="refinantare" style="cursor:default">
-      <div class="blog-card-img" style="background:linear-gradient(135deg,#065f46,#10b981)" aria-hidden="true">🔄</div>
+    <div class="blog-card blog-card--disabled" data-cat="refinantare">
+      <div class="blog-card-img blog-card-img--refinantare" aria-hidden="true">🔄</div>
       <div class="blog-card-body">
         <div class="blog-tag">Refinanțare</div>
         <h3>Cum refinanțezi un credit și economisești mii de euro</h3>
         <p>Calculul exact al economiilor, costurile de refinanțare și când merită cu adevărat să îți muți creditul.</p>
         <div class="blog-meta">
           <span>⏱ ~10 min citire</span>
-          <span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:10px;font-size:11px">În curând</span>
+          <span class="soon-pill">În curând</span>
         </div>
       </div>
-      <div class="blog-card-footer" style="color:#94a3b8">Disponibil în curând</div>
+      <div class="blog-card-footer blog-card-footer--muted">Disponibil în curând</div>
     </div>
 
-    <div class="blog-card" data-cat="noua-casa" style="cursor:default">
-      <div class="blog-card-img" style="background:linear-gradient(135deg,#5b21b6,#7c3aed)" aria-hidden="true">🏡</div>
+    <div class="blog-card blog-card--disabled" data-cat="noua-casa">
+      <div class="blog-card-img blog-card-img--noua-casa" aria-hidden="true">🏡</div>
       <div class="blog-card-body">
         <div class="blog-tag">Noua Casă</div>
         <h3>Programul Noua Casă 2025 — condiții, bănci și cum aplici</h3>
         <p>Ghid actualizat cu plafonul de valoare, băncile participante, documentele necesare și pașii de urmat.</p>
         <div class="blog-meta">
           <span>⏱ ~8 min citire</span>
-          <span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:10px;font-size:11px">În curând</span>
+          <span class="soon-pill">În curând</span>
         </div>
       </div>
-      <div class="blog-card-footer" style="color:#94a3b8">Disponibil în curând</div>
+      <div class="blog-card-footer blog-card-footer--muted">Disponibil în curând</div>
     </div>
 
-    <div class="blog-card" data-cat="ghid" style="cursor:default">
-      <div class="blog-card-img" style="background:linear-gradient(135deg,#92400e,#d97706)" aria-hidden="true">📊</div>
+    <div class="blog-card blog-card--disabled" data-cat="ghid">
+      <div class="blog-card-img blog-card-img--general" aria-hidden="true">📊</div>
       <div class="blog-card-body">
         <div class="blog-tag">Ghid general</div>
         <h3>DAE explicat simplu — de ce nu te uita doar la dobândă</h3>
         <p>Diferența dintre dobânda nominală și DAE, cum să compari corect ofertele băncilor și ce costuri ascunse să cauți.</p>
         <div class="blog-meta">
           <span>⏱ ~6 min citire</span>
-          <span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:10px;font-size:11px">În curând</span>
+          <span class="soon-pill">În curând</span>
         </div>
       </div>
-      <div class="blog-card-footer" style="color:#94a3b8">Disponibil în curând</div>
+      <div class="blog-card-footer blog-card-footer--muted">Disponibil în curând</div>
     </div>
 
-    <div class="blog-card" data-cat="ghid" style="cursor:default">
-      <div class="blog-card-img" style="background:linear-gradient(135deg,#0f1f5c,#1e3a8a)" aria-hidden="true">📋</div>
+    <div class="blog-card blog-card--disabled" data-cat="ghid">
+      <div class="blog-card-img blog-card-img--checklist" aria-hidden="true">📋</div>
       <div class="blog-card-body">
         <div class="blog-tag">Ghid general</div>
         <h3>Checklist complet — acte necesare pentru credit ipotecar</h3>
         <p>Lista completă a documentelor necesare, organizată pe categorii: personal, venit, proprietate. De descărcat și bifat.</p>
         <div class="blog-meta">
           <span>⏱ ~4 min citire</span>
-          <span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:10px;font-size:11px">În curând</span>
+          <span class="soon-pill">În curând</span>
         </div>
       </div>
-      <div class="blog-card-footer" style="color:#94a3b8">Disponibil în curând</div>
+      <div class="blog-card-footer blog-card-footer--muted">Disponibil în curând</div>
     </div>
 
-    <div class="blog-card" data-cat="ipotecar" style="cursor:default">
-      <div class="blog-card-img" style="background:linear-gradient(135deg,#0e7490,#0ea5e9)" aria-hidden="true">📈</div>
+    <div class="blog-card blog-card--disabled" data-cat="ipotecar">
+      <div class="blog-card-img blog-card-img--trend" aria-hidden="true">📈</div>
       <div class="blog-card-body">
         <div class="blog-tag">Credit ipotecar</div>
         <h3>Dobândă fixă vs variabilă — ce alegem în 2025?</h3>
         <p>Analiza comparativă în contextul ratelor IRCC actuale, scenarii de evoluție și recomandări practice.</p>
         <div class="blog-meta">
           <span>⏱ ~7 min citire</span>
-          <span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:10px;font-size:11px">În curând</span>
+          <span class="soon-pill">În curând</span>
         </div>
       </div>
-      <div class="blog-card-footer" style="color:#94a3b8">Disponibil în curând</div>
+      <div class="blog-card-footer blog-card-footer--muted">Disponibil în curând</div>
     </div>
 
   </div>
