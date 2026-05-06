@@ -187,7 +187,7 @@
 <div class="national-banner"><div class="container">
   <span class="nb-side">📍 Sediu în Sibiu &nbsp;·&nbsp;</span>
   <span class="nb-main">Lucrăm cu clienți din București, Cluj, Timișoara, Brașov, Iași și din toată țara</span>
-  <span style="margin:0 4px;color:#bfdbfe;font-size:11px;flex-shrink:0">&nbsp;·&nbsp;</span>
+  <span class="nb-sep" aria-hidden="true">&nbsp;·&nbsp;</span>
   <span class="national-pill">100% online disponibil</span>
 </div></div>
 
@@ -383,10 +383,10 @@
   <div class="section-title">Biroul nostru din Sibiu</div>
   <div class="section-sub">Vino la o consultație față în față sau contactează-ne online — funcționăm în toată România.</div>
   <div class="map-wrap">
-    <div style="font-size:32px">📍</div>
+    <div class="map-pin" aria-hidden="true">📍</div>
     <div class="map-placeholder">
-      <strong style="color:#0f1f5c;font-size:14px">Str. Zaharia Boiu nr. 2, Sibiu</strong><br>
-      <span style="font-size:12px">Județul Sibiu, România</span><br><br>
+      <strong class="map-address">Str. Zaharia Boiu nr. 2, Sibiu</strong><br>
+      <span class="map-city">Județul Sibiu, România</span><br><br>
       <a href="https://maps.google.com/?q=Str.+Zaharia+Boiu+nr.+2+Sibiu" target="_blank" rel="noopener noreferrer">Deschide în Google Maps →</a>
     </div>
   </div>
@@ -413,7 +413,7 @@
       <p>Nu call-center: ai un consultant care răspunde și urmărește dosarul cap-coadă.</p>
     </div>
   </div>
-  <div class="alert-box" style="margin-top:18px">
+  <div class="alert-box u-mt-18">
     Pentru transparență totală, îți putem trimite în scris lista de acte și pașii exacti ai procesului, în funcție de profilul tău.
   </div>
 </div></section>
@@ -437,23 +437,23 @@
   <div class="section-label">Ghiduri gratuite</div>
   <div class="section-title" id="ghiduri-home-title">Informează-te înainte să decizi</div>
   <p class="section-sub">Ghiduri practice scrise de echipa noastră — fără jargon bancar, fără reclame.</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:24px">
-    <a href="ghid-credit-ipotecar.html" style="background:#fff;border:0.5px solid #e2e8f0;border-radius:12px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:border-color .2s" onmouseover="this.style.borderColor='#2563eb'" onmouseout="this.style.borderColor='#e2e8f0'">
-      <div style="height:100px;background:linear-gradient(135deg,#1e3a8a 0%,#2563eb 100%);display:flex;align-items:center;justify-content:center;font-size:36px">🏠</div>
-      <div style="padding:16px;flex:1">
-        <div style="font-size:11px;font-weight:500;color:#2563eb;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">Credit ipotecar · Ghid</div>
-        <h3 style="font-size:15px;font-weight:500;color:#0f1f5c;margin-bottom:6px;line-height:1.4">Cum obții un credit ipotecar în România — Ghid complet 2025</h3>
-        <p style="font-size:12px;color:#64748b;line-height:1.5">Eligibilitate, acte necesare, DAE vs dobândă, procesul pas cu pas și greșelile de evitat.</p>
+  <div class="guides-grid">
+    <a class="guide-card" href="ghid-credit-ipotecar.html">
+      <div class="guide-card-hero" aria-hidden="true">🏠</div>
+      <div class="guide-card-body">
+        <div class="guide-card-kicker">Credit ipotecar · Ghid</div>
+        <h3 class="guide-card-title">Cum obții un credit ipotecar în România — Ghid complet 2025</h3>
+        <p class="guide-card-desc">Eligibilitate, acte necesare, DAE vs dobândă, procesul pas cu pas și greșelile de evitat.</p>
       </div>
-      <div style="padding:10px 16px;background:#f8faff;border-top:0.5px solid #e2e8f0;font-size:13px;font-weight:500;color:#2563eb;display:flex;justify-content:space-between;align-items:center">
-        <span>Citește ghidul</span><span style="font-size:11px;color:#94a3b8">⏱ 12 min</span>
+      <div class="guide-card-footer">
+        <span>Citește ghidul</span><span class="guide-card-meta">⏱ 12 min</span>
       </div>
     </a>
-    <div style="background:#eef4ff;border:1.5px dashed #bfdbfe;border-radius:12px;padding:24px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:200px">
-      <div style="font-size:32px;margin-bottom:12px">📚</div>
-      <h3 style="font-size:15px;font-weight:500;color:#0f1f5c;margin-bottom:6px">Mai multe ghiduri în curând</h3>
-      <p style="font-size:12px;color:#64748b;margin-bottom:16px;line-height:1.5">Refinanțare, DAE explicat, Noua Casă 2025 și altele</p>
-      <a href="blog.html" style="background:#2563eb;color:#fff;font-size:13px;font-weight:500;padding:8px 18px;border-radius:7px;text-decoration:none">Vezi toate ghidurile →</a>
+    <div class="guide-coming">
+      <div class="guide-coming-ico" aria-hidden="true">📚</div>
+      <h3>Mai multe ghiduri în curând</h3>
+      <p>Refinanțare, DAE explicat, Noua Casă 2025 și altele</p>
+      <a class="btn-blue-sm" href="blog.html">Vezi toate ghidurile →</a>
     </div>
   </div>
 </div></section>
@@ -464,13 +464,13 @@
     <button class="modal-close" aria-label="Închide formularul" onclick="inchideModal()">✕</button>
     <div id="formContent">
             <!-- Honeypot anti-bot: ascuns vizual, completat doar de roboți -->
-      <div style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" aria-hidden="true">
+      <div class="offscreen" aria-hidden="true">
         <label for="website_url">Nu completa acest câmp</label>
         <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off"/>
       </div>
       <h3>Cerere ofertă personalizată</h3>
       <p class="modal-sub">Completează datele de mai jos și te contactăm în maxim 24 de ore.</p>
-      <div class="modal-summary" id="modalSummary" style="display:none">
+      <div class="modal-summary" id="modalSummary" hidden>
         <div class="modal-summary-item"><span>Valoare credit</span><span id="summaryCredit">—</span></div>
         <div class="modal-summary-item"><span>Perioadă</span><span id="summaryAni">—</span></div>
         <div class="modal-summary-item"><span>Rată estimată</span><span id="summaryRata">—</span></div>

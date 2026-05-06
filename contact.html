@@ -138,7 +138,7 @@
       <div class="divider"></div>
 
       <div class="program-title">Program de lucru</div>
-      <div id="statusBadge" class="status-badge" style="display:none"><span class="status-dot"></span>Deschis acum</div>
+      <div id="statusBadge" class="status-badge" hidden><span class="status-dot"></span>Deschis acum</div>
       <div class="program-row"><span class="program-day">Luni</span><span class="program-hours">09:00 – 18:00</span></div>
       <div class="program-row"><span class="program-day">Marți</span><span class="program-hours">09:00 – 18:00</span></div>
       <div class="program-row"><span class="program-day">Miercuri</span><span class="program-hours">09:00 – 18:00</span></div>
@@ -150,10 +150,10 @@
 
     <div class="map-section">
       <div class="map-wrap">
-        <div style="font-size:28px">📍</div>
+        <div class="map-pin map-pin--sm" aria-hidden="true">📍</div>
         <div class="map-placeholder">
-          <strong style="color:#0f1f5c;font-size:13px">Str. Zaharia Boiu nr. 2, Sibiu</strong><br>
-          <span style="font-size:11px;color:#94a3b8">Județul Sibiu, România</span><br><br>
+          <strong class="map-address map-address--sm">Str. Zaharia Boiu nr. 2, Sibiu</strong><br>
+          <span class="map-city map-city--sm">Județul Sibiu, România</span><br><br>
           <a href="https://maps.google.com/?q=Str.+Zaharia+Boiu+nr.+2+Sibiu" target="_blank" rel="noopener noreferrer">Deschide în Google Maps →</a>
         </div>
       </div>
@@ -167,7 +167,7 @@
 
     <div id="contactForm">
             <!-- Honeypot anti-bot: ascuns vizual, completat doar de roboți -->
-      <div style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" aria-hidden="true">
+      <div class="offscreen" aria-hidden="true">
         <label for="website_url">Nu completa acest câmp</label>
         <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off"/>
       </div>
@@ -226,7 +226,7 @@
       <div class="check">✓</div>
       <h4>Mesajul a fost trimis!</h4>
       <p>Îți mulțumim că ne-ai contactat.<br>Te vom contacta în maxim 24 de ore la numărul sau emailul furnizat.<br><br>
-      Între timp, poți să ne suni direct la <a href="tel:+40771494483" style="color:#2563eb">0771 494 483</a>.</p>
+      Între timp, poți să ne suni direct la <a href="tel:+40771494483" class="link-primary">0771 494 483</a>.</p>
     </div>
   </div>
 </div>

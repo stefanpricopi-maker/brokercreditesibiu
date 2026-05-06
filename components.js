@@ -113,7 +113,7 @@
     '        <a href="tel:' + PHONE + '" aria-label="Sună la ' + PHONE_DISPLAY + '">📞 ' + PHONE_DISPLAY + '</a>',
     '        <a href="mailto:dragos.pricopi@fin.imobiliare.ro">dragos.pricopi@fin.imobiliare.ro</a>',
     '        <a href="' + WA_URL + '" target="_blank" rel="noopener" aria-label="Scrie pe WhatsApp">WhatsApp</a>',
-    '        <p style="margin-top:4px">Str. Zaharia Boiu nr. 2, Sibiu</p>',
+    '        <p class="footer-address">Str. Zaharia Boiu nr. 2, Sibiu</p>',
     '      </div>',
     '      <div class="footer-col">',
     '        <h4>Servicii</h4>',
