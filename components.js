@@ -266,8 +266,9 @@
 
     document.body.insertAdjacentHTML('beforeend', STICKY_CTA);
     document.body.insertAdjacentHTML('beforeend', BACK_TO_TOP);
-    document.body.insertAdjacentHTML('beforeend', SOCIAL_PROOF);
-    document.body.insertAdjacentHTML('beforeend', EXIT_POPUP);
+    // Premium-minimal: scoatem widget-urile agresive (social proof + exit intent)
+    // document.body.insertAdjacentHTML('beforeend', SOCIAL_PROOF);
+    // document.body.insertAdjacentHTML('beforeend', EXIT_POPUP);
     document.head.insertAdjacentHTML('beforeend', GA4);
 
     /* Mobile menu — inserează după nav */

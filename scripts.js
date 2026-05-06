@@ -554,8 +554,9 @@ document.addEventListener('DOMContentLoaded', function() {
   initHamburger();
   initBackToTop();
   initStickyCTA();
-  initSocialProof();
-  initExitIntent();
+  // Premium-minimal: scoatem widget-urile agresive
+  // initSocialProof();
+  // initExitIntent();
   initGA4Tracking();
   if (document.getElementById('compTbody')) updateComparator();
 });

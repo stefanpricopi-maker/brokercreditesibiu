@@ -10,6 +10,7 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
 
 :root {
   --container: 1120px;
+ --measure: 72ch; /* lățime optimă pentru paragrafe */
 }
 
 /* ── Layout container (centrează conținutul pe ecrane mari) ── */
@@ -451,7 +452,12 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   border-bottom: 0.5px solid #e2e8f0;
 }
 .page-header h1 { font-family: 'DM Serif Display', serif; font-size: 36px; color: #0f1f5c; margin-bottom: 12px; line-height: 1.2; }
-.page-header p { font-size: 16px; color: #4a5568; line-height: 1.7; max-width: 100%; }
+.page-header p {
+  font-size: 16px;
+  color: #4a5568;
+  line-height: 1.75;
+  max-width: var(--measure);
+}
 .page-header-meta { font-size: 12px; color: #94a3b8; }
 .page-header-meta span { margin-right: 16px; }
 
@@ -463,7 +469,13 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   letter-spacing: .1em; color: #2563eb; font-weight: 500; margin-bottom: 8px;
 }
 .section-title { font-family: 'DM Serif Display', serif; font-size: 28px; color: #0f1f5c; margin-bottom: 8px; }
-.section-sub { font-size: 15px; color: #64748b; margin-bottom: 32px; max-width: 100%; line-height: 1.6; }
+.section-sub {
+  font-size: 15px;
+  color: #64748b;
+  margin-bottom: 32px;
+  max-width: var(--measure);
+  line-height: 1.75;
+}
 .bg-light { background: #f8faff; }
 .bg-navy { background: #0f1f5c; }
 
@@ -503,9 +515,24 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
 .faq-list { display: flex; flex-direction: column; }
 .faq-item { border-bottom: 0.5px solid #e2e8f0; }
 .faq-q {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 18px 0; cursor: pointer; font-size: 15px;
-  font-weight: 500; color: #0f1f5c; gap: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: #0f1f5c;
+  gap: 16px;
+  background: none;
+  border: 0;
+  text-align: left;
+}
+.faq-q:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.25);
+  outline-offset: 4px;
+  border-radius: 10px;
 }
 .faq-icon {
   min-width: 20px; height: 20px; background: #dbeafe; border-radius: 50%;
@@ -929,7 +956,7 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
 /* ── Hero ── */
 .hero { padding: 0; background: #fff; position: relative; overflow: hidden; }
 .hero > .container { max-width: var(--container); margin: 0 auto; padding: 64px 32px 56px; position: relative; z-index: 1; }
-.hero-content { max-width: 100%; margin-bottom: 36px; }
+.hero-content { max-width: 100%; margin-bottom: 40px; }
 .hero::before {
   content: ''; position: absolute; top: -160px; right: -160px;
   width: 420px; height: 420px;
@@ -950,9 +977,22 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: .5; transform: scale(1.4); }
 }
-.hero h1 { font-family: 'DM Serif Display', serif; font-size: 42px; line-height: 1.12; color: #0f1f5c; margin-bottom: 18px; max-width: 100%; }
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 42px;
+  line-height: 1.12;
+  color: #0f1f5c;
+  margin-bottom: 18px;
+  max-width: 20ch; /* premium: titlu mai controlat */
+}
 .hero h1 em { color: #2563eb; font-style: normal; }
-.hero p { font-size: 16px; color: #4a5568; line-height: 1.75; margin-bottom: 32px; max-width: 100%; }
+.hero p {
+  font-size: 16px;
+  color: #4a5568;
+  line-height: 1.85;
+  margin-bottom: 32px;
+  max-width: var(--measure);
+}
 .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
 .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 100%; }
 .stat-card {

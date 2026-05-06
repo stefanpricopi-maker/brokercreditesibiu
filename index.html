@@ -336,12 +336,48 @@
   <div class="section-label">Întrebări frecvente</div>
   <div class="section-title">Răspunsuri la cele mai comune întrebări</div>
   <div class="faq-list">
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Cât costă serviciile voastre?<span class="faq-icon">+</span></div><div class="faq-a">Serviciile noastre sunt complet gratuite pentru client. Suntem remunerați de bancă printr-un comision standard, fără niciun cost suplimentar pentru tine față de mersul direct la bancă.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Mă calific dacă am un singur venit sau sunt angajat de puțin timp?<span class="faq-icon">+</span></div><div class="faq-a">Depinde de bancă și de situația ta concretă. Exact de aceea existăm — analizăm profilul tău și identificăm băncile care au criteriile cele mai favorabile pentru situația ta specifică, înainte să aplicăm oriunde.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Cât durează procesul de aprobare?<span class="faq-icon">+</span></div><div class="faq-a">Preaprovarea (răspuns de principiu) poate veni în 48-72 de ore. Aprobarea finală și semnarea contractului durează în medie 2-4 săptămâni, în funcție de bancă și complexitatea dosarului.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Ce acte am nevoie pentru dosar?<span class="faq-icon">+</span></div><div class="faq-a">În general: buletin, adeverință de salariu sau declarație de venit, extras de cont, documente despre proprietatea cumpărată. Lista exactă diferă per bancă — îți facem noi un checklist personalizat după consultația gratuită.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Trebuie să vin la Sibiu pentru a lucra cu voi?<span class="faq-icon">+</span></div><div class="faq-a">Nu. Tot procesul poate fi gestionat 100% de la distanță — prin telefon, email și videoconferință. Documentele pot fi transmise digital. Nu este necesară nicio deplasare la Sibiu.</div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Lucrați și cu programul Noua Casă?<span class="faq-icon">+</span></div><div class="faq-a">Da, avem experiență cu programul Noua Casă (fostul Prima Casă). Te ajutăm să verifici eligibilitatea, să pregătești dosarul și să alegi banca parteneră cu cele mai bune condiții disponibile.</div></div>
+    <div class="faq-item">
+      <button class="faq-q" type="button" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-a-1">
+        Cât costă serviciile voastre?
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a" id="faq-a-1">Serviciile noastre sunt complet gratuite pentru client. Suntem remunerați de bancă printr-un comision standard, fără niciun cost suplimentar pentru tine față de mersul direct la bancă.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-a-2">
+        Mă calific dacă am un singur venit sau sunt angajat de puțin timp?
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a" id="faq-a-2">Depinde de bancă și de situația ta concretă. Exact de aceea existăm — analizăm profilul tău și identificăm băncile care au criteriile cele mai favorabile pentru situația ta specifică, înainte să aplicăm oriunde.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-a-3">
+        Cât durează procesul de aprobare?
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a" id="faq-a-3">Preaprovarea (răspuns de principiu) poate veni în 48-72 de ore. Aprobarea finală și semnarea contractului durează în medie 2-4 săptămâni, în funcție de bancă și complexitatea dosarului.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-a-4">
+        Ce acte am nevoie pentru dosar?
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a" id="faq-a-4">În general: buletin, adeverință de salariu sau declarație de venit, extras de cont, documente despre proprietatea cumpărată. Lista exactă diferă per bancă — îți facem noi un checklist personalizat după consultația gratuită.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-a-5">
+        Trebuie să vin la Sibiu pentru a lucra cu voi?
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a" id="faq-a-5">Nu. Tot procesul poate fi gestionat 100% de la distanță — prin telefon, email și videoconferință. Documentele pot fi transmise digital. Nu este necesară nicio deplasare la Sibiu.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-a-6">
+        Lucrați și cu programul Noua Casă?
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a" id="faq-a-6">Da, avem experiență cu programul Noua Casă (fostul Prima Casă). Te ajutăm să verifici eligibilitatea, să pregătești dosarul și să alegi banca parteneră cu cele mai bune condiții disponibile.</div>
+    </div>
   </div>
 </div></section>
 
@@ -356,6 +392,32 @@
       <span style="font-size:12px">Județul Sibiu, România</span><br><br>
       <a href="https://maps.google.com/?q=Str.+Zaharia+Boiu+nr.+2+Sibiu" target="_blank" rel="noopener noreferrer">Deschide în Google Maps →</a>
     </div>
+  </div>
+</div></section>
+
+<section class="section"><div class="container">
+  <div class="section-label">Încredere</div>
+  <div class="section-title">Transparență, fără surprize</div>
+  <div class="section-sub">Lucrăm ca broker de credite: analizăm, comparăm și te ghidăm până la semnare — cu costuri explicate clar, înainte să alegi banca.</div>
+  <div class="three-cols">
+    <div class="feature-card">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-shield"/></svg></div>
+      <h3>0 lei pentru client</h3>
+      <p>Consultanța este gratuită. Suntem remunerați de bancă, nu de client.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-check"/></svg></div>
+      <h3>Costuri explicate</h3>
+      <p>Îți arătăm DAE, comisioane și condiții, pe înțelesul tău — înainte să semnezi.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-user"/></svg></div>
+      <h3>Un om dedicat</h3>
+      <p>Nu call-center: ai un consultant care răspunde și urmărește dosarul cap-coadă.</p>
+    </div>
+  </div>
+  <div class="alert-box" style="margin-top:18px">
+    Pentru transparență totală, îți putem trimite în scris lista de acte și pașii exacti ai procesului, în funcție de profilul tău.
   </div>
 </div></section>
 
