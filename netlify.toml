@@ -25,22 +25,24 @@
   # Anulează build-ul automat dacă mesajul nu cere explicit Netlify (vezi comentarii de sus).
   ignore = "bash scripts/netlify-should-build.sh"
 
-# ── Redirect HTTP → HTTPS (Netlify face asta automat, dar explicit e mai bine) ──
+# ── Canonical host (evită bucle www ↔ apex) ──
+# IMPORTANT: Dacă în Netlify UI este activ "Redirect www → apex",
+# atunci păstrăm aceeași direcție și NU mai forțăm www din redirects.
 [[redirects]]
-  from = "http://brokercreditesibiu.ro/*"
-  to   = "https://www.brokercreditesibiu.ro/:splat"
+  from = "https://www.brokercreditesibiu.ro/*"
+  to   = "https://brokercreditesibiu.ro/:splat"
   status = 301
   force  = true
 
 [[redirects]]
   from = "http://www.brokercreditesibiu.ro/*"
-  to   = "https://www.brokercreditesibiu.ro/:splat"
+  to   = "https://brokercreditesibiu.ro/:splat"
   status = 301
   force  = true
 
 [[redirects]]
-  from = "https://brokercreditesibiu.ro/*"
-  to   = "https://www.brokercreditesibiu.ro/:splat"
+  from = "http://brokercreditesibiu.ro/*"
+  to   = "https://brokercreditesibiu.ro/:splat"
   status = 301
   force  = true
 
