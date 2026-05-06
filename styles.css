@@ -775,6 +775,50 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
 }
 .doc-icon { font-size: 16px; flex-shrink: 0; }
 
+/* ── Benefit / signal cards (refinanțare) ── */
+.benefit-list { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+.benefit-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  background: #f8faff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+.benefit-icon {
+  width: 36px;
+  height: 36px;
+  background: #dbeafe;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+.benefit-content h4 { font-size: 14px; font-weight: 600; color: #0f1f5c; margin-bottom: 3px; }
+.benefit-content p { font-size: 13px; color: #64748b; line-height: 1.7; max-width: var(--measure); }
+
+.signal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.signal-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.signal-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: #2563eb;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.signal-text { font-size: 13px; color: #475569; line-height: 1.7; max-width: var(--measure); }
+
 /* ── Steps ── */
 .steps { display: flex; flex-direction: column; }
 .step { display: flex; gap: 20px; align-items: flex-start; padding: 20px 0; border-bottom: 0.5px solid #e2e8f0; }
