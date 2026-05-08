@@ -921,9 +921,9 @@ a:hover { color: var(--brand-2); }
   .credite-grid { grid-template-columns: 1fr; }
 }
 
-.info-card { background: #fff; border: 0.5px solid #e2e8f0; border-radius: 12px; padding: 24px; border-top: 3px solid #2563eb; }
-.info-card h3 { font-size: 15px; font-weight: 500; color: #0f1f5c; margin-bottom: 8px; }
-.info-card p { font-size: 13px; color: #64748b; line-height: 1.6; }
+.info-card { background: rgba(17, 31, 53, .65); border: 1px solid var(--border); border-radius: 12px; padding: 24px; border-top: 3px solid rgba(200, 162, 74, .55); box-shadow: var(--shadow); }
+.info-card h3 { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
+.info-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
 .info-card .value { font-family: 'DM Serif Display', serif; font-size: 24px; color: #2563eb; margin-bottom: 4px; }
 
 /* ── Checklists + docs grid (pagini servicii) ── */
