@@ -482,8 +482,8 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
 /* ── WhatsApp floating button ── */
 .whatsapp-fab {
   position: fixed;
-  left: 18px;
-  bottom: 18px;
+  right: 18px;
+  bottom: 68px;
   width: 56px;
   height: 56px;
   padding: 0;
