@@ -31,13 +31,20 @@ function inchideCookie(choice) {
 
 /* Ascunde bannerul dacă utilizatorul a ales deja (accept/refuz) */
 (function() {
-  try {
-    var consent = localStorage.getItem('cookie_consent');
-    if (consent === 'accepted' || consent === 'rejected') {
-      var banner = document.getElementById('cookieBanner');
-      if (banner) banner.style.display = 'none';
-    }
-  } catch(e) {}
+  function hideIfConsented() {
+    try {
+      var consent = localStorage.getItem('cookie_consent');
+      if (consent === 'accepted' || consent === 'rejected') {
+        var banner = document.getElementById('cookieBanner');
+        if (banner) banner.style.display = 'none';
+      }
+    } catch(e) {}
+  }
+
+  // banner-ul e injectat din `components.js` pe DOMContentLoaded,
+  // deci verificăm și imediat, și după ce DOM-ul e gata.
+  hideIfConsented();
+  document.addEventListener('DOMContentLoaded', hideIfConsented);
 })();
 
 /* ── Modal Formular ── */
