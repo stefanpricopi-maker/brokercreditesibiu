@@ -121,7 +121,6 @@
 '        <a href="index.html#servicii">Toate serviciile</a>',
   '        <a href="credit-ipotecar.html">Credit ipotecar</a>',
   '        <a href="refinantare.html">Refinanțare</a>',
-  '        <a href="credit-cu-ipoteca.html">Credit cu ipotecă</a>',
     '      </div>',
     '      <div class="footer-col">',
     '        <h3>Resurse</h3>',
