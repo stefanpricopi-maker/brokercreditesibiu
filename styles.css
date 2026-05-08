@@ -526,16 +526,16 @@ a:hover { color: var(--brand-2); }
 }
 .btn-outline:hover { background: rgba(19, 38, 66, .72); }
 .btn-wa {
-  background: rgba(17, 31, 53, .65);
-  color: var(--text);
+  background: #25D366;
+  color: #fff;
   font-size: 14px;
   font-weight: 500; padding: 13px 28px; border-radius: 8px;
-  border: 1.5px solid var(--border);
+  border: none;
   cursor: pointer; text-decoration: none;
   display: inline-flex; align-items: center; gap: 8px;
 }
-.btn-wa:hover { background: rgba(19, 38, 66, .72); }
-.btn-wa svg { width: 16px; height: 16px; fill: var(--brand); flex-shrink: 0; }
+.btn-wa:hover { background: #1fb458; }
+.btn-wa svg { width: 16px; height: 16px; fill: #fff; flex-shrink: 0; }
 
 /* ── WhatsApp floating button ── */
 .whatsapp-fab {
