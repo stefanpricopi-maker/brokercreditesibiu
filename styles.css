@@ -1732,17 +1732,23 @@ a:hover { color: var(--brand-2); }
 }
 
 /* ── Banks ── */
-.banks { padding: 0; background: #fff; border-top: 0.5px solid #e2e8f0; border-bottom: 0.5px solid #e2e8f0; }
+.banks {
+  padding: 0;
+  background: radial-gradient(900px 320px at 50% -20%, rgba(59, 130, 246, .12), transparent 60%),
+    linear-gradient(180deg, rgba(11, 18, 32, .10), rgba(11, 18, 32, .36));
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
 .banks > .container { max-width: var(--container); margin: 0 auto; padding: 20px 32px; }
 .banks-title {
   font-family: 'DM Serif Display', serif;
   font-size: 24px;
-  color: #0f1f5c;
+  color: var(--text);
   text-align: center;
   margin-bottom: 14px;
 }
 .banks-list { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-.bank-pill { background: #fff; border: 0.5px solid #e2e8f0; border-radius: 6px; padding: 6px 14px; font-size: 12px; font-weight: 500; color: #475569; }
+.bank-pill { background: rgba(17, 31, 53, .65); border: 1px solid var(--border); border-radius: 6px; padding: 6px 14px; font-size: 12px; font-weight: 500; color: var(--muted); }
 .banks-logos { margin: 0; padding: 0; display: block; }
 .banks-logos-img {
   display: block;
@@ -1751,7 +1757,7 @@ a:hover { color: var(--brand-2); }
   height: auto;
   margin: 10px auto 0;
   border-radius: 12px;
-  background: #fff;
+  background: rgba(17, 31, 53, .35);
 }
 .banks-logos-grid {
   margin: 0 auto;
