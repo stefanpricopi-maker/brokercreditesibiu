@@ -482,14 +482,14 @@ a:hover { color: var(--brand-2); }
 .btn-primary svg { width: 14px; height: 14px; stroke: rgba(11, 18, 32, .98); fill: none; stroke-width: 2.5; }
 
 .btn-secondary {
-  background: rgba(17, 31, 53, .65);
-  color: var(--text);
+  background: linear-gradient(180deg, var(--brand), var(--brand-2));
+  color: rgba(11, 18, 32, .98);
   font-size: 14px;
   font-weight: 500; padding: 12px 24px; border-radius: 8px;
-  border: 1.5px solid var(--border); cursor: pointer; text-decoration: none;
+  border: none; cursor: pointer; text-decoration: none;
   display: inline-flex; align-items: center;
 }
-.btn-secondary:hover { background: rgba(19, 38, 66, .72); }
+.btn-secondary:hover { filter: brightness(1.02); transform: translateY(-1px); }
 .btn-navy {
   background: linear-gradient(180deg, var(--brand), var(--brand-2));
   color: rgba(11, 18, 32, .98);
