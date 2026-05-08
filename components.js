@@ -123,7 +123,6 @@
     '      </div>',
     '      <div class="footer-col">',
     '        <h3>Resurse</h3>',
-  '        <a href="index.html#servicii">Servicii</a>',
   '        <a href="politica-confidentialitate.html">Confidențialitate</a>',
   '        <a href="cookies.html">Cookies</a>',
     '      </div>',
