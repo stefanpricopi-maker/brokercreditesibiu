@@ -448,7 +448,8 @@
       <h3>Trimite-mi un mesaj</h3>
       <p class="sub">Completează formularul și te contactez în maxim 24 de ore cu o analiză personalizată.</p>
 
-      <div id="contactForm">
+      <form id="contactForm" name="contact" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="website_url">
+        <input type="hidden" name="form-name" value="contact"/>
         <div class="offscreen" aria-hidden="true">
           <label for="website_url">Nu completa acest câmp</label>
           <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off"/>
@@ -456,30 +457,30 @@
         <div class="form-row">
           <div class="form-field">
             <label for="fNume">Nume <span class="req">*</span></label>
-            <input type="text" id="fNume" placeholder="ex: Ion Popescu"/>
+            <input type="text" id="fNume" name="nume" placeholder="ex: Ion Popescu" autocomplete="name" required/>
           </div>
           <div class="form-field">
             <label for="fPrenume">Prenume</label>
-            <input type="text" id="fPrenume" placeholder="ex: Maria"/>
+            <input type="text" id="fPrenume" name="prenume" placeholder="ex: Maria" autocomplete="given-name"/>
           </div>
         </div>
         <div class="form-row">
           <div class="form-field">
             <label for="fTelefon">Telefon <span class="req">*</span></label>
-            <input type="tel" id="fTelefon" placeholder="07xx xxx xxx"/>
+            <input type="tel" id="fTelefon" name="telefon" placeholder="07xx xxx xxx" autocomplete="tel" required/>
           </div>
           <div class="form-field">
             <label for="fEmail">Email <span class="req">*</span></label>
-            <input type="email" id="fEmail" placeholder="adresa@email.ro"/>
+            <input type="email" id="fEmail" name="email" placeholder="adresa@email.ro" autocomplete="email" required/>
           </div>
         </div>
         <div class="form-field">
           <label for="fOras">Oraș</label>
-          <input type="text" id="fOras" placeholder="ex: București, Cluj, Sibiu..."/>
+          <input type="text" id="fOras" name="oras" placeholder="ex: București, Cluj, Sibiu..." autocomplete="address-level2"/>
         </div>
         <div class="form-field">
           <label for="fSubiect">Subiect</label>
-          <select id="fSubiect" class="topic-select">
+          <select id="fSubiect" name="subiect" class="topic-select">
             <option value="">— Selectează subiectul —</option>
             <option value="credit-ipotecar">Credit ipotecar</option>
             <option value="refinantare">Refinanțare credit existent</option>
@@ -491,18 +492,18 @@
         </div>
         <div class="form-field">
           <label for="fMesaj">Mesaj <span class="req">*</span></label>
-          <textarea id="fMesaj" placeholder="Descrie pe scurt situația ta — suma dorită, avansul disponibil, orașul în care se află proprietatea sau orice alte detalii relevante..."></textarea>
+          <textarea id="fMesaj" name="mesaj" placeholder="Descrie pe scurt situația ta — suma dorită, avansul disponibil, orașul în care se află proprietatea sau orice alte detalii relevante..." required></textarea>
           <div class="form-hint">Cu cât îmi oferi mai multe detalii, cu atât răspunsul meu va fi mai precis.</div>
         </div>
         <div class="gdpr-check">
-          <input type="checkbox" id="gdprCheck"/>
+          <input type="checkbox" id="gdprCheck" name="gdpr" required/>
           <label for="gdprCheck">Am citit și sunt de acord cu <a href="politica-confidentialitate.html">Politica de confidențialitate</a> și cu prelucrarea datelor mele personale în scopul contactării mele de către BrokerCrediteSibiu.</label>
         </div>
         <div class="form-error" id="formError" role="alert" hidden></div>
-        <button class="submit-btn" onclick="trimiteFormular()">
+        <button class="submit-btn" type="submit">
           Trimite mesajul
         </button>
-      </div>
+      </form>
 
       <div class="success-msg" id="successMsg">
         <div class="check">✓</div>

@@ -163,24 +163,11 @@ function trimiteFormular() {
     setFormError('Bifează acordul pentru Politica de confidențialitate ca să pot să te contactez.');
     return;
   }
-  var oras    = (document.getElementById('fOras')    || {value:''}).value.trim();
-  var subiect = (document.getElementById('fSubiect') || {value:''}).value;
-  var numeComplet = prenume ? nume + ' ' + prenume : nume;
-  var body =
-    'Mesaj de pe pagina de Contact%0A%0A' +
-    'Nume: '     + encodeURIComponent(numeComplet)       + '%0A' +
-    'Telefon: '  + encodeURIComponent(telefon)           + '%0A' +
-    'Email: '    + encodeURIComponent(email)             + '%0A' +
-    'Oras: '     + encodeURIComponent(oras || '—')       + '%0A' +
-    'Subiect: '  + encodeURIComponent(subiect || '—')    + '%0A%0A' +
-    'Mesaj:%0A'  + encodeURIComponent(mesaj);
-  var subject = encodeURIComponent('Contact website - ' + (subiect || 'Mesaj nou') + ' - ' + numeComplet);
-  window.location.href = 'mailto:dragos.pricopi@fin.imobiliare.ro?subject=' + subject + '&body=' + body;
+
   var form = document.getElementById('contactForm');
-  var sm   = document.getElementById('successMsg');
-  if (form) form.style.display = 'none';
-  if (sm)   sm.style.display   = 'block';
-  setTimeout(function() { window.location.href = 'thank-you.html'; }, 1500);
+  if (form && typeof form.submit === 'function') {
+    form.submit();
+  }
 }
 
 /* ── Indicator program lucru (pagina Contact) ── */
