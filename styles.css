@@ -1032,7 +1032,7 @@ a:hover { color: var(--brand-2); }
 .compare-table .highlight { font-weight: 700; color: #2563eb; }
 .compare-table .dim { color: #94a3b8; }
 
-/* ── Article layout (ghid-credit-ipotecar.html) ── */
+/* ── Article layout ── */
 .article-header {
   padding: 56px 32px 48px;
   background: linear-gradient(135deg, #eef4ff 0%, #f8faff 60%, #fff 100%);
