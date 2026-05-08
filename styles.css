@@ -230,6 +230,7 @@ a:hover { color: var(--brand-2); }
   border: 1px solid var(--border);
 }
 .social-btn:hover { background: rgba(200, 162, 74, .10); color: var(--brand); }
+.social-btn svg { width: 16px; height: 16px; display: block; }
 .footer-bottom {
   border-top: 1px solid var(--border); padding-top: 14px;
   display: flex; justify-content: space-between;
