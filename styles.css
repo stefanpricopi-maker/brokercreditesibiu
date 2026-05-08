@@ -1406,8 +1406,8 @@ a:hover { color: var(--brand-2); }
   justify-content: center; font-weight: 500; font-size: 14px; flex-shrink: 0;
 }
 .step-content h4,
-.step-content h3 { font-size: 15px; font-weight: 500; color: #0f1f5c; margin-bottom: 4px; }
-.step-content p { font-size: 13px; color: #64748b; line-height: 1.6; }
+.step-content h3 { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+.step-content p { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
 /* Homepage: steps într-un singur rând (desktop) */
 .steps--grid {
