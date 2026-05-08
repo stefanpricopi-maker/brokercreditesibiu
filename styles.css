@@ -67,8 +67,14 @@ body { font-family: 'DM Sans', sans-serif; color: #1a2744; background: #fff; }
   gap: 16px;
 }
 .nav-logo {
- font-family: 'DM Serif Display', serif; font-size: 21px;
-  color: #1a3a8f; text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+.nav-logo-img {
+  height: 28px;
+  width: auto;
+  display: block;
 }
 .nav-logo span { color: #2563eb; }
 .nav-links { display: flex; align-items: center; gap: 24px; }
