@@ -52,12 +52,6 @@
   to   = "/"
   status = 301
 
-# ── Pagina 404 custom ──
-[[redirects]]
-  from   = "/*"
-  to     = "/404.html"
-  status = 404
-
 # ── Security Headers (aplicate pe toate paginile) ──
 [[headers]]
   for = "/*"
