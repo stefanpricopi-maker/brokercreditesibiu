@@ -228,7 +228,7 @@
   <div class="social-proof-toast" id="socialProofToast" role="status" aria-live="polite">
     <div class="sp-avatar" aria-hidden="true">AM</div>
     <div class="sp-text">
-      <strong>A. din București</strong> a solicitat o consultație
+      <strong>A. din București</strong> a solicitat o consultare
       <span class="sp-time">acum 12 minute</span>
     </div>
     <button class="sp-close" onclick="inchideSocialProof()" aria-label="Închide notificarea">×</button>
@@ -239,14 +239,14 @@
     <div class="exit-popup">
       <button class="exit-popup-close" onclick="inchideExitPopup()" aria-label="Închide">✕</button>
       <div class="exit-emoji" aria-hidden="true">🏠</div>
-      <span class="exit-badge">✓ Consultație 100% gratuită</span>
+      <span class="exit-badge">✓ Consultare 100% gratuită</span>
       <h3 id="exitTitle">Înainte să pleci...</h3>
       <p>Lasă-mi numărul de telefon și te sun în maxim 30 de minute cu o analiză personalizată. Fără obligații.</p>
       <div class="exit-form">
         <input type="tel" id="exitPhone" placeholder="07xx xxx xxx" aria-label="Număr de telefon"/>
         <button onclick="trimiteExitForm()">Sună-mă</button>
       </div>
-      <span class="exit-skip" onclick="inchideExitPopup()" role="button" tabindex="0">Nu mulțumesc, plec fără consultație</span>
+      <span class="exit-skip" onclick="inchideExitPopup()" role="button" tabindex="0">Nu mulțumesc, plec fără consultare</span>
     </div>
   </div>`;
     var GA4 = `
@@ -279,7 +279,7 @@
       <a href="index.html#servicii" id="mmServicii">Servicii</a>
       <a href="index.html#povestea-mea" id="mmDespre">Despre mine</a>
       <a href="index.html#contact" id="mmContact">Contact</a>
-      <a href="index.html#contact" class="mobile-cta">Consultație gratuită →</a>
+      <a href="index.html#contact" class="mobile-cta">Consultare gratuită →</a>
     </div>
   </nav>`);
 

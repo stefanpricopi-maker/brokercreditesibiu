@@ -286,10 +286,10 @@ function initStickyCTA() {
 
 /* ── Social Proof Toast ── */
 var SP_DATA = [
-  { initiale: 'AM', oras: 'București',    actiune: 'a solicitat o consultație',   timp: 'acum 12 minute' },
+  { initiale: 'AM', oras: 'București',    actiune: 'a solicitat o consultare',   timp: 'acum 12 minute' },
   { initiale: 'RD', oras: 'Cluj-Napoca',  actiune: 'a calculat rata unui credit',  timp: 'acum 28 minute' },
   { initiale: 'BP', oras: 'Timișoara',    actiune: 'a trimis o cerere de ofertă',  timp: 'acum 41 minute' },
-  { initiale: 'MV', oras: 'Brașov',       actiune: 'a solicitat o consultație',   timp: 'acum 1 oră' },
+  { initiale: 'MV', oras: 'Brașov',       actiune: 'a solicitat o consultare',   timp: 'acum 1 oră' },
   { initiale: 'CS', oras: 'Iași',         actiune: 'a calculat rata unui credit',  timp: 'acum 2 ore' },
   { initiale: 'DP', oras: 'Sibiu',        actiune: 'a trimis o cerere de ofertă',  timp: 'acum 3 ore' },
 ];
@@ -374,7 +374,7 @@ function trimiteExitForm() {
   }
   window.location.href = 'mailto:dragos.pricopi@fin.imobiliare.ro' +
     '?subject=' + encodeURIComponent('Cerere callback rapid') +
-    '&body=' + encodeURIComponent('Telefon: ' + phone + '\n\nVă rog să mă contactați pentru o consultație gratuită.');
+    '&body=' + encodeURIComponent('Telefon: ' + phone + '\n\nVă rog să mă contactați pentru o consultare gratuită.');
   inchideExitPopup();
   gtag_event('exit_intent_submit');
 }
