@@ -65,8 +65,8 @@
     : '<a class="nav-cta" href="index.html#contact" aria-label="Consultare gratuită"><span class="cta-long">Consultare gratuită</span><span class="cta-short" aria-hidden="true">Consultare</span></a>';
 
   var NAV_LOGO = isHomepage
-    ? '<div class="nav-logo" aria-label="BrokerCrediteSibiu"><img class="nav-logo-img" src="assets/logo.webp" width="158" height="56" alt="Broker Credite Sibiu" decoding="async"/></div>'
-    : '<a class="nav-logo" href="index.html" aria-label="BrokerCrediteSibiu — Acasă"><img class="nav-logo-img" src="assets/logo.webp" width="158" height="56" alt="Broker Credite Sibiu" decoding="async"/></a>';
+    ? '<div class="nav-logo" aria-label="BrokerCrediteSibiu"><img class="nav-logo-img" src="assets/logo.webp" width="207" height="56" alt="Broker Credite Sibiu" decoding="async"/></div>'
+    : '<a class="nav-logo" href="index.html" aria-label="BrokerCrediteSibiu — Acasă"><img class="nav-logo-img" src="assets/logo.webp" width="207" height="56" alt="Broker Credite Sibiu" decoding="async"/></a>';
 
   var NAV_HTML = [
     '<nav class="nav" role="navigation" aria-label="Navigație principală">',
