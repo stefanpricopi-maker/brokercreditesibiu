@@ -131,7 +131,7 @@
     '      </div>',
     '    </div>',
     '    <div class="footer-bottom">',
-    '      <span class="footer-copy">© 2025 BrokerCrediteSibiu. Toate drepturile rezervate.</span>',
+    '      <span class="footer-copy">© 2026 BrokerCrediteSibiu. Toate drepturile rezervate.</span>',
     '      <div class="footer-legal">',
     '        <a href="politica-confidentialitate.html">Politica de confidențialitate</a>',
     '        <a href="politica-confidentialitate.html#gdpr">GDPR</a>',
