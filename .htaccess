@@ -1,7 +1,6 @@
 # ============================================================
-# BrokerCrediteSibiu — .htaccess
-# Security headers pentru Apache / cPanel hosting
-# Copie ca `.htaccess` în public_html. Fișiere 644, foldere 755.
+# BrokerCrediteSibiu — .htaccess (Apache / cPanel)
+# După upload: fișiere 644, foldere 755 (în File Manager → Change Permissions)
 # ============================================================
 
 # ── HTTPS Redirect ──
@@ -17,23 +16,12 @@ ErrorDocument 404 /404.html
 # ── Security Headers ──
 <IfModule mod_headers.c>
 
-  # Forțează HTTPS pentru 1 an (activați după ce HTTPS funcționează stabil)
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-
-  # Previne clickjacking — site-ul nu poate fi încărcat în iframe
   Header always set X-Frame-Options "DENY"
-
-  # Previne MIME type sniffing
   Header always set X-Content-Type-Options "nosniff"
-
-  # Controlează informațiile trimise ca Referrer
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
-
-  # Dezactivează funcții browser neutilizate
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
 
-  # Content Security Policy
-  # Permite: propriile fișiere, Google Fonts, Google Analytics (comentat)
   Header always set Content-Security-Policy "\
     default-src 'self'; \
     script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; \
@@ -47,7 +35,6 @@ ErrorDocument 404 /404.html
     form-action 'self' mailto:; \
     upgrade-insecure-requests"
 
-  # Elimină header-ul care dezvăluie tehnologia serverului
   Header unset X-Powered-By
   Header always unset X-Powered-By
 
@@ -67,12 +54,12 @@ ErrorDocument 404 /404.html
 # ── Dezactivează listarea directorului ──
 Options -Indexes
 
-# ── Compresie GZIP pentru performanță ──
+# ── Compresie GZIP ──
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
 </IfModule>
 
-# ── Cache browser pentru resurse statice ──
+# ── Cache browser ──
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/css              "access plus 1 month"
@@ -85,7 +72,7 @@ Options -Indexes
   ExpiresByType application/xml       "access plus 1 day"
 </IfModule>
 
-# ── Blochează accesul la fișiere JS/CSS din alte domenii (hotlinking) ──
+# ── Anti-hotlink doar pentru .js și .css ──
 <IfModule mod_rewrite.c>
   RewriteCond %{HTTP_REFERER} !^$
   RewriteCond %{HTTP_REFERER} !^https://(www\.)?brokercreditesibiu\.ro [NC]
