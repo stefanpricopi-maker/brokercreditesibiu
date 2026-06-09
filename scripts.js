@@ -649,9 +649,9 @@ function fetchReviewsJson(url, timeoutMs) {
 
 function loadGoogleReviewsData() {
   var urls = [
-    'api/google-reviews.php',
+    'google-reviews.php',
     'data/google-reviews.json',
-    '/api/google-reviews.php',
+    '/google-reviews.php',
     '/data/google-reviews.json'
   ];
 

@@ -4,11 +4,11 @@ Thumbs.db
 # Local env / secrets
 .env
 .env.*
-api/config.php
-api/cache/reviews.json
-api/cache/gbp-credentials.json
-api/cache/gbp-access.json
-api/cache/gbp-oauth-state.json
+_bcs/config.php
+_bcs/cache/reviews.json
+_bcs/cache/gbp-credentials.json
+_bcs/cache/gbp-access.json
+_bcs/cache/gbp-oauth-state.json
 
 # Logs
 *.log

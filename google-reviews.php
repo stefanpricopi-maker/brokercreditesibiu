@@ -1,7 +1,31 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/lib/gbp.php';
+$bcsRoot = __DIR__ . '/_bcs';
+
+function bcs_load_gbp_lib(string $bcsRoot): bool
+{
+    static $loaded = false;
+    if ($loaded) {
+        return true;
+    }
+    $path = $bcsRoot . '/lib/gbp.php';
+    if (!is_readable($path)) {
+        return false;
+    }
+    require_once $path;
+    $loaded = true;
+    return true;
+}
+
+function bcs_load_config(string $configFile): array
+{
+    if (!is_readable($configFile)) {
+        return [];
+    }
+    $config = require $configFile;
+    return is_array($config) ? $config : [];
+}
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: public, max-age=3600');
@@ -101,6 +125,10 @@ function fetch_places_reviews(string $apiKey, string $placeId, int $limit): arra
 {
     global $baseMapsUrl, $maxReviews;
 
+    if (!function_exists('curl_init')) {
+        return ['ok' => false, 'error' => 'curl_not_available'];
+    }
+
     $url = 'https://places.googleapis.com/v1/places/' . rawurlencode($placeId);
     $fields = 'id,displayName,rating,userRatingCount,googleMapsUri,reviews';
 
@@ -179,15 +207,17 @@ function build_write_review_url(?string $placeId): ?string
     return 'https://search.google.com/local/writereview?placeid=' . rawurlencode($placeId);
 }
 
-$cacheFile = __DIR__ . '/cache/reviews.json';
-$configFile = __DIR__ . '/config.php';
-$fallbackFile = dirname(__DIR__) . '/data/google-reviews.json';
+$cacheFile = $bcsRoot . '/cache/reviews.json';
+$configFile = $bcsRoot . '/config.php';
+$fallbackFile = __DIR__ . '/data/google-reviews.json';
 
-$config = is_readable($configFile) ? require $configFile : [];
+$config = bcs_load_config($configFile);
 $apiKey = trim((string) ($config['api_key'] ?? ''));
 $placeId = trim((string) ($config['place_id'] ?? ''));
 $cacheTtl = (int) ($config['cache_ttl'] ?? 86400);
-$gbpReady = gbp_is_configured($config);
+$gbpMaybe = trim((string) ($config['gbp_client_id'] ?? '')) !== ''
+    || is_readable($bcsRoot . '/cache/gbp-credentials.json');
+$gbpReady = $gbpMaybe && bcs_load_gbp_lib($bcsRoot) && gbp_is_configured($config);
 $placesReady = $apiKey !== '' && $placeId !== '';
 $configured = $gbpReady || $placesReady;
 $writeReviewUrl = build_write_review_url($placeId);
@@ -195,7 +225,9 @@ $writeReviewUrl = build_write_review_url($placeId);
 $cached = read_json_file($cacheFile);
 if ($cached && isset($cached['fetchedAt']) && $cacheTtl > 0) {
     $age = time() - (int) strtotime((string) $cached['fetchedAt']);
-    if ($age >= 0 && $age < $cacheTtl) {
+    $cachedFromGbp = ($cached['source'] ?? '') === 'gbp' || (int) ($cached['reviewsApiMax'] ?? 5) >= $maxReviews;
+    $skipStalePlacesCache = $gbpReady && !$cachedFromGbp;
+    if ($age >= 0 && $age < $cacheTtl && !$skipStalePlacesCache) {
         $cached['source'] = 'cache';
         respond($cached);
     }
@@ -218,7 +250,7 @@ if (!$configured) {
 $result = null;
 $warning = null;
 
-if ($gbpReady) {
+if ($gbpReady && function_exists('gbp_fetch_reviews')) {
     $GLOBALS['baseMapsUrl'] = $baseMapsUrl;
     $gbpResult = gbp_fetch_reviews($config, $maxReviews);
     if ($gbpResult['ok']) {

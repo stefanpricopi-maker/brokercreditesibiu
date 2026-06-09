@@ -61,6 +61,10 @@ function gbp_refresh_token(array $config): ?string
 
 function gbp_http_request(string $method, string $url, array $headers = [], ?string $body = null): array
 {
+    if (!function_exists('curl_init')) {
+        return ['ok' => false, 'error' => 'curl_not_available'];
+    }
+
     $ch = curl_init($url);
     if ($ch === false) {
         return ['ok' => false, 'error' => 'curl_init_failed'];
@@ -319,7 +323,98 @@ function gbp_site_url(array $config): string
 
 function gbp_oauth_redirect_uri(array $config): string
 {
-    return gbp_site_url($config) . '/api/gbp-auth.php?action=callback';
+    $override = trim((string) ($config['gbp_redirect_uri'] ?? ''));
+    if ($override !== '') {
+        return $override;
+    }
+
+    return gbp_site_url($config) . '/gbp-oauth-callback.php';
+}
+
+function gbp_complete_oauth_callback(array $config, string $code, string $state): void
+{
+    $clientId = trim((string) ($config['gbp_client_id'] ?? ''));
+    $clientSecret = trim((string) ($config['gbp_client_secret'] ?? ''));
+    $savedState = gbp_read_json(gbp_cache_path('gbp-oauth-state.json'));
+
+    if ($code === '' || $state === '' || !$savedState || !hash_equals((string) $savedState['state'], $state)) {
+        http_response_code(400);
+        echo 'OAuth invalid sau expirat. Reîncepe conectarea.';
+        exit;
+    }
+
+    $redirectUri = gbp_oauth_redirect_uri($config);
+    $body = http_build_query([
+        'code'          => $code,
+        'client_id'     => $clientId,
+        'client_secret' => $clientSecret,
+        'redirect_uri'  => $redirectUri,
+        'grant_type'    => 'authorization_code',
+    ]);
+
+    $tokenResult = gbp_http_request('POST', 'https://oauth2.googleapis.com/token', [
+        'Content-Type: application/x-www-form-urlencoded',
+    ], $body);
+
+    if (!$tokenResult['ok']) {
+        http_response_code(502);
+        header('Content-Type: text/html; charset=utf-8');
+        echo '<!DOCTYPE html><html lang="ro"><head><meta charset="UTF-8"><title>Eroare OAuth</title></head><body style="font-family:sans-serif;max-width:560px;margin:40px auto;padding:0 16px;">';
+        echo '<h1>Nu am putut obține tokenul</h1>';
+        echo '<p>' . htmlspecialchars($tokenResult['error'] ?? 'unknown', ENT_QUOTES, 'UTF-8') . '</p>';
+        echo '<p>Redirect URI folosit: <code>' . htmlspecialchars($redirectUri, ENT_QUOTES, 'UTF-8') . '</code></p>';
+        echo '<p>Asigură-te că acest URL e în Google Cloud → OAuth client → Authorized redirect URIs.</p>';
+        echo '</body></html>';
+        exit;
+    }
+
+    $tokenData = $tokenResult['data'];
+    $refreshToken = $tokenData['refresh_token'] ?? '';
+    $accessToken = $tokenData['access_token'] ?? '';
+
+    if ($refreshToken === '' || $accessToken === '') {
+        http_response_code(502);
+        echo 'Google nu a returnat refresh_token. Revocă accesul aplicației din contul Google și reconectează.';
+        exit;
+    }
+
+    gbp_write_json(gbp_cache_path('gbp-credentials.json'), [
+        'refresh_token' => $refreshToken,
+        'connected_at'  => gmdate('c'),
+    ]);
+
+    $expiresIn = (int) ($tokenData['expires_in'] ?? 3600);
+    gbp_write_json(gbp_cache_path('gbp-access.json'), [
+        'access_token' => $accessToken,
+        'expires_at'   => time() + $expiresIn,
+    ]);
+
+    $discover = gbp_discover_location($config, $accessToken);
+    if ($discover['ok']) {
+        $existing = gbp_read_json(gbp_cache_path('gbp-credentials.json')) ?? [];
+        gbp_write_json(gbp_cache_path('gbp-credentials.json'), array_merge($existing, [
+            'account_id'  => $discover['account_id'],
+            'location_id' => $discover['location_id'],
+            'place_title' => $discover['place_title'],
+        ]));
+    }
+
+    @unlink(gbp_cache_path('gbp-oauth-state.json'));
+    @unlink(gbp_cache_path('reviews.json'));
+
+    header('Content-Type: text/html; charset=utf-8');
+    echo '<!DOCTYPE html><html lang="ro"><head><meta charset="UTF-8"><title>Google Business conectat</title></head><body style="font-family:sans-serif;max-width:560px;margin:40px auto;padding:0 16px;">';
+    echo '<h1>Google Business Profile conectat</h1>';
+    if ($discover['ok']) {
+        echo '<p>Locație detectată: <strong>' . htmlspecialchars($discover['place_title'], ENT_QUOTES, 'UTF-8') . '</strong></p>';
+        echo '<p>Account ID: <code>' . htmlspecialchars($discover['account_id'], ENT_QUOTES, 'UTF-8') . '</code><br>';
+        echo 'Location ID: <code>' . htmlspecialchars($discover['location_id'], ENT_QUOTES, 'UTF-8') . '</code></p>';
+    } else {
+        echo '<p>Token salvat, dar locația nu a putut fi detectată automat. Completează manual <code>gbp_account_id</code> și <code>gbp_location_id</code> în config.</p>';
+        echo '<p>Eroare: ' . htmlspecialchars($discover['error'] ?? 'unknown', ENT_QUOTES, 'UTF-8') . '</p>';
+    }
+    echo '<p>Recenziile (până la 10) vor apărea pe site după refresh. Poți închide această pagină.</p>';
+    echo '<p><a href="/">Înapoi la site</a></p></body></html>';
 }
 
 function gbp_verify_setup_secret(array $config, ?string $provided): bool
