@@ -27,7 +27,7 @@ ErrorDocument 404 /404.html
     script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; \
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; \
     font-src 'self' https://fonts.gstatic.com; \
-    img-src 'self' data: https://www.google-analytics.com; \
+    img-src 'self' data: https://www.google-analytics.com https://lh3.googleusercontent.com; \
     connect-src 'self' https://www.google-analytics.com; \
     frame-src 'none'; \
     object-src 'none'; \

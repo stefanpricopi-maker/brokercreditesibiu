@@ -4,6 +4,7 @@
   "description": "Site static — previzualizare locală fără consum Netlify",
   "scripts": {
     "local": "npx --yes serve@14 . -p 8888",
+    "local:php": "php -S localhost:8888 -t .",
     "local:9000": "npx --yes serve@14 . -p 9000",
     "local:9001": "npx --yes serve@14 . -p 9001"
   },

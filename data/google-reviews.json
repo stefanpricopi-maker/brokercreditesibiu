@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "configured": false,
+  "rating": null,
+  "reviewCount": 0,
+  "placeName": "BrokerCrediteSibiu",
+  "mapsUrl": "https://maps.google.com/?q=Str.+Zaharia+Boiu+nr.+2+Sibiu",
+  "writeReviewUrl": null,
+  "reviews": [],
+  "fetchedAt": null,
+  "source": "fallback"
+}

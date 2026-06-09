@@ -81,6 +81,7 @@
     '      <a href="index.html"' + isActive('index.html') + '>Acasă</a>',
     '      <a href="index.html#servicii">Servicii</a>',
     '      <a href="index.html#povestea-mea">Despre mine</a>',
+    '      <a href="index.html#ghid-broker">Ghid</a>',
     '      <a href="index.html#contact">Contact</a>',
     '    </div>',
     '    <div class="nav-right">',
@@ -277,6 +278,7 @@
       <a href="index.html" id="mmHome">Acasă</a>
       <a href="index.html#servicii" id="mmServicii">Servicii</a>
       <a href="index.html#povestea-mea" id="mmDespre">Despre mine</a>
+      <a href="index.html#ghid-broker" id="mmGhid">Ghid</a>
       <a href="index.html#contact" id="mmContact">Contact</a>
       <a href="index.html#contact" class="mobile-cta">Consultare gratuită →</a>
     </div>

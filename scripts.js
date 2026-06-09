@@ -425,11 +425,294 @@ function initGA4Tracking() {
   }, { passive: true });
 }
 
+/* ── Google Reviews ── */
+function renderStars(rating) {
+  var value = Math.max(0, Math.min(5, Number(rating) || 0));
+  var full = Math.round(value);
+  var html = '';
+  for (var i = 1; i <= 5; i++) {
+    html += '<span aria-hidden="true">' + (i <= full ? '★' : '☆') + '</span>';
+  }
+  return html;
+}
+
+function escapeHtml(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function getReviewInitials(name) {
+  var parts = String(name || '').trim().split(/\s+/).filter(Boolean);
+  if (!parts.length) return 'G';
+  if (parts.length === 1) return parts[0].charAt(0).toUpperCase();
+  return (parts[0].charAt(0) + parts[parts.length - 1].charAt(0)).toUpperCase();
+}
+
+function injectGoogleReviewSchema(data) {
+  if (!data || !data.rating || !data.reviewCount || !data.reviews || !data.reviews.length) return;
+
+  var payload = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': 'https://www.brokercreditesibiu.ro/#business',
+    'name': data.placeName || 'BrokerCrediteSibiu',
+    'aggregateRating': {
+      '@type': 'AggregateRating',
+      'ratingValue': String(data.rating),
+      'reviewCount': String(data.reviewCount),
+      'bestRating': '5',
+      'worstRating': '1'
+    },
+    'review': data.reviews.slice(0, 10).map(function(review) {
+      var item = {
+        '@type': 'Review',
+        'author': { '@type': 'Person', 'name': review.author || 'Client Google' },
+        'reviewRating': {
+          '@type': 'Rating',
+          'ratingValue': String(review.rating),
+          'bestRating': '5',
+          'worstRating': '1'
+        },
+        'reviewBody': review.text
+      };
+      if (review.date) item.datePublished = review.date;
+      return item;
+    })
+  };
+
+  var existing = document.getElementById('google-reviews-schema');
+  if (existing) existing.remove();
+
+  var script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.id = 'google-reviews-schema';
+  script.textContent = JSON.stringify(payload);
+  document.head.appendChild(script);
+}
+
+function sortReviewsByDate(reviews, limit) {
+  var max = limit || 10;
+  return reviews.slice().sort(function(a, b) {
+    var ta = a.date ? Date.parse(a.date) : 0;
+    var tb = b.date ? Date.parse(b.date) : 0;
+    return tb - ta;
+  }).slice(0, max);
+}
+
+function initGoogleReviewsCarousel(root) {
+  var track = root.querySelector('.google-reviews-track');
+  var prev = root.querySelector('.google-reviews-nav--prev');
+  var next = root.querySelector('.google-reviews-nav--next');
+  if (!track || !prev || !next) return;
+
+  function scrollByCard(direction) {
+    var card = track.querySelector('.google-review-card');
+    var gap = 14;
+    var amount = card ? card.getBoundingClientRect().width + gap : track.clientWidth * 0.85;
+    track.scrollBy({ left: direction * amount, behavior: 'smooth' });
+  }
+
+  function updateNav() {
+    var maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+    var atStart = track.scrollLeft <= 4;
+    var atEnd = track.scrollLeft >= maxScroll - 4;
+    prev.disabled = atStart;
+    next.disabled = atEnd;
+    prev.classList.toggle('is-hidden', maxScroll <= 0);
+    next.classList.toggle('is-hidden', maxScroll <= 0);
+  }
+
+  prev.addEventListener('click', function() { scrollByCard(-1); });
+  next.addEventListener('click', function() { scrollByCard(1); });
+  track.addEventListener('scroll', updateNav, { passive: true });
+  window.addEventListener('resize', updateNav);
+  updateNav();
+}
+
+function renderGoogleReviews(data) {
+  var root = document.getElementById('googleReviews');
+  if (!root) return;
+
+  var mapsUrl = data.mapsUrl || 'https://maps.google.com/?q=Str.+Zaharia+Boiu+nr.+2+Sibiu';
+  var writeUrl = data.writeReviewUrl;
+  var reviews = sortReviewsByDate(Array.isArray(data.reviews) ? data.reviews : [], data.reviewsLimit || 10);
+  var hasRating = data.rating && data.reviewCount;
+
+  if (!reviews.length && !hasRating) {
+    root.innerHTML =
+      '<div class="google-reviews-empty">' +
+        '<p>Încă nu avem recenzii afișate pe Google. Dacă ai lucrat cu mine, o recenzie de la tine mă ajută enorm să ajung la mai mulți oameni care caută un broker de încredere.</p>' +
+        (writeUrl
+          ? '<div class="google-reviews-actions" style="justify-content:center">' +
+              '<a class="btn-review-primary" href="' + escapeHtml(writeUrl) + '" target="_blank" rel="noopener noreferrer">Lasă prima recenzie pe Google</a>' +
+            '</div>'
+          : '<div class="google-reviews-actions" style="justify-content:center">' +
+              '<a href="' + escapeHtml(mapsUrl) + '" target="_blank" rel="noopener noreferrer">Deschide profilul pe Google Maps</a>' +
+            '</div>') +
+        '<p class="google-reviews-badge" aria-hidden="true">' +
+          '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>' +
+          'Recenzii Google Business Profile' +
+        '</p>' +
+      '</div>';
+    return;
+  }
+
+  var summaryHtml =
+    '<div class="google-reviews-summary">' +
+      '<div class="google-reviews-score">' +
+        '<div class="google-reviews-value" aria-hidden="true">' + escapeHtml(data.rating.toFixed(1)) + '</div>' +
+        '<div class="google-reviews-meta">' +
+          '<div class="google-reviews-stars" aria-label="Rating ' + escapeHtml(data.rating) + ' din 5">' + renderStars(data.rating) + '</div>' +
+          '<p><strong>' + escapeHtml(String(data.reviewCount)) + '</strong> recenzii pe Google</p>' +
+          '<p>' + escapeHtml(data.placeName || 'BrokerCrediteSibiu') + '</p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="google-reviews-actions">' +
+        '<a href="' + escapeHtml(mapsUrl) + '" target="_blank" rel="noopener noreferrer">Vezi pe Google Maps</a>' +
+        (writeUrl ? '<a class="btn-review-primary" href="' + escapeHtml(writeUrl) + '" target="_blank" rel="noopener noreferrer">Lasă o recenzie</a>' : '') +
+      '</div>' +
+    '</div>';
+
+  var cardsHtml = reviews.map(function(review) {
+    var avatar = review.photo
+      ? '<img class="google-review-avatar" src="' + escapeHtml(review.photo) + '" alt="" width="40" height="40" loading="lazy" decoding="async"/>'
+      : '<span class="google-review-avatar" aria-hidden="true">' + escapeHtml(getReviewInitials(review.author)) + '</span>';
+
+    return '<article class="google-review-card">' +
+      '<div class="google-review-head">' +
+        avatar +
+        '<div>' +
+          '<p class="google-review-author">' + escapeHtml(review.author) + '</p>' +
+          (review.relative ? '<p class="google-review-time">' + escapeHtml(review.relative) + '</p>' : '') +
+        '</div>' +
+      '</div>' +
+      '<div class="google-reviews-stars" aria-label="Rating ' + escapeHtml(review.rating) + ' din 5">' + renderStars(review.rating) + '</div>' +
+      '<p class="google-review-text">' + escapeHtml(review.text) + '</p>' +
+    '</article>';
+  }).join('');
+
+  root.innerHTML = summaryHtml +
+    (cardsHtml
+      ? '<div class="google-reviews-carousel">' +
+          '<button type="button" class="google-reviews-nav google-reviews-nav--prev" aria-label="Recenzia anterioară">' +
+            '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>' +
+          '</button>' +
+          '<div class="google-reviews-track" tabindex="0" role="region" aria-label="Recenzii clienți">' +
+            '<div class="google-reviews-track-inner">' + cardsHtml + '</div>' +
+          '</div>' +
+          '<button type="button" class="google-reviews-nav google-reviews-nav--next" aria-label="Recenzia următoare">' +
+            '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>' +
+          '</button>' +
+        '</div>'
+      : '') +
+    '<p class="google-reviews-badge" aria-hidden="true">' +
+      '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>' +
+      (reviews.length
+        ? 'Afișăm ' + reviews.length + ' recenzii recente de pe Google' +
+          (data.source === 'gbp' ? ' (Business Profile)' : '')
+        : 'Recenzii preluate de pe Google') +
+    '</p>';
+
+  if (cardsHtml) initGoogleReviewsCarousel(root);
+  injectGoogleReviewSchema(Object.assign({}, data, { reviews: reviews }));
+}
+
+var GOOGLE_REVIEWS_FALLBACK = {
+  ok: true,
+  configured: false,
+  rating: null,
+  reviewCount: 0,
+  placeName: 'BrokerCrediteSibiu',
+  mapsUrl: 'https://maps.google.com/?q=Str.+Zaharia+Boiu+nr.+2+Sibiu',
+  writeReviewUrl: null,
+  reviews: [],
+  source: 'inline'
+};
+
+function fetchReviewsJson(url, timeoutMs) {
+  var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+  var timer = controller ? setTimeout(function() { controller.abort(); }, timeoutMs || 8000) : null;
+
+  return fetch(url, {
+    credentials: 'same-origin',
+    signal: controller ? controller.signal : undefined
+  }).then(function(res) {
+    if (!res.ok) throw new Error('http_' + res.status);
+    return res.json();
+  }).finally(function() {
+    if (timer) clearTimeout(timer);
+  });
+}
+
+function loadGoogleReviewsData() {
+  var urls = [
+    'api/google-reviews.php',
+    'data/google-reviews.json',
+    '/api/google-reviews.php',
+    '/data/google-reviews.json'
+  ];
+
+  function tryNext(index) {
+    if (index >= urls.length) {
+      return Promise.reject(new Error('all_sources_failed'));
+    }
+    return fetchReviewsJson(urls[index]).catch(function() {
+      return tryNext(index + 1);
+    });
+  }
+
+  return tryNext(0);
+}
+
+function initThankYouReviewLink() {
+  var link = document.getElementById('thankyouReviewLink');
+  if (!link) return;
+
+  var mapsFallback = 'https://maps.google.com/?q=Str.+Zaharia+Boiu+nr.+2+Sibiu';
+
+  loadGoogleReviewsData()
+    .then(function(data) {
+      if (data && data.writeReviewUrl) {
+        link.href = data.writeReviewUrl;
+      } else if (data && data.mapsUrl) {
+        link.href = data.mapsUrl;
+      }
+    })
+    .catch(function() {
+      link.href = mapsFallback;
+    });
+
+  link.addEventListener('click', function() {
+    gtag_event('google_review_click', { page: 'thank_you' });
+  });
+}
+
+function fetchGoogleReviews() {
+  var root = document.getElementById('googleReviews');
+  if (!root) return;
+
+  renderGoogleReviews(GOOGLE_REVIEWS_FALLBACK);
+
+  loadGoogleReviewsData()
+    .then(function(data) {
+      if (!data || data.ok === false) throw new Error('invalid_payload');
+      renderGoogleReviews(data);
+    })
+    .catch(function() {
+      renderGoogleReviews(GOOGLE_REVIEWS_FALLBACK);
+    });
+}
+
 /* ── Init toate funcționalitățile la DOMContentLoaded ── */
 document.addEventListener('DOMContentLoaded', function() {
   initHamburger();
   initBackToTop();
   initStickyCTA();
+  fetchGoogleReviews();
+  initThankYouReviewLink();
   // Premium-minimal: scoatem widget-urile agresive
   // initSocialProof();
   // initExitIntent();

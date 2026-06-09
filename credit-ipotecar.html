@@ -25,24 +25,88 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
+    "@type": ["FinancialService", "LocalBusiness"],
+    "@id": "https://www.brokercreditesibiu.ro/#business",
+    "name": "BrokerCrediteSibiu",
+    "description": "Broker de credite în Sibiu — credit ipotecar, refinanțare și nevoi personale. Compar ofertele de la 13 bănci. Consultare gratuită.",
+    "url": "https://www.brokercreditesibiu.ro",
+    "telephone": "+40771494483",
+    "email": "dragos.pricopi@fin.imobiliare.ro",
+    "priceRange": "Gratuit",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Str. Zaharia Boiu nr. 2",
+      "addressLocality": "Sibiu",
+      "addressRegion": "Sibiu",
+      "postalCode": "550336",
+      "addressCountry": "RO"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 45.7983, "longitude": 24.1256 },
+    "areaServed": { "@type": "Country", "name": "Romania" },
+    "founder": { "@id": "https://www.brokercreditesibiu.ro/#dragos-pricopi" },
+    "employee": { "@id": "https://www.brokercreditesibiu.ro/#dragos-pricopi" },
+    "serviceType": ["Credit ipotecar", "Refinanțare credit", "Credit de nevoi personale"],
+    "image": "https://www.brokercreditesibiu.ro/og-image.jpg",
+    "logo": "https://www.brokercreditesibiu.ro/assets/logo.webp"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.brokercreditesibiu.ro/#dragos-pricopi",
+    "name": "Dragoș Pricopi",
+    "givenName": "Dragoș",
+    "familyName": "Pricopi",
+    "jobTitle": "Broker de credite imobiliare",
+    "description": "Broker de credite acreditat ANPC, cu activitate în Sibiu și județul Sibiu. Oferă consultanță pentru credite ipotecare, refinanțare și credite de nevoi personale prin rețeaua Finance Imobiliare.",
+    "url": "https://www.brokercreditesibiu.ro",
+    "image": "https://www.brokercreditesibiu.ro/assets/broker.webp",
+    "telephone": "+40771494483",
+    "email": "dragos.pricopi@fin.imobiliare.ro",
+    "worksFor": { "@id": "https://www.brokercreditesibiu.ro/#business" },
+    "memberOf": {
+      "@type": "Organization",
+      "name": "Finance Imobiliare",
+      "url": "https://www.fin.imobiliare.ro"
+    },
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Autorizare intermediar credite imobiliare ANPC",
+      "credentialCategory": "Autorizare profesională",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Autoritatea Națională pentru Protecția Consumatorilor",
+        "alternateName": "ANPC",
+        "url": "https://www.anpc.ro"
+      }
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Str. Zaharia Boiu nr. 2",
+      "addressLocality": "Sibiu",
+      "addressRegion": "Sibiu",
+      "postalCode": "550336",
+      "addressCountry": "RO"
+    },
+    "knowsAbout": [
+      "Credit ipotecar",
+      "Refinanțare credit",
+      "Credit de nevoi personale",
+      "Intermediere credite imobiliare"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
     "@type": "Service",
     "name": "Credit Ipotecar",
     "description": "Obții creditul ipotecar cu cea mai bună dobândă. Compar ofertele de la 13 bănci partenere. Serviciu gratuit, fără comision pentru client.",
-    "provider": {
-      "@type": "FinancialService",
-      "name": "BrokerCrediteSibiu",
-      "url": "https://www.brokercreditesibiu.ro",
-      "telephone": "+40771494483",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Str. Zaharia Boiu nr. 2",
-        "addressLocality": "Sibiu",
-        "addressCountry": "RO"
-      }
-    },
-    "areaServed": {"@type": "Country", "name": "Romania"},
+    "provider": { "@id": "https://www.brokercreditesibiu.ro/#business" },
+    "areaServed": { "@type": "Country", "name": "Romania" },
     "url": "https://www.brokercreditesibiu.ro/credit-ipotecar.html",
-    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "RON", "description": "Serviciu gratuit pentru client"}
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "RON", "description": "Serviciu gratuit pentru client" }
   }
   </script>
   <meta name="description" content="Obții creditul ipotecar cu cea mai bună dobândă din piață. Compar ofertele de la 13 bănci partenere. Serviciu gratuit, fără comision."/>
@@ -52,60 +116,62 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap" media="print" onload="this.media='all'"/>
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap"/></noscript>
-  <link rel="stylesheet" href="styles.css?v=20260506"/>
+  <link rel="stylesheet" href="styles.css?v=20260608"/>
   <script src="components.js?v=20260506" defer></script>
-  <script src="scripts.js?v=20260506" defer></script>
+  <script src="scripts.js?v=20260609" defer></script>
   <!-- hreflang -->
   <link rel="alternate" hreflang="ro" href="https://www.brokercreditesibiu.ro/credit-ipotecar.html"/>
   <link rel="alternate" hreflang="x-default" href="https://www.brokercreditesibiu.ro/credit-ipotecar.html"/>
 
   <script type="application/ld+json">
   {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Ce avans am nevoie pentru un credit ipotecar?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "În general, avansul minim este de 15% din valoarea proprietății pentru locuința principală și 25-35% pentru alte tipuri de proprietăți. Te ajut să identifici banca cu cele mai bune condiții pentru avansul tău disponibil."
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://www.brokercreditesibiu.ro/credit-ipotecar.html#faq",
+    "url": "https://www.brokercreditesibiu.ro/credit-ipotecar.html#faq",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ce avans am nevoie pentru un credit ipotecar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "În general, avansul minim este de 15% din valoarea proprietății pentru locuința principală și 25-35% pentru alte tipuri de proprietăți. Unele bănci oferă condiții mai bune pentru avansuri mai mari. Te ajut să identifici banca cu cele mai bune condiții pentru avansul tău disponibil."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ce înseamnă DAE și de ce contează mai mult decât dobânda?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DAE (Dobânda Anuală Efectivă) include toate costurile creditului — dobânda nominală plus comisioane, asigurări obligatorii și alte taxe. Este indicatorul real al costului creditului. Noi comparăm întotdeauna DAE, nu doar dobânda nominală afișată în reclame."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Pot obține credit dacă am venituri din mai multe surse?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Da. Multe bănci acceptă venituri combinate — salariu, chirii, activitate independentă, dividende, pensii. Fiecare bancă are reguli diferite privind tipurile de venituri acceptate și modul de calcul. Noi identificăm banca care îți ia în calcul toate veniturile."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Cât de repede primesc un răspuns de la bancă?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Preaprobarea (răspunsul de principiu) poate veni în 48-72 de ore de la depunerea dosarului complet. Aprobarea finală și semnarea contractului durează în medie 2-4 săptămâni, în funcție de complexitatea dosarului și de procesele interne ale băncii alese."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Pot să cumpăr cu credit o proprietate din alt oraș?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Da, nu există restricții geografice. Poți cumpăra o proprietate din orice oraș din România, indiferent unde locuiești sau unde ai veniturile. Noi gestionăm tot procesul de la distanță dacă este necesar."
+        }
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Ce înseamnă DAE și de ce contează mai mult decât dobânda?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "DAE (Dobânda Anuală Efectivă) include toate costurile creditului — dobânda nominală plus comisioane, asigurări obligatorii și alte taxe. Este indicatorul real al costului creditului."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Pot obține credit dacă am venituri din mai multe surse?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Da. Multe bănci acceptă venituri combinate — salariu, chirii, activitate independentă, dividende, pensii. Identific banca care îți ia în calcul toate veniturile."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Cât de repede primesc un răspuns de la bancă?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Preaprobarea poate veni în 48-72 de ore de la depunerea dosarului complet. Aprobarea finală durează în medie 2-4 săptămâni."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Pot să cumpăr cu credit o proprietate din alt oraș?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Da, nu există restricții geografice. Poți cumpăra o proprietate din orice oraș din România, indiferent unde locuiești sau unde ai veniturile."
-      }
-    }
-  ]
-}
+    ]
+  }
   </script>
   <script type="application/ld+json">
   {
@@ -213,7 +279,7 @@
   </div>
 </section>
 
-<section class="section bg-light">
+<section class="section bg-light" id="faq">
   <div class="container">
   <div class="section-label">Întrebări frecvente</div>
   <div class="section-title">Ce vrei să știi despre creditul ipotecar</div>

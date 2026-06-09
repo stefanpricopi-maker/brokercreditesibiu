@@ -25,24 +25,88 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
+    "@type": ["FinancialService", "LocalBusiness"],
+    "@id": "https://www.brokercreditesibiu.ro/#business",
+    "name": "BrokerCrediteSibiu",
+    "description": "Broker de credite în Sibiu — credit ipotecar, refinanțare și nevoi personale. Compar ofertele de la 13 bănci. Consultare gratuită.",
+    "url": "https://www.brokercreditesibiu.ro",
+    "telephone": "+40771494483",
+    "email": "dragos.pricopi@fin.imobiliare.ro",
+    "priceRange": "Gratuit",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Str. Zaharia Boiu nr. 2",
+      "addressLocality": "Sibiu",
+      "addressRegion": "Sibiu",
+      "postalCode": "550336",
+      "addressCountry": "RO"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 45.7983, "longitude": 24.1256 },
+    "areaServed": { "@type": "Country", "name": "Romania" },
+    "founder": { "@id": "https://www.brokercreditesibiu.ro/#dragos-pricopi" },
+    "employee": { "@id": "https://www.brokercreditesibiu.ro/#dragos-pricopi" },
+    "serviceType": ["Credit ipotecar", "Refinanțare credit", "Credit de nevoi personale"],
+    "image": "https://www.brokercreditesibiu.ro/og-image.jpg",
+    "logo": "https://www.brokercreditesibiu.ro/assets/logo.webp"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.brokercreditesibiu.ro/#dragos-pricopi",
+    "name": "Dragoș Pricopi",
+    "givenName": "Dragoș",
+    "familyName": "Pricopi",
+    "jobTitle": "Broker de credite imobiliare",
+    "description": "Broker de credite acreditat ANPC, cu activitate în Sibiu și județul Sibiu. Oferă consultanță pentru credite ipotecare, refinanțare și credite de nevoi personale prin rețeaua Finance Imobiliare.",
+    "url": "https://www.brokercreditesibiu.ro",
+    "image": "https://www.brokercreditesibiu.ro/assets/broker.webp",
+    "telephone": "+40771494483",
+    "email": "dragos.pricopi@fin.imobiliare.ro",
+    "worksFor": { "@id": "https://www.brokercreditesibiu.ro/#business" },
+    "memberOf": {
+      "@type": "Organization",
+      "name": "Finance Imobiliare",
+      "url": "https://www.fin.imobiliare.ro"
+    },
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Autorizare intermediar credite imobiliare ANPC",
+      "credentialCategory": "Autorizare profesională",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Autoritatea Națională pentru Protecția Consumatorilor",
+        "alternateName": "ANPC",
+        "url": "https://www.anpc.ro"
+      }
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Str. Zaharia Boiu nr. 2",
+      "addressLocality": "Sibiu",
+      "addressRegion": "Sibiu",
+      "postalCode": "550336",
+      "addressCountry": "RO"
+    },
+    "knowsAbout": [
+      "Credit ipotecar",
+      "Refinanțare credit",
+      "Credit de nevoi personale",
+      "Intermediere credite imobiliare"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
     "@type": "Service",
     "name": "Refinanțare Credit",
     "description": "Refinanțează-ți creditul și plătești o rată mai mică în fiecare lună. Analizez gratuit situația ta. 13 bănci comparate simultan.",
-    "provider": {
-      "@type": "FinancialService",
-      "name": "BrokerCrediteSibiu",
-      "url": "https://www.brokercreditesibiu.ro",
-      "telephone": "+40771494483",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Str. Zaharia Boiu nr. 2",
-        "addressLocality": "Sibiu",
-        "addressCountry": "RO"
-      }
-    },
-    "areaServed": {"@type": "Country", "name": "Romania"},
+    "provider": { "@id": "https://www.brokercreditesibiu.ro/#business" },
+    "areaServed": { "@type": "Country", "name": "Romania" },
     "url": "https://www.brokercreditesibiu.ro/refinantare.html",
-    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "RON", "description": "Serviciu gratuit pentru client"}
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "RON", "description": "Serviciu gratuit pentru client" }
   }
   </script>
   <meta name="description" content="Refinanțează-ți creditul și plătești o rată mai mică în fiecare lună. Compar ofertele de la 13 bănci. Serviciu gratuit, fără comision."/>
@@ -52,52 +116,54 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap" media="print" onload="this.media='all'"/>
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap"/></noscript>
-  <link rel="stylesheet" href="styles.css?v=20260506"/>
+  <link rel="stylesheet" href="styles.css?v=20260608"/>
   <script src="components.js?v=20260506" defer></script>
-  <script src="scripts.js?v=20260506" defer></script>
+  <script src="scripts.js?v=20260609" defer></script>
   <!-- hreflang -->
   <link rel="alternate" hreflang="ro" href="https://www.brokercreditesibiu.ro/refinantare.html"/>
   <link rel="alternate" hreflang="x-default" href="https://www.brokercreditesibiu.ro/refinantare.html"/>
 
   <script type="application/ld+json">
   {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Costă ceva să refinanțez?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Serviciile mele de brokeraj sunt gratuite. Refinanțarea poate implica comision de rambursare anticipată (0-1%), taxe notariale și evaluare. Calculez exact pentru situația ta înainte să decizi."
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://www.brokercreditesibiu.ro/refinantare.html#faq",
+    "url": "https://www.brokercreditesibiu.ro/refinantare.html#faq",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Costă ceva să refinanțez?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Serviciile mele de brokeraj sunt gratuite. Refinanțarea în sine poate implica: comision de rambursare anticipată (0-1% din soldul rămas, în funcție de contract), taxe notariale pentru mutarea ipotecii și, în unele cazuri, o nouă evaluare a proprietății. Le calculez exact pentru situația ta înainte să decizi."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Pot refinanța dacă am restanțe sau întârzieri la plată?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Depinde de situație. Restanțele recente pot face refinanțarea dificilă, dar nu imposibilă. Unele bănci acceptă clienți cu istorii de plată imperfecte, mai ales dacă situația s-a remediat. Analizez situația ta concretă și îți spun sincer care sunt opțiunile reale."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Cât timp durează procesul de refinanțare?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "De obicei 3-6 săptămâni de la depunerea dosarului complet. Procesul include aprobare bancară, evaluare proprietate (dacă e necesară) și formalitățile notariale pentru mutarea ipotecii."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Pot refinanța dacă am un co-debitor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Da. Co-debitorul trebuie să fie de acord cu refinanțarea și va semna noile documente. În unele situații, refinanțarea poate fi ocazia de a elimina un co-debitor dacă veniturile tale individuale permit acum calificarea singur."
+        }
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Pot refinanța dacă am restanțe sau întârzieri la plată?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Depinde de situație. Restanțele recente pot face refinanțarea dificilă, dar nu imposibilă. Analizez situația ta concretă și îți spun sincer care sunt opțiunile reale."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Cât timp durează procesul de refinanțare?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "De obicei 3-6 săptămâni de la depunerea dosarului complet, incluzând aprobare bancară, evaluare proprietate și formalitățile notariale."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Pot refinanța dacă am un co-debitor?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Da. Co-debitorul trebuie să fie de acord și va semna noile documente. Refinanțarea poate fi și ocazia de a elimina un co-debitor dacă veniturile tale individuale permit calificarea singur."
-      }
-    }
-  ]
-}
+    ]
+  }
   </script>
   <script type="application/ld+json">
   {
@@ -203,7 +269,7 @@
   </div>
 </section>
 
-<section class="section bg-light">
+<section class="section bg-light" id="faq">
   <div class="container">
   <div class="section-label">Întrebări frecvente</div>
   <div class="section-title">Răspunsuri despre refinanțare</div>

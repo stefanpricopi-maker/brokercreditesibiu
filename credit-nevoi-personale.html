@@ -25,24 +25,148 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
+    "@type": ["FinancialService", "LocalBusiness"],
+    "@id": "https://www.brokercreditesibiu.ro/#business",
+    "name": "BrokerCrediteSibiu",
+    "description": "Broker de credite în Sibiu — credit ipotecar, refinanțare și nevoi personale. Compar ofertele de la 13 bănci. Consultare gratuită.",
+    "url": "https://www.brokercreditesibiu.ro",
+    "telephone": "+40771494483",
+    "email": "dragos.pricopi@fin.imobiliare.ro",
+    "priceRange": "Gratuit",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Str. Zaharia Boiu nr. 2",
+      "addressLocality": "Sibiu",
+      "addressRegion": "Sibiu",
+      "postalCode": "550336",
+      "addressCountry": "RO"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 45.7983, "longitude": 24.1256 },
+    "areaServed": { "@type": "Country", "name": "Romania" },
+    "founder": { "@id": "https://www.brokercreditesibiu.ro/#dragos-pricopi" },
+    "employee": { "@id": "https://www.brokercreditesibiu.ro/#dragos-pricopi" },
+    "serviceType": ["Credit ipotecar", "Refinanțare credit", "Credit de nevoi personale"],
+    "image": "https://www.brokercreditesibiu.ro/og-image.jpg",
+    "logo": "https://www.brokercreditesibiu.ro/assets/logo.webp"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.brokercreditesibiu.ro/#dragos-pricopi",
+    "name": "Dragoș Pricopi",
+    "givenName": "Dragoș",
+    "familyName": "Pricopi",
+    "jobTitle": "Broker de credite imobiliare",
+    "description": "Broker de credite acreditat ANPC, cu activitate în Sibiu și județul Sibiu. Oferă consultanță pentru credite ipotecare, refinanțare și credite de nevoi personale prin rețeaua Finance Imobiliare.",
+    "url": "https://www.brokercreditesibiu.ro",
+    "image": "https://www.brokercreditesibiu.ro/assets/broker.webp",
+    "telephone": "+40771494483",
+    "email": "dragos.pricopi@fin.imobiliare.ro",
+    "worksFor": { "@id": "https://www.brokercreditesibiu.ro/#business" },
+    "memberOf": {
+      "@type": "Organization",
+      "name": "Finance Imobiliare",
+      "url": "https://www.fin.imobiliare.ro"
+    },
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Autorizare intermediar credite imobiliare ANPC",
+      "credentialCategory": "Autorizare profesională",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Autoritatea Națională pentru Protecția Consumatorilor",
+        "alternateName": "ANPC",
+        "url": "https://www.anpc.ro"
+      }
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Str. Zaharia Boiu nr. 2",
+      "addressLocality": "Sibiu",
+      "addressRegion": "Sibiu",
+      "postalCode": "550336",
+      "addressCountry": "RO"
+    },
+    "knowsAbout": [
+      "Credit ipotecar",
+      "Refinanțare credit",
+      "Credit de nevoi personale",
+      "Intermediere credite imobiliare"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
     "@type": "Service",
     "name": "Credit de nevoi personale",
     "description": "Finanțare rapidă fără garanții imobiliare. Compar ofertele băncilor și îți recomand varianta potrivită, cu cost total cât mai bun.",
-    "provider": {
-      "@type": "FinancialService",
-      "name": "BrokerCrediteSibiu",
-      "url": "https://www.brokercreditesibiu.ro",
-      "telephone": "+40771494483",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Str. Zaharia Boiu nr. 2",
-        "addressLocality": "Sibiu",
-        "addressCountry": "RO"
-      }
-    },
-    "areaServed": {"@type": "Country", "name": "Romania"},
+    "provider": { "@id": "https://www.brokercreditesibiu.ro/#business" },
+    "areaServed": { "@type": "Country", "name": "Romania" },
     "url": "https://www.brokercreditesibiu.ro/credit-nevoi-personale.html",
-    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "RON", "description": "Serviciu gratuit pentru client"}
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "RON", "description": "Serviciu gratuit pentru client" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://www.brokercreditesibiu.ro/credit-nevoi-personale.html#faq",
+    "url": "https://www.brokercreditesibiu.ro/credit-nevoi-personale.html#faq",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Cât pot împrumuta și pe ce perioadă?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Depinde de venit, grad de îndatorare și bancă. Uzual, perioada este 1–5 ani, iar sumele pot varia semnificativ. Îți spun din start ce e realist pentru profilul tău."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Contează istoricul de credit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Da. Scorul și istoricul din Biroul de Credit pot influența dobânda și aprobarea. Verificăm opțiunile care se potrivesc situației tale."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ce înseamnă DAE la nevoi personale?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DAE include dobânda și costurile asociate (comisioane, asigurări). Este indicatorul cel mai bun pentru a compara corect ofertele."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Acasă",
+        "item": "https://www.brokercreditesibiu.ro/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Servicii",
+        "item": "https://www.brokercreditesibiu.ro/#servicii"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Credit de nevoi personale",
+        "item": "https://www.brokercreditesibiu.ro/credit-nevoi-personale.html"
+      }
+    ]
   }
   </script>
 
@@ -52,9 +176,9 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap" media="print" onload="this.media='all'"/>
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap"/></noscript>
-  <link rel="stylesheet" href="styles.css?v=20260506"/>
+  <link rel="stylesheet" href="styles.css?v=20260608"/>
   <script src="components.js?v=20260506" defer></script>
-  <script src="scripts.js?v=20260506" defer></script>
+  <script src="scripts.js?v=20260609" defer></script>
 
   <link rel="alternate" hreflang="ro" href="https://www.brokercreditesibiu.ro/credit-nevoi-personale.html"/>
   <link rel="alternate" hreflang="x-default" href="https://www.brokercreditesibiu.ro/credit-nevoi-personale.html"/>
@@ -135,7 +259,7 @@
   </div>
 </section>
 
-<section class="section bg-light">
+<section class="section bg-light" id="faq">
   <div class="container">
     <div class="section-label">Întrebări frecvente</div>
     <div class="section-title">Credit de nevoi personale</div>
