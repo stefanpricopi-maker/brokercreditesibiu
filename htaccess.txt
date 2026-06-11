@@ -4,11 +4,13 @@
 # Copie ca `.htaccess` în public_html. Fișiere 644, foldere 755.
 # ============================================================
 
-# ── HTTPS Redirect ──
+# ── HTTPS + host canonic (www) ──
+# Toate variantele (http/https, apex/www) ajung pe https://www.brokercreditesibiu.ro
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteCond %{HTTPS} off
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^brokercreditesibiu\.ro$ [NC]
+  RewriteRule ^(.*)$ https://www.brokercreditesibiu.ro/$1 [L,R=301]
 </IfModule>
 
 # ── Pagina 404 custom ──

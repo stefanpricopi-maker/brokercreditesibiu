@@ -10,5 +10,5 @@ alwaysApply: true
 - **Tipografie**: containerul poate fi lat, dar paragrafele folosesc o “măsură” (ex. `--measure: 70–75ch`) pentru lizibilitate.
 - **Accesibilitate**: clickables = `<button>` / `<a>` (nu `div onclick`); `:focus-visible` clar; ARIA doar când e necesar și corect.
 - **Calitate**: schimbări mici, verificabile; evită hack-uri care se bat în cascade (specificitate/ordine).
-- **Deploy**: nu declanșa deploy Netlify la fiecare push. Deploy doar când commit include `[deploy-netlify]` sau trigger manual din Netlify UI.
+- **Deploy**: hosting propriu (Apache/cPanel). Fișierele se urcă manual în `public_html`; `htaccess.txt` din repo se copiază ca `.htaccess` pe server.
 
