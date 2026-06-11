@@ -18,6 +18,38 @@ function toggleFaq(el) {
   }
 }
 
+/* ── Google Analytics 4 — încărcat DOAR după consimțământ (GDPR) ── */
+var GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // ← înlocuiește cu ID-ul real din GA4 (Admin → Data Streams)
+
+var _gaLoaded = false;
+function incarcaAnalytics() {
+  if (_gaLoaded) return;
+  if (GA_MEASUREMENT_ID.indexOf('XXXX') !== -1) return; // ID neconfigurat încă
+  _gaLoaded = true;
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function() { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+  document.head.appendChild(s);
+
+  // Conversie: ajungerea pe pagina de mulțumire = formular trimis
+  if (window.location.pathname.indexOf('thank-you') !== -1) {
+    gtag('event', 'generate_lead');
+  }
+}
+
+/* Încarcă analytics la vizitele următoare, dacă userul a acceptat deja */
+(function() {
+  try {
+    if (localStorage.getItem('cookie_consent') === 'accepted') incarcaAnalytics();
+  } catch(e) {}
+})();
+
 /* ── Cookie Banner ── */
 function inchideCookie(choice) {
   var banner = document.getElementById('cookieBanner');
@@ -27,6 +59,7 @@ function inchideCookie(choice) {
     localStorage.setItem('cookie_consent', v);
     localStorage.setItem('cookie_consent_at', String(Date.now()));
   } catch(e) {}
+  if (choice === 'accept') incarcaAnalytics();
   window.dispatchEvent(new Event('floating-chrome-sync'));
 }
 

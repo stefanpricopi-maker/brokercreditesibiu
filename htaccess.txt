@@ -38,11 +38,11 @@ ErrorDocument 404 /404.html
   # Permite: propriile fișiere, Google Fonts, Google Analytics (comentat)
   Header always set Content-Security-Policy "\
     default-src 'self'; \
-    script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; \
+    script-src 'self' 'unsafe-inline' https://*.googletagmanager.com; \
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; \
     font-src 'self' https://fonts.gstatic.com; \
-    img-src 'self' data: https://www.google-analytics.com https://lh3.googleusercontent.com; \
-    connect-src 'self' https://www.google-analytics.com; \
+    img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://lh3.googleusercontent.com; \
+    connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; \
     frame-src 'none'; \
     object-src 'none'; \
     base-uri 'self'; \
