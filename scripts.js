@@ -19,7 +19,7 @@ function toggleFaq(el) {
 }
 
 /* ── Google Analytics 4 — încărcat DOAR după consimțământ (GDPR) ── */
-var GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // ← înlocuiește cu ID-ul real din GA4 (Admin → Data Streams)
+var GA_MEASUREMENT_ID = 'G-DJNV9RCXHB';
 
 var _gaLoaded = false;
 function incarcaAnalytics() {
