@@ -264,53 +264,165 @@ function gbp_fetch_reviews(array $config, int $limit = 10): array
     ];
 }
 
+function gbp_is_quota_error(array $result): bool
+{
+    return stripos((string) ($result['error'] ?? ''), 'quota') !== false;
+}
+
+function gbp_auth_headers(string $accessToken): array
+{
+    return [
+        'Authorization: Bearer ' . $accessToken,
+        'Content-Type: application/json',
+    ];
+}
+
+function gbp_extract_account_id(string $accountName): ?string
+{
+    if (preg_match('#accounts/([^/]+)$#', $accountName, $m)) {
+        return $m[1];
+    }
+
+    $accountName = trim($accountName);
+    return $accountName !== '' ? $accountName : null;
+}
+
+function gbp_extract_location_ids(string $locationName): ?array
+{
+    if (!preg_match('#accounts/([^/]+)/locations/([^/]+)$#', $locationName, $m)) {
+        return null;
+    }
+
+    return ['account_id' => $m[1], 'location_id' => $m[2]];
+}
+
+function gbp_fetch_accounts(string $accessToken): array
+{
+    $v4 = gbp_http_request('GET', 'https://mybusiness.googleapis.com/v4/accounts', gbp_auth_headers($accessToken));
+    if ($v4['ok'] && !empty($v4['data']['accounts'])) {
+        return ['ok' => true, 'accounts' => $v4['data']['accounts'], 'api' => 'v4'];
+    }
+
+    $v1 = gbp_http_request('GET', 'https://mybusinessaccountmanagement.googleapis.com/v1/accounts', gbp_auth_headers($accessToken));
+    if ($v1['ok'] && !empty($v1['data']['accounts'])) {
+        return ['ok' => true, 'accounts' => $v1['data']['accounts'], 'api' => 'v1'];
+    }
+
+    if (gbp_is_quota_error($v4)) {
+        return $v4;
+    }
+    if (gbp_is_quota_error($v1)) {
+        return $v1;
+    }
+
+    return $v1['ok'] === false ? $v1 : $v4;
+}
+
+function gbp_account_id_from_config(array $config): string
+{
+    $accountId = trim((string) ($config['gbp_account_id'] ?? ''));
+    if ($accountId !== '') {
+        return $accountId;
+    }
+
+    $creds = gbp_read_json(gbp_cache_path('gbp-credentials.json')) ?? [];
+    return trim((string) ($creds['account_id'] ?? ''));
+}
+
+function gbp_save_location_ids(string $accountId, string $locationId, string $placeTitle = 'BrokerCrediteSibiu'): bool
+{
+    $accountId = preg_replace('/\D+/', '', $accountId);
+    $locationId = preg_replace('/\D+/', '', $locationId);
+    if ($accountId === '' || $locationId === '') {
+        return false;
+    }
+
+    $existing = gbp_read_json(gbp_cache_path('gbp-credentials.json')) ?? [];
+    gbp_write_json(gbp_cache_path('gbp-credentials.json'), array_merge($existing, [
+        'account_id'    => $accountId,
+        'location_id'   => $locationId,
+        'place_title'   => $placeTitle,
+        'saved_manually'=> gmdate('c'),
+    ]));
+
+    @unlink(gbp_cache_path('reviews.json'));
+    return true;
+}
+
+function gbp_clear_oauth_cache(): void
+{
+    @unlink(gbp_cache_path('gbp-credentials.json'));
+    @unlink(gbp_cache_path('gbp-access.json'));
+    @unlink(gbp_cache_path('gbp-oauth-state.json'));
+    @unlink(gbp_cache_path('reviews.json'));
+}
+
+function gbp_fetch_locations(string $accessToken, string $accountId, ?string $placeId = null): array
+{
+    $url = 'https://mybusinessbusinessinformation.googleapis.com/v1/accounts/'
+        . rawurlencode($accountId)
+        . '/locations?readMask=name,title,metadata&pageSize=20';
+
+    if ($placeId !== null && $placeId !== '') {
+        $url .= '&filter=' . rawurlencode('metadata.place_id="' . $placeId . '"');
+    }
+
+    return gbp_http_request('GET', $url, gbp_auth_headers($accessToken));
+}
+
 function gbp_discover_location(array $config, string $accessToken): array
 {
-    $accountsResult = gbp_http_request('GET', 'https://mybusinessaccountmanagement.googleapis.com/v1/accounts', [
-        'Authorization: Bearer ' . $accessToken,
-        'Content-Type: application/json',
-    ]);
+    $placeId = trim((string) ($config['place_id'] ?? ''));
+    $accountId = gbp_account_id_from_config($config);
 
-    if (!$accountsResult['ok']) {
-        return $accountsResult;
+    if ($accountId === '') {
+        $accountsResult = gbp_fetch_accounts($accessToken);
+        if (!$accountsResult['ok']) {
+            return $accountsResult;
+        }
+
+        $accounts = $accountsResult['data']['accounts'] ?? $accountsResult['accounts'] ?? [];
+        if (!$accounts) {
+            return ['ok' => false, 'error' => 'no_gbp_accounts_found'];
+        }
+
+        $first = $accounts[0];
+        $accountName = (string) ($first['name'] ?? $first['accountName'] ?? '');
+        $accountId = gbp_extract_account_id($accountName);
+        if ($accountId === null || $accountId === '') {
+            return ['ok' => false, 'error' => 'invalid_account_name'];
+        }
     }
 
-    $accounts = $accountsResult['data']['accounts'] ?? [];
-    if (!$accounts) {
-        return ['ok' => false, 'error' => 'no_gbp_accounts_found'];
-    }
-
-    $account = $accounts[0];
-    $accountName = $account['name'] ?? '';
-    if ($accountName === '') {
-        return ['ok' => false, 'error' => 'invalid_account_name'];
-    }
-
-    $locationsUrl = 'https://mybusinessbusinessinformation.googleapis.com/v1/' . $accountName . '/locations?readMask=name,title,storefrontAddress&pageSize=20';
-    $locationsResult = gbp_http_request('GET', $locationsUrl, [
-        'Authorization: Bearer ' . $accessToken,
-        'Content-Type: application/json',
-    ]);
-
+    $locationsResult = gbp_fetch_locations($accessToken, $accountId, $placeId !== '' ? $placeId : null);
     if (!$locationsResult['ok']) {
         return $locationsResult;
     }
 
     $locations = $locationsResult['data']['locations'] ?? [];
+    if (!$locations && $placeId !== '') {
+        $locationsResult = gbp_fetch_locations($accessToken, $accountId, null);
+        if (!$locationsResult['ok']) {
+            return $locationsResult;
+        }
+        $locations = $locationsResult['data']['locations'] ?? [];
+    }
+
     if (!$locations) {
         return ['ok' => false, 'error' => 'no_gbp_locations_found'];
     }
 
     $location = $locations[0];
-    $locationName = $location['name'] ?? '';
-    if (!preg_match('#accounts/([^/]+)/locations/([^/]+)$#', $locationName, $m)) {
+    $locationName = (string) ($location['name'] ?? '');
+    $ids = gbp_extract_location_ids($locationName);
+    if ($ids === null) {
         return ['ok' => false, 'error' => 'invalid_location_name'];
     }
 
     return [
         'ok'          => true,
-        'account_id'  => $m[1],
-        'location_id' => $m[2],
+        'account_id'  => $ids['account_id'],
+        'location_id' => $ids['location_id'],
         'place_title' => $location['title'] ?? 'BrokerCrediteSibiu',
     ];
 }
@@ -410,11 +522,21 @@ function gbp_complete_oauth_callback(array $config, string $code, string $state)
         echo '<p>Account ID: <code>' . htmlspecialchars($discover['account_id'], ENT_QUOTES, 'UTF-8') . '</code><br>';
         echo 'Location ID: <code>' . htmlspecialchars($discover['location_id'], ENT_QUOTES, 'UTF-8') . '</code></p>';
     } else {
-        echo '<p>Token salvat, dar locația nu a putut fi detectată automat. Completează manual <code>gbp_account_id</code> și <code>gbp_location_id</code> în config.</p>';
+        $setupSecret = trim((string) ($config['gbp_setup_secret'] ?? ''));
+        echo '<p>Token salvat, dar locația nu a putut fi detectată automat.</p>';
         echo '<p>Eroare: ' . htmlspecialchars($discover['error'] ?? 'unknown', ENT_QUOTES, 'UTF-8') . '</p>';
+        if (stripos((string) ($discover['error'] ?? ''), 'quota') !== false) {
+            echo '<p>Limită temporară Google (cereri/minut). Așteaptă 1–2 minute, apoi:</p>';
+            if ($setupSecret !== '') {
+                echo '<p><a href="/gbp-discover.php?secret=' . rawurlencode($setupSecret) . '">Reîncearcă detectarea locației</a></p>';
+            }
+        } elseif ($setupSecret !== '') {
+            echo '<p><a href="/gbp-discover.php?secret=' . rawurlencode($setupSecret) . '">Încearcă detectarea locației</a></p>';
+        }
+        echo '<p>Alternativ: completează <code>gbp_account_id</code> și <code>gbp_location_id</code> în <code>_bcs/config.php</code>.</p>';
     }
     echo '<p>Recenziile (până la 10) vor apărea pe site după refresh. Poți închide această pagină.</p>';
-    echo '<p><a href="/">Înapoi la site</a></p></body></html>';
+    echo '<p><a href="/google-reviews.php">Verifică API recenzii</a> · <a href="/">Înapoi la site</a></p></body></html>';
 }
 
 function gbp_verify_setup_secret(array $config, ?string $provided): bool

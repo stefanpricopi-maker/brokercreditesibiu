@@ -55,6 +55,21 @@ if ($result['config']) {
 if ($result['gbp_lib']) {
     require_once $gbpLib;
     $result['gbp_lib_loads'] = true;
+    $credsFile = $bcsRoot . '/cache/gbp-credentials.json';
+    $creds = is_readable($credsFile) ? json_decode((string) file_get_contents($credsFile), true) : null;
+    $configRefresh = is_array($config ?? null) && trim((string) ($config['gbp_refresh_token'] ?? '')) !== '';
+    $result['gbp_refresh_token'] = $configRefresh
+        || (is_array($creds) && !empty($creds['refresh_token']));
+    $result['gbp_location_ids'] = is_array($creds)
+        && !empty($creds['account_id'])
+        && !empty($creds['location_id']);
+    if (!$result['gbp_refresh_token']) {
+        $result['errors'][] = 'Lipsește refresh_token — reconectează /gbp-auth.php?action=reconnect&secret=...';
+        $result['ok'] = false;
+    } elseif (!$result['gbp_location_ids']) {
+        $result['errors'][] = 'Lipsesc account_id/location_id — /gbp-discover.php?secret=... (sau setare manuală)';
+        $result['ok'] = false;
+    }
 }
 
 echo json_encode($result, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);

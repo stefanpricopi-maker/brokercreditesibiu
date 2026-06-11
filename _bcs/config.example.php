@@ -17,6 +17,9 @@
  * 4. Setează gbp_setup_secret (string random lung)
  * 5. Deschide în browser (o singură dată):
  *    https://www.brokercreditesibiu.ro/gbp-auth.php?secret=SETUP_SECRET_TAU
+ * 6. Dacă locația nu e detectată (ex. Quota exceeded), așteaptă 30 min (fără retry),
+ *    apoi: /gbp-discover.php?secret=SETUP_SECRET
+ *    Sau cu Account ID: /gbp-discover.php?secret=SETUP_SECRET&account_id=123456789
  *
  * Deploy cPanel:
  * - PHP în rădăcina site-ului: ping.php, google-reviews.php, gbp-auth.php, gbp-oauth-callback.php → 644

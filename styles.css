@@ -394,7 +394,8 @@ a:hover { color: var(--brand-2); }
   position: fixed;
   right: 20px;
   bottom: 24px;
-  z-index: 965;
+  z-index: 1001;
+  pointer-events: none;
   width: 44px;
   height: 44px;
   display: flex;
@@ -414,6 +415,7 @@ a:hover { color: var(--brand-2); }
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  pointer-events: auto;
 }
 .back-to-top svg {
   width: 20px;
@@ -2585,8 +2587,6 @@ a:hover { color: var(--brand-2); }
   /* Mission layout */
   .mission-layout { grid-template-columns: repeat(3, 1fr); }
 
-  /* Back to top */
-  .back-to-top { bottom: 80px; right: 16px; }
 }
 
 /* ── 700px — Tabletă mică / Hamburger ── */
@@ -2827,12 +2827,15 @@ a:hover { color: var(--brand-2); }
   .cta-section-navy > .container { padding: 32px 16px; }
   .cta-btns { flex-direction: column; align-items: center; }
 
-  /* UX Components */
+  /* UX Components — WhatsApp deasupra, Back to top dedesubt (fără suprapunere) */
   .sticky-cta-mobile { display: flex; }
-  .back-to-top { bottom: calc(72px + env(safe-area-inset-bottom, 0px)); right: 16px; }
-  .whatsapp-fab {
-    bottom: calc(132px + env(safe-area-inset-bottom, 0px));
+  .back-to-top {
     right: 16px;
+    bottom: calc(var(--floating-base, 72px) + env(safe-area-inset-bottom, 0px));
+  }
+  .whatsapp-fab {
+    right: 16px;
+    bottom: calc(var(--floating-base, 72px) + 60px + env(safe-area-inset-bottom, 0px));
   }
   .social-proof-toast {
     left: 12px;

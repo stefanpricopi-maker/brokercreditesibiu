@@ -35,6 +35,12 @@ if ($clientId === '' || $clientSecret === '') {
 
 $redirectUri = gbp_oauth_redirect_uri($config);
 
+if ($action === 'reconnect') {
+    gbp_clear_oauth_cache();
+    header('Location: /gbp-auth.php?secret=' . rawurlencode($secret));
+    exit;
+}
+
 if ($action === 'info') {
     header('Content-Type: text/html; charset=utf-8');
     echo '<!DOCTYPE html><html lang="ro"><head><meta charset="UTF-8"><title>GBP OAuth info</title></head><body style="font-family:sans-serif;max-width:640px;margin:40px auto;padding:0 16px;">';
@@ -43,6 +49,7 @@ if ($action === 'info') {
     echo '<p><code style="word-break:break-all;">' . htmlspecialchars($redirectUri, ENT_QUOTES, 'UTF-8') . '</code></p>';
     echo '<p>site_url din config: <code>' . htmlspecialchars(gbp_site_url($config), ENT_QUOTES, 'UTF-8') . '</code></p>';
     echo '<p><a href="?secret=' . rawurlencode($secret) . '">Continuă conectarea Google</a></p>';
+    echo '<p><a href="?action=reconnect&amp;secret=' . rawurlencode($secret) . '">Reconectare curată</a> (șterge tokenurile vechi)</p>';
     echo '</body></html>';
     exit;
 }

@@ -27,6 +27,7 @@ function inchideCookie(choice) {
     localStorage.setItem('cookie_consent', v);
     localStorage.setItem('cookie_consent_at', String(Date.now()));
   } catch(e) {}
+  window.dispatchEvent(new Event('floating-chrome-sync'));
 }
 
 /* Ascunde bannerul dacă utilizatorul a ales deja (accept/refuz) */
@@ -248,15 +249,54 @@ function initHamburger() {
 }
 
 /* ── Buton Înapoi Sus ── */
+function scrollToTop() {
+  var root = document.scrollingElement || document.documentElement;
+  try {
+    root.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  } catch (e) {
+    window.scrollTo(0, 0);
+  }
+}
+
+function syncFloatingButtons() {
+  var narrow = window.matchMedia('(max-width: 700px)').matches;
+  var root = document.documentElement;
+
+  if (!narrow) {
+    root.style.removeProperty('--floating-base');
+    return;
+  }
+
+  var base = 16;
+  var sticky = document.getElementById('stickyCTAMobile');
+  if (sticky && !sticky.hasAttribute('hidden')) {
+    base += sticky.offsetHeight + 8;
+  }
+
+  root.style.setProperty('--floating-base', base + 'px');
+}
+
 function initBackToTop() {
   var btn = document.getElementById('backToTop');
-  if (!btn) return;
-  window.addEventListener('scroll', function() {
+  if (!btn || btn.dataset.bound === '1') return;
+  btn.dataset.bound = '1';
+  btn.type = 'button';
+
+  function onScroll() {
     btn.classList.toggle('visible', window.scrollY > 400);
-  }, { passive: true });
-  btn.addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', syncFloatingButtons, { passive: true });
+  window.addEventListener('floating-chrome-sync', syncFloatingButtons);
+
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    scrollToTop();
   });
+
+  syncFloatingButtons();
+  onScroll();
 }
 
 /* ── Sticky CTA Mobil — doar viewport îngust; offset deasupra cookie ── */
@@ -278,10 +318,12 @@ function initStickyCTA() {
     } else {
       cta.style.bottom = '';
     }
+    syncFloatingButtons();
   }
 
   sync();
   window.addEventListener('resize', sync);
+  window.addEventListener('floating-chrome-sync', sync);
 }
 
 /* ── Social Proof Toast ── */

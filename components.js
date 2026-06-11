@@ -115,7 +115,7 @@
     '        <h3>Contact</h3>',
     '        <a href="tel:' + PHONE + '" aria-label="Sună la ' + PHONE_DISPLAY + '">📞 ' + PHONE_DISPLAY + '</a>',
     '        <a href="mailto:dragos.pricopi@fin.imobiliare.ro">dragos.pricopi@fin.imobiliare.ro</a>',
-    '        <a class="footer-address" href="https://maps.google.com/?q=Str.+Zaharia+Boiu+nr.+2+Sibiu" target="_blank" rel="noopener noreferrer" aria-label="Deschide adresa în Google Maps">📍 Deschide în Google Maps →</a>',
+    '        <a class="footer-address" href="https://maps.app.goo.gl/UcL4GBbPtuzRmo3H8" target="_blank" rel="noopener noreferrer" aria-label="Deschide adresa în Google Maps">📍 Deschide în Google Maps →</a>',
     '      </div>',
     '      <div class="footer-col">',
     '        <h3>Servicii</h3>',
@@ -220,7 +220,7 @@
   </div>`;
     var BACK_TO_TOP = `
   <!-- Buton Înapoi Sus -->
-  <button class="back-to-top" id="backToTop" aria-label="Înapoi la începutul paginii">
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Înapoi la începutul paginii">
     <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
   </button>`;
     var SOCIAL_PROOF = `
@@ -264,6 +264,7 @@
 
     document.body.insertAdjacentHTML('beforeend', STICKY_CTA);
     document.body.insertAdjacentHTML('beforeend', BACK_TO_TOP);
+    if (typeof initBackToTop === 'function') initBackToTop();
     // Premium-minimal: scoatem widget-urile agresive (social proof + exit intent)
     // document.body.insertAdjacentHTML('beforeend', SOCIAL_PROOF);
     // document.body.insertAdjacentHTML('beforeend', EXIT_POPUP);
