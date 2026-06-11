@@ -19,7 +19,7 @@ function toggleFaq(el) {
 }
 
 /* ── Google Analytics 4 — încărcat DOAR după consimțământ (GDPR) ── */
-var GA_MEASUREMENT_ID = 'G-DJNV9RCXHB';
+var GA_MEASUREMENT_ID = 'G-497TD3CWM4';
 
 var _gaLoaded = false;
 function incarcaAnalytics() {
